@@ -1,7 +1,7 @@
 package com.ftm.controller;
 
-import com.ftm.domain.Products;
-import com.ftm.service.ProductsService;
+import com.ftm.domain.Product;
+import com.ftm.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,38 +16,38 @@ import java.util.List;
 public class ProductsController {
 
     @Autowired
-    private ProductsService productsService;
+    private ProductService productService;
 
-    public ProductsController(ProductsService productsService) {
-        this.productsService = productsService;
+    public ProductsController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping
-    public List<Products> all() {
+    public List<Product> all() {
         log.info("Accediendo a todos los productos");
-        return this.productsService.all();
+        return this.productService.all();
     }
 
     @GetMapping("/{id}")
-    public Products one(@PathVariable("id") Long id) {
-        return this.productsService.one(id);
+    public Product one(@PathVariable("id") Long id) {
+        return this.productService.one(id);
     }
 
     @PostMapping
-    public Products newProducts(@RequestBody Products products) {
-        return this.productsService.save(products);
+    public Product newProducts(@RequestBody Product product) {
+        return this.productService.save(product);
     }
 
     @PutMapping("/{id}")
-    public Products replaceProduct(@PathVariable("id") Long id, @RequestBody Products products) {
-        return this.productsService.replace(id, products);
+    public Product replaceProduct(@PathVariable("id") Long id, @RequestBody Product product) {
+        return this.productService.replace(id, product);
     }
 
     @ResponseBody
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void deleteProducts(@PathVariable("id") Long id) {
-        this.productsService.delete(id);
+        this.productService.delete(id);
     }
 
 }

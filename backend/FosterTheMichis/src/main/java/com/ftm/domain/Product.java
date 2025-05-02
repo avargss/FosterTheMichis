@@ -1,11 +1,7 @@
 package com.ftm.domain;
 
 import jakarta.persistence.*;
-import jdk.jfr.Category;
 import lombok.*;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -15,7 +11,7 @@ import java.util.Set;
 @Builder
 // Para que funcione la colección Set<Products> en Categories
 @EqualsAndHashCode(of = "id")
-public class Products {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +24,6 @@ public class Products {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_category", referencedColumnName = "id", nullable = false)
-    private Categories category;
+    private Category category;
 
 }

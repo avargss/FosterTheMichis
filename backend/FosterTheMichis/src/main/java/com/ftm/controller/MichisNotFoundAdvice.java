@@ -1,6 +1,6 @@
 package com.ftm.controller;
 
-import com.ftm.exception.MichisNotFoundException;
+import com.ftm.exception.MichiNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class MichisNotFoundAdvice {
 
     @ResponseBody
-    @ExceptionHandler(MichisNotFoundException.class)
+    @ExceptionHandler(MichiNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String michisNotFoundHandler(MichisNotFoundException michisNotFoundException) {
-        return michisNotFoundException.getMessage();
+    String michisNotFoundHandler(MichiNotFoundException michiNotFoundException) {
+        return michiNotFoundException.getMessage();
     }
 }

@@ -1,7 +1,7 @@
 package com.ftm.controller;
 
-import com.ftm.domain.Categories;
-import com.ftm.service.CategoriesService;
+import com.ftm.domain.Category;
+import com.ftm.service.CategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,37 +16,37 @@ import java.util.List;
 public class CategoriesController {
 
     @Autowired
-    private CategoriesService categoriesService;
+    private CategoryService categoryService;
 
-    public CategoriesController(CategoriesService categoriesService) {
-        this.categoriesService = categoriesService;
+    public CategoriesController(CategoryService categoryService) {
+        this.categoryService = categoryService;
     }
 
     @GetMapping
-    public List<Categories> all() {
+    public List<Category> all() {
         log.info("Accediendo a todas las categorías");
-        return this.categoriesService.all();
+        return this.categoryService.all();
     }
 
     @GetMapping("/{id}")
-    public Categories one(@PathVariable Long id) {
-        return this.categoriesService.one(id);
+    public Category one(@PathVariable Long id) {
+        return this.categoryService.one(id);
     }
 
     @PostMapping
-    public Categories newCategory(@RequestBody Categories categories) {
-        return this.categoriesService.save(categories);
+    public Category newCategory(@RequestBody Category category) {
+        return this.categoryService.save(category);
     }
 
     @PutMapping("/{id}")
-    public Categories replaceCategory(@PathVariable Long id, @RequestBody Categories categories) {
-        return this.categoriesService.replace(id, categories);
+    public Category replaceCategory(@PathVariable Long id, @RequestBody Category category) {
+        return this.categoryService.replace(id, category);
     }
 
     @ResponseBody
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void deleteCategory(@PathVariable("id") Long id) {
-        this.categoriesService.delete(id);
+        this.categoryService.delete(id);
     }
 }

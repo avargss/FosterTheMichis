@@ -1,7 +1,7 @@
 package com.ftm.controller;
 
-import com.ftm.domain.Michis;
-import com.ftm.service.MichisService;
+import com.ftm.domain.Michi;
+import com.ftm.service.MichiService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,37 +16,37 @@ import java.util.List;
 public class MichisController {
 
     @Autowired
-    private MichisService michisService;
+    private MichiService michiService;
 
-    public MichisController(MichisService michisService) {
-        this.michisService = michisService;
+    public MichisController(MichiService michiService) {
+        this.michiService = michiService;
     }
 
     @GetMapping
-    public List<Michis> all() {
+    public List<Michi> all() {
         log.info("Accediendo a todos los michis");
-        return this.michisService.all();
+        return this.michiService.all();
     }
 
     @GetMapping("/{id}")
-    public Michis one(@PathVariable("id") Long id) {
-        return this.michisService.one(id);
+    public Michi one(@PathVariable("id") Long id) {
+        return this.michiService.one(id);
     }
 
     @PostMapping
-    public Michis newMichis(@RequestBody Michis michis) {
-        return this.michisService.save(michis);
+    public Michi newMichis(@RequestBody Michi michi) {
+        return this.michiService.save(michi);
     }
 
     @PutMapping("/{id}")
-    public Michis replaceMichis(@PathVariable("id") Long id, @RequestBody Michis michis) {
-        return this.michisService.replace(id, michis);
+    public Michi replaceMichis(@PathVariable("id") Long id, @RequestBody Michi michi) {
+        return this.michiService.replace(id, michi);
     }
 
     @ResponseBody
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void deleteMichis(@PathVariable("id") Long id) {
-        this.michisService.delete(id);
+        this.michiService.delete(id);
     }
 }

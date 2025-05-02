@@ -1,8 +1,7 @@
 package com.ftm;
 
 
-import com.ftm.domain.Michis;
-import com.ftm.service.MichisService;
+import com.ftm.service.MichiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FosterTheMichisApplication implements CommandLineRunner {
 
     @Autowired
-    private MichisService michisService;
+    private MichiService michiService;
 
     public static void main(String[] args) {
         SpringApplication.run(FosterTheMichisApplication.class, args);

@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS `FosterTheMichis`;
 CREATE DATABASE `FosterTheMichis`;
 USE `FosterTheMichis`;
 
-CREATE TABLE `users`
+CREATE TABLE `user`
 (
     `phone_number` int                   DEFAULT NULL,
     `id_users`     bigint NOT NULL AUTO_INCREMENT,
@@ -17,11 +17,11 @@ CREATE TABLE `users`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-INSERT INTO `users`
+INSERT INTO `user`
 VALUES (607779357, 1, 'admin@ftm.com', 'admin', 'var12garZ190', '', 'admin'),
        (12345678, 2, 'user@ftm.com', 'user', 'Hola1234', '', 'user');
 
-CREATE TABLE `michis`
+CREATE TABLE `michi`
 (
     `adoptable`   bit(1) NOT NULL,
     `age`         int    NOT NULL,
@@ -36,13 +36,13 @@ CREATE TABLE `michis`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-INSERT INTO `michis`
+INSERT INTO `michi`
 VALUES (_binary '\0', 11, 1, 'European', 'Just a little boy', 'Zipi', 'example'),
        (_binary '\0', 7, 2, 'Gray', 'Just a little demon', 'Dany', 'example'),
        (_binary '\0', 9, 3, 'Smol', 'Just a little void', 'Fay', 'example'),
        (_binary '', 4, 4, 'Orange', 'Alocao', 'Eustaquio', 'example');
 
-CREATE TABLE `categories`
+CREATE TABLE `category`
 (
     `id`   bigint NOT NULL AUTO_INCREMENT,
     `name` varchar(255) DEFAULT NULL,
@@ -52,14 +52,14 @@ CREATE TABLE `categories`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-INSERT INTO `categories`
+INSERT INTO `category`
 VALUES (1, 'Bebidas calientes'),
        (2, 'Bebidas frias'),
        (3, 'Postres'),
        (4, 'Caseros'),
        (5, 'Aperitivos felinos');
 
-CREATE TABLE `products`
+CREATE TABLE `product`
 (
     `price`       double       DEFAULT NULL,
     `id_category` bigint NOT NULL,
@@ -67,13 +67,13 @@ CREATE TABLE `products`
     `name`        varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id_products`),
     KEY `FKip7b0y8ja7fsm5wl7mhmseh5n` (`id_category`),
-    CONSTRAINT `FKip7b0y8ja7fsm5wl7mhmseh5n` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`)
+    CONSTRAINT `FKip7b0y8ja7fsm5wl7mhmseh5n` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`)
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 46
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-INSERT INTO `products`
+INSERT INTO `product`
 VALUES (2.5, 1, 1, 'Té Verde'),
        (2, 1, 2, 'Té de Manzanilla'),
        (2.75, 1, 3, 'Té de Frutas Rojas'),
@@ -129,7 +129,7 @@ CREATE TABLE `bookings`
     `comments`      text        NOT NULL,
     PRIMARY KEY (`id_bookings`),
     KEY `FK7n19id7tbioal42r2i75bg4fx` (`id_user`),
-    CONSTRAINT `FK7n19id7tbioal42r2i75bg4fx` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_users`)
+    CONSTRAINT `FK7n19id7tbioal42r2i75bg4fx` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_users`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
@@ -140,8 +140,8 @@ CREATE TABLE `michi_user`
     `id_users`  bigint NOT NULL,
     PRIMARY KEY (`id_michis`, `id_users`),
     KEY `FK4p23fuq917t6ym572v17k616s` (`id_users`),
-    CONSTRAINT `FK4p23fuq917t6ym572v17k616s` FOREIGN KEY (`id_users`) REFERENCES `users` (`id_users`),
-    CONSTRAINT `FKbdgm8uo8jrtqgu2civtsmkheq` FOREIGN KEY (`id_michis`) REFERENCES `michis` (`id_michis`)
+    CONSTRAINT `FK4p23fuq917t6ym572v17k616s` FOREIGN KEY (`id_users`) REFERENCES `user` (`id_users`),
+    CONSTRAINT `FKbdgm8uo8jrtqgu2civtsmkheq` FOREIGN KEY (`id_michis`) REFERENCES `michi` (`id_michis`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;

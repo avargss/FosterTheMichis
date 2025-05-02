@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "id")
-public class Michis {
+public class Michi {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,5 +43,5 @@ public class Michis {
             joinColumns = @JoinColumn(name = "id_michis", referencedColumnName = "id_michis"),
             inverseJoinColumns = @JoinColumn(name = "id_users", referencedColumnName = "id_users")
     )
-    private Set<Users> users = new HashSet<>();
+    private Set<User> users = new HashSet<>();
 }

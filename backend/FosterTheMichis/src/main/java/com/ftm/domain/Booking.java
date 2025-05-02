@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "id")
-public class Bookings {
+public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,5 +37,5 @@ public class Bookings {
      */
     @ManyToOne
     @JoinColumn(name = "id_user", referencedColumnName = "id_users", nullable = false)
-    private Users users;
+    private User user;
 }

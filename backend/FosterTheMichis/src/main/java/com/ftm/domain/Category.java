@@ -1,6 +1,5 @@
 package com.ftm.domain;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,7 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "id")
-public class Categories {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,5 +28,5 @@ public class Categories {
      */
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private Set<Products> products = new HashSet<>();
+    private Set<Product> products = new HashSet<>();
 }
