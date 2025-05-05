@@ -1,0 +1,36 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
+header>div:last-child {
+    display: flex;
+    gap: 50px;
+    margin-left: auto;
+}
+
+header>div:last-child>div p {
+    margin: 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}

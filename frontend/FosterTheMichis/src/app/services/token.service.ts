@@ -28,8 +28,7 @@ export class TokenService {
         if (token) {
             const payload = this.payload(token);
 
-            console.log(payload);
-
+            /* console.log(payload); */
 
             if (payload) {
                 const isIssuerValid = payload.iss === 'http://localhost:8080';

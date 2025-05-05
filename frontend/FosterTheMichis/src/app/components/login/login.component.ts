@@ -42,7 +42,7 @@ export class LoginComponent {
         
         const validToken = this.tokenService.handle(rtn.token);
 
-        console.log(validToken);
+        /* console.log(validToken); */
 
         if(validToken) {
           this.authService.changeAuthStatus(true);

@@ -1,0 +1,33 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2EB8C7;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.home-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 170px;
+    padding-bottom: 160px;
+}
+
+.project-title {
+    font-family: 'Kitten', sans-serif;
+    color: #2D2D2D;
+    font-size: 7rem;
+    text-align: center;
+}
