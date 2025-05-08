@@ -1,0 +1,103 @@
+footer {
+    position: absolute;
+    /* Cambiar a fixed para que esté siempre en la parte inferior */
+    margin-top: -300px;
+    width: 100%;
+    /* Ajustar la altura según sea necesario */
+    z-index: 10;
+    /* Asegura que esté por encima del main */
+    color: #2D2D2D;
+    padding: 32px 60px 0 60px;
+    background: rgba(255, 255, 255, 0.25);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* .footer-background {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    overflow: hidden;
+}
+
+.footer-background svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+} */
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 300px;
+    margin: 20px;
+}
+
+.footer-section h2 {
+    font-family: 'Kitten', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.footer-left p {
+    font-family: 'Jockey One';
+    margin-bottom: 20px;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-nav a {
+    color: #333;
+    text-decoration: none;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-socials img {
+    width: 28px;
+    height: 28px;
+    transition: filter 0.3s;
+}
+
+.footer-socials img:hover {
+    filter: grayscale(0%);
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+.footer-logo {
+    height: 30px;
+    vertical-align: middle;
+    margin: 0 5px;
+}
