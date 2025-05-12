@@ -13,22 +13,6 @@ footer {
     overflow: hidden;
 }
 
-/* .footer-background {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-    overflow: hidden;
-}
-
-.footer-background svg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-} */
-
 .footer-container {
     display: flex;
     justify-content: space-between;

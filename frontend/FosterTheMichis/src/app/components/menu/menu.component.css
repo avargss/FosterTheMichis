@@ -1,0 +1,238 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #C99D7D;
+    z-index: -1;
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior-x: contain;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 135.5vh;
+    /* Para medir lo del svg del footer
+    cambio la altura desde aquí */
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 200px;
+    position: relative;
+    z-index: 1;
+}
+
+.title-container {
+    margin-top: 75px;
+    margin-bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.menu-title {
+    font-family: 'Kitten', sans-serif;
+    color: #2D2D2D;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.description-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.wave-container {
+    width: 100%;
+    position: relative;
+    margin-top: -50px;
+    margin-bottom: 0;
+}
+
+.wave-content {
+    position: absolute;
+    z-index: 2;
+    margin-top: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #2D2D2D;
+}
+
+.wave-text-container {
+    max-width: 800px;
+    text-align: justify;
+    padding: 20px;
+    color: #2D2D2D;
+}
+
+.original-text {
+    display: block;
+    /* siempre visible en desktop */
+    flex: 1 1 auto;
+}
+
+.description-title {
+    font-family: 'Kitten', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.description-text {
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.wave-container svg {
+    display: block;
+    width: 100%;
+    height: 220px;
+    margin-bottom: 0;
+    position: relative;
+    transform: scaleX(-1);
+}
+
+.flipped-svg svg{
+    display: block;
+    width: 100%;
+    height: 220px;
+    margin-bottom: 0;
+    position: relative;
+    transform: scale(1, -1);
+}
+
+.bottom-container {
+    width: 100%;
+    background-color: #e7dabb;
+    margin-top: -1px;
+    padding: 20px; /* Añade un padding para que el contenido no toque los bordes */
+    position: relative;
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+    box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
+}
+
+.bottom-content {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Espaciado entre los elementos */
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    animation: rotate-right 7s linear infinite;
+}
+
+@keyframes rotate-right {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.mobile-text {
+    display: none;
+    /* oculta la copia en desktop */
+}
+
+.desktop-logo .logo {
+    display: block;
+    /* logo visible en desktop */
+}
+
+/* Ajuste responsive en móviles */
+@media only screen and (max-width: 768px) {
+    .original-text {
+        display: none;
+        /* ocultar texto original en móvil */
+        /* :contentReference[oaicite:2]{index=2} */
+    }
+
+    .mobile-text {
+        display: block;
+        /* mostrar copia dentro de bottom-container */
+        /* :contentReference[oaicite:3]{index=3} */
+        text-align: justify;
+        /* centrar texto */
+        padding: 20px;
+    }
+
+    .title-container {
+        margin-top: 80px;
+        /* sube aún más en pantallas pequeñas */
+    }
+
+    .project-title {
+        font-size: 3.5rem;
+        /* reduce aún más el tamaño */
+    }
+
+    /* Agranda el bottom-container para alojar textos */
+    .bottom-container {
+        height: auto;
+        /* que crezca según contenido */
+        padding: 40px 20px;
+        /* más espacio interno */
+    }
+
+    /* Centrar verticalmente su contenido */
+    .bottom-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* centrado vertical */
+        gap: 20px;
+    }
+
+    /* Reduce tamaños de texto en descripción */
+    .description-title {
+        font-size: 1.8rem;
+        /* antes 2.5rem */
+        margin-top: 20px;
+    }
+
+    .description-text {
+        font-size: 1rem;
+        /* antes 1.2rem */
+        line-height: 1.4;
+        padding: 0 15px;
+        /* que no toque los bordes */
+    }
+
+    /* Ocultar el logo giratorio en móvil */
+    .bottom-content .logo {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    
+}
