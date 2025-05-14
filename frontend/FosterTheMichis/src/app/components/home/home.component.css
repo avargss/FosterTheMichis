@@ -13,7 +13,8 @@ body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 230vh;
+    height: auto;
+    padding-bottom: 7.5%;
 }
 
 main {
@@ -31,7 +32,6 @@ main {
     align-items: center;
     width: 100%;
     margin-top: 200px;
-    padding-bottom: 160px;
     position: relative;
     z-index: 1;
 }
@@ -200,123 +200,91 @@ main {
 .text-wrapper {
     max-width: 500px;
     text-align: center;
-    /* o justify, según prefieras */
     padding: 20px;
     color: #2D2D2D;
 }
 
 .original-text {
     display: block;
-    /* siempre visible en desktop */
     flex: 1 1 auto;
 }
 
 .original-carousel {
     flex: 0 0 auto;
-    /* no crece ni encoge */
     width: 50%;
-    /* reduce considerablemente */
     max-width: 450px;
-    /* tope máximo en px */
-    /* empuja a la derecha */
 }
 
 .mobile-text {
     display: none;
-    /* oculta la copia en desktop */
 }
 
 .desktop-logo .logo {
     display: block;
-    /* logo visible en desktop */
 }
 
 .carousel-container {
     width: 60%;
-    /* ocupa 60% del ancho en desktop */
     margin-top: 700px;
     margin-left: 675px;
-    /* centra horizontalmente */
     padding: 20px 0;
 }
 
 .carousel-inner img {
     width: 100%;
-    /* ancho total del contenedor */
     height: auto;
-    /* mantiene proporción natural */
     object-fit: cover;
-    /* recorta si es necesario sin distorsión */
 }
 
-/* Ajuste responsive en móviles */
 @media only screen and (max-width: 768px) {
     .original-text {
         display: none;
-        /* ocultar texto original en móvil */
-        /* :contentReference[oaicite:2]{index=2} */
     }
 
     .mobile-text {
         display: block;
-        /* mostrar copia dentro de bottom-container */
-        /* :contentReference[oaicite:3]{index=3} */
         text-align: justify;
-        /* centrar texto */
         padding: 20px;
     }
 
     .title-container {
         margin-top: 80px;
-        /* sube aún más en pantallas pequeñas */
     }
 
     .project-title {
         font-size: 3.5rem;
-        /* reduce aún más el tamaño */
     }
 
-    /* Agranda el bottom-container para alojar textos */
     .bottom-container {
         height: auto;
-        /* que crezca según contenido */
         padding: 40px 20px;
-        /* más espacio interno */
     }
 
-    /* Centrar verticalmente su contenido */
     .bottom-content {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        /* centrado vertical */
         gap: 20px;
     }
 
-    /* Reduce tamaños de texto en descripción */
     .description-title {
         font-size: 1.8rem;
-        /* antes 2.5rem */
         margin-top: 20px;
     }
 
     .description-text {
         font-size: 1rem;
-        /* antes 1.2rem */
         line-height: 1.4;
         padding: 0 15px;
-        /* que no toque los bordes */
     }
 
-    /* Ocultar el logo giratorio en móvil */
     .bottom-content .logo {
         display: none;
     }
 
     .carousel-container {
         width: 100%;
-        /* full width en móvil */
         padding: 10px 0;
     }
 

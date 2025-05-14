@@ -65,6 +65,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/users/login", "/users/register").permitAll()
                         // Opcional: si quieres permitir GET público de usuarios:
                         .requestMatchers(HttpMethod.GET, "/users").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/products/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/michis/**").permitAll()
+
                         // Todo lo demás requiere token
                         .anyRequest().authenticated()
                 )

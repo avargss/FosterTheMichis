@@ -11,8 +11,7 @@ import java.util.List;
 @Service
 public class MichiService {
 
-    @Autowired
-    private MichiRepository michiRepository;
+    private final MichiRepository michiRepository;
 
     public MichiService(MichiRepository michiRepository) {
         this.michiRepository = michiRepository;
@@ -43,5 +42,13 @@ public class MichiService {
                     return m;
                 })
                 .orElseThrow(() -> new MichiNotFoundException(id));
+    }
+
+    public List<Michi> findNonAdoptableMichis() {
+        return michiRepository.findByAdoptableFalse();
+    }
+
+    public List<Michi> findAdoptableMichis() {
+        return michiRepository.findByAdoptableTrue();
     }
 }

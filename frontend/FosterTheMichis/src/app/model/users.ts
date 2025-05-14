@@ -5,5 +5,5 @@ export interface User {
     phone_number: number;
     email: string;
     password: string;
-    role: "Admin" | "User";
+    role: "admin" | "user";
 }

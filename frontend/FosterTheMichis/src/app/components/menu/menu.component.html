@@ -1,7 +1,7 @@
 <body>
     <main class="home-container">
         <div class="title-container">
-            <h1 class="menu-title">Menús y aperitivos</h1>
+            <h1 class="menu-title">Menú y aperitivos</h1>
         </div>
 
         <div class="description-container">
@@ -46,7 +46,132 @@
                         </p>
                     </div>
 
-                    <!-- Desplegables de los menús con Bootstrap -->
+                    <div class="dropdowns-container">
+                        <!-- Bebidas Calientes -->
+                        <div class="dropdown-container">
+                            <button class="btn btn-primary custom-toggle" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#hotDrinks" aria-expanded="false" aria-controls="hotDrinks">
+                                Ver Bebidas Calientes
+                                <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </button>
+
+                            <div class="collapse mt-3" id="hotDrinks">
+                                <div class="card-grid">
+                                    <div class="card-item" *ngFor="let product of hotDrinks">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ product.name }}</h5>
+                                                <p class="card-text"><strong>Precio:</strong> {{ product.price }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bebidas Frías -->
+                        <div class="dropdown-container">
+                            <button class="btn btn-primary custom-toggle" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#coldDrinks" aria-expanded="false" aria-controls="coldDrinks">
+                                Ver Bebidas Frías
+                                <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </button>
+
+                            <div class="collapse mt-3" id="coldDrinks">
+                                <div class="card-grid">
+                                    <div class="card-item" *ngFor="let product of coldDrinks">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ product.name }}</h5>
+                                                <p class="card-text"><strong>Precio:</strong> {{ product.price }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Postres -->
+                        <div class="dropdown-container">
+                            <button class="btn btn-primary custom-toggle" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#desserts" aria-expanded="false" aria-controls="desserts">
+                                Ver Postres
+                                <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </button>
+
+                            <div class="collapse mt-3" id="desserts">
+                                <div class="card-grid">
+                                    <div class="card-item" *ngFor="let product of desserts">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ product.name }}</h5>
+                                                <p class="card-text"><strong>Precio:</strong> {{ product.price }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aperitivos Caseros -->
+                        <div class="dropdown-container">
+                            <button class="btn btn-primary custom-toggle" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#homemade" aria-expanded="false" aria-controls="homemade">
+                                Ver Aperitivos Caseros
+                                <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </button>
+
+                            <div class="collapse mt-3" id="homemade">
+                                <div class="card-grid">
+                                    <div class="card-item" *ngFor="let product of homemade">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ product.name }}</h5>
+                                                <p class="card-text"><strong>Precio:</strong> {{ product.price }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aperitivos Felinos -->
+                        <div class="dropdown-container">
+                            <button class="btn btn-primary custom-toggle" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#felineTreats" aria-expanded="false" aria-controls="felineTreats">
+                                Ver Aperitivos Felinos
+                                <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </button>
+
+                            <div class="collapse mt-3" id="felineTreats">
+                                <div class="card-grid">
+                                    <div class="card-item" *ngFor="let product of felineTreats">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ product.name }}</h5>
+                                                <p class="card-text"><strong>Precio:</strong> {{ product.price }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>

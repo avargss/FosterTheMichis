@@ -49,4 +49,16 @@ public class MichisController {
     public void deleteMichis(@PathVariable("id") Long id) {
         this.michiService.delete(id);
     }
+
+    @GetMapping("/non-adoptable")
+    public List<Michi> getNonAdoptableMichis() {
+        log.info("Accediendo a los michis no adoptables");
+        return michiService.findNonAdoptableMichis();
+    }
+
+    @GetMapping("/adoptable")
+    public List<Michi> getAdoptableMichis() {
+        log.info("Accediendo a los michis adoptables");
+        return michiService.findAdoptableMichis();
+    }
 }

@@ -13,9 +13,10 @@ body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 135.5vh;
+    height: auto;
     /* Para medir lo del svg del footer
     cambio la altura desde aquí */
+    padding-bottom: 15%;
 }
 
 main {
@@ -64,17 +65,6 @@ main {
     position: relative;
     margin-top: -50px;
     margin-bottom: 0;
-}
-
-.wave-content {
-    position: absolute;
-    z-index: 2;
-    margin-top: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
     color: #2D2D2D;
 }
 
@@ -87,7 +77,6 @@ main {
 
 .original-text {
     display: block;
-    /* siempre visible en desktop */
     flex: 1 1 auto;
 }
 
@@ -114,7 +103,7 @@ main {
     transform: scaleX(-1);
 }
 
-.flipped-svg svg{
+.flipped-svg svg {
     display: block;
     width: 100%;
     height: 220px;
@@ -127,18 +116,18 @@ main {
     width: 100%;
     background-color: #e7dabb;
     margin-top: -1px;
-    padding: 20px; /* Añade un padding para que el contenido no toque los bordes */
+    padding: 20px;
     position: relative;
-    height: auto; /* Permite que la altura se ajuste automáticamente */
-    box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
+    height: auto;
+    box-sizing: border-box;
 }
 
 .bottom-content {
     display: flex;
-    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px; /* Espaciado entre los elementos */
+    gap: 20px;
 }
 
 .logo {
@@ -159,80 +148,177 @@ main {
 
 .mobile-text {
     display: none;
-    /* oculta la copia en desktop */
 }
 
 .desktop-logo .logo {
     display: block;
-    /* logo visible en desktop */
 }
 
-/* Ajuste responsive en móviles */
+.dropdowns-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dropdown-container>button {
+    width: 800px;
+    height: 4rem;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    margin: 0 auto;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.dropdown-container .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    max-width: calc(5 * 160px + 4 * 1.5rem);
+    gap: 1.5rem;
+    margin: 0 auto;
+    grid-auto-rows: auto;
+}
+
+.dropdown-container .card-grid {
+    grid-template-rows: repeat(2, auto);
+    overflow: hidden;
+}
+
+.dropdown-container .card-grid.scrollable {
+    max-height: calc(2 * (auto + 1.5rem));
+    overflow-y: auto;
+}
+
+.dropdown-container>button:hover {
+    background-color: #0056b3;
+}
+
+.dropdown-container>button .toggle-icon {
+    fill: #fff;
+    stroke: #fff;
+    transition: transform 0.3s ease;
+}
+
+.collapse.show+.toggle-icon,
+.dropdown-container>button[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-container .collapse {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.custom-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.custom-toggle:hover {
+    background-color: #004a6e;
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+}
+
+.custom-toggle[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.card-item .card {
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-item .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
 @media only screen and (max-width: 768px) {
     .original-text {
         display: none;
-        /* ocultar texto original en móvil */
-        /* :contentReference[oaicite:2]{index=2} */
     }
 
     .mobile-text {
         display: block;
-        /* mostrar copia dentro de bottom-container */
-        /* :contentReference[oaicite:3]{index=3} */
         text-align: justify;
-        /* centrar texto */
         padding: 20px;
     }
 
     .title-container {
         margin-top: 80px;
-        /* sube aún más en pantallas pequeñas */
     }
 
     .project-title {
         font-size: 3.5rem;
-        /* reduce aún más el tamaño */
     }
 
-    /* Agranda el bottom-container para alojar textos */
     .bottom-container {
         height: auto;
-        /* que crezca según contenido */
         padding: 40px 20px;
-        /* más espacio interno */
     }
 
-    /* Centrar verticalmente su contenido */
     .bottom-content {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        /* centrado vertical */
         gap: 20px;
     }
 
-    /* Reduce tamaños de texto en descripción */
     .description-title {
         font-size: 1.8rem;
-        /* antes 2.5rem */
         margin-top: 20px;
     }
 
     .description-text {
         font-size: 1rem;
-        /* antes 1.2rem */
         line-height: 1.4;
         padding: 0 15px;
-        /* que no toque los bordes */
     }
 
-    /* Ocultar el logo giratorio en móvil */
     .bottom-content .logo {
         display: none;
     }
-}
 
-@media (min-width: 769px) {
-    
+    .dropdown-container {
+        min-width: 500px;
+    }
+
+    .dropdown-container>button {
+        width: 100%;
+        height: 3.5rem;
+    }
+
+    .dropdown-container>button[aria-expanded="true"] {
+        width: 100%;
+        height: 5rem;
+    }
+
+    .dropdown-container .collapse>.card-grid {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        transition: padding 0.3s ease;
+    }
+
+    .dropdown-container .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 500px;
+    }
 }

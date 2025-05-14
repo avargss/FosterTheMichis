@@ -23,7 +23,11 @@ public class ProductsController {
     }
 
     @GetMapping
-    public List<Product> all() {
+    public List<Product> all(@RequestParam(required = false) Long categoryId) {
+        if (categoryId != null) {
+            log.info("Accediendo a productos de la categoría con ID: " + categoryId);
+            return this.productService.findByCategoryId(categoryId);
+        }
         log.info("Accediendo a todos los productos");
         return this.productService.all();
     }
@@ -48,6 +52,14 @@ public class ProductsController {
     @DeleteMapping("/{id}")
     public void deleteProducts(@PathVariable("id") Long id) {
         this.productService.delete(id);
+    }
+
+    @GetMapping("/by-category")
+    public List<Product> getProductsByCategory(@RequestParam(required = false) Long categoryId) {
+        if (categoryId != null) {
+            return productService.findByCategoryId(categoryId);
+        }
+        return productService.all();
     }
 
 }
