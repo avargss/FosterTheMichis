@@ -323,6 +323,17 @@ hr {
     color: #333;
 }
 
+.hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 320px;
+    min-width: 320px;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
 .hero-subtitle {
     font-family: 'Jockey One', sans-serif;
     font-size: 1.125rem;

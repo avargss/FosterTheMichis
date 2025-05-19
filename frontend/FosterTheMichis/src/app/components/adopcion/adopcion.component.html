@@ -1,1 +1,158 @@
-<p>adopcion works!</p>
+<body>
+    <main class="home-container" id="top">
+        <div class="title-container">
+            <h1 class="menu-title">¡Adopta un michi!</h1>
+        </div>
+
+        <div class="description-container">
+            <div class="wave-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path fill="#e7dabb" fill-opacity="1"
+                        d="M0,32L48,53.3C96,75,192,117,288,165.3C384,213,480,267,576,272C672,277,768,235,864,186.7C960,139,1056,85,1152,74.7C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                    </path>
+                </svg>
+            </div>
+
+            <div class="bottom-container">
+                <div class="bottom-content">
+
+                    <div class="wave-text-container original-text">
+                        <h2 class="description-title">🐾 Conoce a nuestros Meownagers</h2>
+                        <p class="description-text">
+                            En FosterTheMichis, contamos con tres residentes muy especiales: Zipi, Fay y Dany. Estos
+                            encantadores felinos no están disponibles para adopción, ya que son los "meownagers"
+                            oficiales del café. Zipi, con su mirada curiosa, supervisa cada rincón del local; Fay,
+                            siempre atenta, se asegura de que todos los visitantes se sientan bienvenidos; y Dany, el
+                            más juguetón, aporta alegría y dinamismo al ambiente. Su presencia constante crea un entorno
+                            acogedor y familiar para todos.
+                        </p>
+                    </div>
+
+                    <div class="wave-text-container mobile-text">
+                        <h2 class="description-title">🐾 Conoce a nuestros Meownagers</h2>
+                        <p class="description-text">
+                            En FosterTheMichis, contamos con tres residentes muy especiales: Zipi, Fay y Dany. Estos
+                            encantadores felinos no están disponibles para adopción, ya que son los "meownagers"
+                            oficiales del café. Zipi, con su mirada curiosa, supervisa cada rincón del local; Fay,
+                            siempre atenta, se asegura de que todos los visitantes se sientan bienvenidos; y Dany, el
+                            más juguetón, aporta alegría y dinamismo al ambiente. Su presencia constante crea un entorno
+                            acogedor y familiar para todos.
+                        </p>
+                    </div>
+
+                    <div class="meownagers">
+                        <div class="non-adoptable-cards">
+                            <div class="card" *ngFor="let michi of nonAdoptableMichis">
+                                <img [src]="michi.photo" class="card-img-top" [alt]="michi.name" />
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ michi.name }}</h5>
+                                    <p class="card-text">{{ michi.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="wave-text-container original-text">
+                        <h2 class="description-title">🐱 Descubre a los michis en busca de un hogar</h2>
+                        <p class="description-text">
+                            Además de nuestros queridos meownagers, FosterTheMichis alberga a muchos otros gatos que
+                            esperan encontrar una familia que los ame. Cada uno tiene su propia historia y personalidad,
+                            y están ansiosos por compartir su cariño contigo. Te invitamos a visitar nuestra sección de
+                            adopciones para conocerlos mejor y, quién sabe, tal vez encuentres a tu compañero felino
+                            ideal.
+                        </p>
+                    </div>
+
+                    <div class="wave-text-container mobile-text">
+                        <h2 class="description-title">🐱 Descubre a los michis en busca de un hogar</h2>
+                        <p class="description-text">
+                            Además de nuestros queridos meownagers, FosterTheMichis alberga a muchos otros gatos que
+                            esperan encontrar una familia que los ame. Cada uno tiene su propia historia y personalidad,
+                            y están ansiosos por compartir su cariño contigo. Te invitamos a visitar nuestra sección de
+                            adopciones para conocerlos mejor y, quién sabe, tal vez encuentres a tu compañero felino
+                            ideal.
+                        </p>
+                    </div>
+
+                    <div class="meownagers">
+                        <div class="non-adoptable-cards">
+                            <div class="card" *ngFor="let michi of adoptableMichis">
+                                <img [src]="michi.photo" class="card-img-top" [alt]="michi.name" />
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ michi.name }}</h5>
+                                    <p class="card-text">{{ michi.description }}</p>
+                                    <button class="adopt-btn">
+                                        Adoptar 🐾
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section class="pre-adoption-care">
+                        <div class="care-header">
+                            <h2>🏡🐾 Cuidamos su bienestar antes de la adopción</h2>
+                            <p>
+                                En FosterTheMichis, nos aseguramos de que cada gato esté sano y listo para encontrar su
+                                hogar definitivo. Todos nuestros michis reciben atención veterinaria completa antes de
+                                la adopción, incluyendo:
+                            </p>
+                        </div>
+                        <div class="care-cards">
+                            <div class="care-card">
+                                <span class="icon">🩺</span>
+                                <h3>Chequeo general</h3>
+                                <p>Evaluamos su estado de salud con un examen veterinario completo.</p>
+                            </div>
+                            <div class="care-card">
+                                <span class="icon">✂️</span>
+                                <h3>Esterilización</h3>
+                                <p>Promovemos una tenencia responsable mediante la esterilización obligatoria.</p>
+                            </div>
+                            <div class="care-card">
+                                <span class="icon">💉</span>
+                                <h3>Vacunación</h3>
+                                <p>Protegemos a nuestros michis con las vacunas necesarias.</p>
+                            </div>
+                            <div class="care-card">
+                                <span class="icon">🔖</span>
+                                <h3>Microchip</h3>
+                                <p>Colocamos un microchip registrado para su identificación y seguridad.</p>
+                            </div>
+                            <div class="care-card">
+                                <span class="icon">🧪</span>
+                                <h3>Pruebas médicas</h3>
+                                <p>Realizamos pruebas para descartar enfermedades como FeLV y FIV.</p>
+                            </div>
+                            <div class="care-card">
+                                <span class="icon">🐛</span>
+                                <h3>Desparasitación</h3>
+                                <p>Aplicamos tratamientos internos y externos para su bienestar.</p>
+                            </div>
+                        </div>
+                        <div class="care-footer">
+                            <p>
+                                Adoptar es un compromiso de amor y responsabilidad. Antes de llevar a tu nuevo compañero
+                                a casa, te informaremos sobre su historia, cuidados y necesidades. ¡Así nos aseguramos
+                                de que cada michi tenga un hogar lleno de amor y seguridad! 💛🐱
+                            </p>
+                        </div>
+                    </section>
+
+
+                </div>
+            </div>
+
+            <div class="flipped-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path fill="#E7DABB" fill-opacity="1"
+                        d="M0,32L48,53.3C96,75,192,117,288,165.3C384,213,480,267,576,272C672,277,768,235,864,186.7C960,139,1056,85,1152,74.7C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+
+    </main>
+</body>
