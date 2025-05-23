@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../../services/auth.service';
 import { TokenService } from '../../services/token.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -30,8 +31,25 @@ export class LoginComponent {
   }
 
   submit() {
-    if(this.loginForm.invalid) {
+
+    if (this.loginForm.valid) {
+      Swal.fire({
+        title: 'Bienvenido',
+        text: 'Has iniciado sesión correctamente.',
+        icon: 'success',
+        confirmButtonText: 'Continuar'
+      });
+      // Aquí podrías navegar o llamar a un servicio de autenticación
+    } else if (this.loginForm.invalid) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Revisa los campos marcados.',
+        icon: 'error',
+        confirmButtonText: 'Entendido'
+      });
+      // Marcar todos como touched para mostrar errores
       this.loginForm.markAllAsTouched();
+
       return;
     }
 
@@ -39,16 +57,16 @@ export class LoginComponent {
     this.authService.login(this.loginForm.value).subscribe({
       next: (rtn) => {
         /* console.log(rtn); */
-        
+
         const validToken = this.tokenService.handle(rtn.token);
 
         /* console.log(validToken); */
 
-        if(validToken) {
+        if (validToken) {
           this.authService.changeAuthStatus(true);
 
           console.log("Login ok");
-          
+
           /* this.authService.me({token: rtn.token}).subscribe({
             next: (rtn) => {
               

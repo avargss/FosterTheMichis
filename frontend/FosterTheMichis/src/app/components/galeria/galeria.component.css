@@ -298,48 +298,51 @@ hr {
     text-align: justify;
 }
 
+/* Hero adopt section */
 .hero-adopt {
     max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    justify-self: center;
+    flex-wrap: wrap;
+    gap: 2rem;
     background: linear-gradient(135deg, #FFEBEE 0%, #FFF8E1 100%);
-    margin-top: 4rem;
-    padding: 4rem;
     border-radius: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .hero-content {
-    max-width: 50%;
-    animation: fadeInUp 0.8s ease-out both;
-}
-
-.hero-title {
-    font-family: 'Kitten', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #333;
+    flex: 1 1 400px;
 }
 
 .hero-visual {
+    flex: 1 1 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 320px;
-    min-width: 320px;
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
 }
 
-.hero-subtitle {
-    font-family: 'Jockey One', sans-serif;
-    font-size: 1.125rem;
-    margin-bottom: 2rem;
-    line-height: 1.5;
-    color: #555;
+/* Fijamos el alto del carrusel */
+#michisCarousel,
+#michisCarousel .carousel-inner,
+#michisCarousel .carousel-item {
+    height: 260px;
+}
+
+/* Imagen ocupa todo el contenedor */
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Controles del carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+    /* icono blanco */
 }
 
 .btn-cta {
@@ -386,9 +389,7 @@ hr {
     font-weight: bold;
 }
 
-
 /* RESPONSIVIDAD */
-
 @media only screen and (max-width: 768px) {
     .original-text {
         display: none;

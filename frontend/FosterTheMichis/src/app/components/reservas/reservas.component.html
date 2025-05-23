@@ -1,1 +1,134 @@
-<p>reservas works!</p>
+<body>
+    <main class="home-container">
+        <div class="title-container">
+            <h1 class="menu-title">¡Ven a visitarnos!</h1>
+        </div>
+
+        <div class="description-container">
+            <div class="wave-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path fill="#e7dabb" fill-opacity="1"
+                        d="M0,32L48,53.3C96,75,192,117,288,165.3C384,213,480,267,576,272C672,277,768,235,864,186.7C960,139,1056,85,1152,74.7C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                    </path>
+                </svg>
+            </div>
+
+            <div class="bottom-container">
+                <div class="bottom-content">
+
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6398.24980482321!2d-4.459761523323217!3d36.69553637227722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f9dee2ea3131%3A0xe00a7d745fb8b2e3!2sIES%20Bel%C3%A9n!5e0!3m2!1ses!2ses!4v1747827743435!5m2!1ses!2ses"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <div class="wave-text-container original-text">
+                        <p class="description-text">
+                            Nos encontramos en el corazón de la ciudad, en un ambiente acogedor y de fácil acceso.
+                            <br><br>
+                            En FosterTheMichis, cada rincón ha sido pensado para el bienestar de nuestros adorables
+                            felinos y la comodidad de nuestros visitantes. Nuestro diseño incluye estructuras seguras
+                            para que los gatos trepen y jueguen libremente, zonas de descanso acogedoras y espacios
+                            amplios donde humanos y michis pueden convivir en armonía.
+                            Además, nuestro café cuenta con medidas de seguridad para garantizar una experiencia
+                            tranquila tanto para los gatos como para nuestros visitantes, con áreas separadas para los
+                            más tímidos y espacios interactivos para quienes buscan jugar.
+                            <br><br>
+                            📍 Nos encontramos en el corazón de la ciudad, en un ambiente acogedor y de fácil acceso.
+                            ¡Ven a disfrutar de un café mientras compartes tiempo con nuestros adorables mininos! 🐾☕
+                        </p>
+                    </div>
+
+                    <div class="wave-text-container mobile-text">
+                        <p class="description-text">
+                            Nos encontramos en el corazón de la ciudad, en un ambiente acogedor y de fácil acceso.
+                            <br><br>
+                            En FosterTheMichis, cada rincón ha sido pensado para el bienestar de nuestros adorables
+                            felinos y la comodidad de nuestros visitantes. Nuestro diseño incluye estructuras seguras
+                            para que los gatos trepen y jueguen libremente, zonas de descanso acogedoras y espacios
+                            amplios donde humanos y michis pueden convivir en armonía.
+                            Además, nuestro café cuenta con medidas de seguridad para garantizar una experiencia
+                            tranquila tanto para los gatos como para nuestros visitantes, con áreas separadas para los
+                            más tímidos y espacios interactivos para quienes buscan jugar.
+                            <br><br>
+                            📍 Nos encontramos en el corazón de la ciudad, en un ambiente acogedor y de fácil acceso.
+                            ¡Ven a disfrutar de un café mientras compartes tiempo con nuestros adorables mininos! 🐾☕
+                        </p>
+                    </div>
+
+                    <hr>
+
+                    <div class="wave-text-container original-text">
+                        <h2 class="description-title">Reserva una visita y pasa una maravillosa tarde junto a nuestros
+                            michis</h2>
+                    </div>
+
+                    <div class="wave-text-container mobile-text">
+                        <h2 class="description-title">Reserva una visita y pasa una maravillosa tarde junto a nuestros
+                            michis</h2>
+                    </div>
+
+                    <div class="reservation-container">
+                        <div class="info-container">
+                            <h3 class="info-title">🐾 Normas del Café</h3>
+                            <ul class="info-list">
+                                <li>Respetar a los gatos en todo momento.</li>
+                                <li>No alimentar a los gatos con comida externa.</li>
+                                <li>Evitar ruidos fuertes para no asustarlos.</li>
+                                <li>Los niños deben estar supervisados por un adulto.</li>
+                                <li>Disfruta de tu tiempo con los michis y relájate.</li>
+                            </ul>
+                            <h3 class="info-title">✨ Beneficios de visitarnos</h3>
+                            <p class="info-text">
+                                Al reservar una visita, no solo disfrutarás de la compañía de nuestros adorables gatos,
+                                sino que también estarás apoyando su bienestar y cuidado. ¡Gracias por ser parte de
+                                nuestra misión! 🐱❤️
+                            </p>
+                        </div>
+
+                        <form class="form-container" (ngSubmit)="onSubmit(reservationForm)" #reservationForm="ngForm">
+                            <div class="form-group">
+                                <input type="date" class="form-control" placeholder="Fecha de la reserva" name="date"
+                                    required ngModel>
+                                <input type="time" class="form-control" placeholder="Hora de la reserva" name="time"
+                                    required ngModel>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" placeholder="Número de comensales"
+                                    name="guests" required ngModel>
+                                <input type="tel" class="form-control" placeholder="Número teléfono" name="phone"
+                                    required ngModel>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control full" placeholder="Correo electrónico"
+                                    name="email" required ngModel>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Nombre" name="firstName" required
+                                    ngModel>
+                                <input type="text" class="form-control" placeholder="Apellidos" name="lastName" required
+                                    ngModel>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control full" placeholder="Comentarios" name="comments"
+                                    ngModel></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Reservar</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="flipped-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path fill="#E7DABB" fill-opacity="1"
+                        d="M0,32L48,53.3C96,75,192,117,288,165.3C384,213,480,267,576,272C672,277,768,235,864,186.7C960,139,1056,85,1152,74.7C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+
+    </main>
+</body>

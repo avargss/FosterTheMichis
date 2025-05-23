@@ -1,1 +1,82 @@
-<p>contacto works!</p>
+<body>
+    <main class="home-container">
+        <div class="title-container">
+            <h1 class="menu-title">¡Permítenos ayudarte!</h1>
+        </div>
+
+        <div class="description-container">
+            <div class="wave-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path fill="#62CAD5" fill-opacity="1"
+                        d="M0,32L48,53.3C96,75,192,117,288,165.3C384,213,480,267,576,272C672,277,768,235,864,186.7C960,139,1056,85,1152,74.7C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                    </path>
+                </svg>
+            </div>
+
+            <div class="bottom-container">
+                <div class="bottom-content">
+
+                    <div class="wave-text-container original-text">
+                        <h2 class="description-title">¿Tienes dudas? ¡Contáctanos! 📩🐾</h2>
+                        <p class="description-text">
+                            Si quieres saber más sobre nuestros michis, el proceso de adopción, reservas en el café o
+                            cualquier otra consulta, ¡Estamos aquí para echarte una pata!🐾.
+                            <br><br>
+                            ¡No dudes en escribirnos! Te atenderemos con la mayor brevedad posible.
+                        </p>
+                    </div>
+
+                    <div class="wave-text-container mobile-text">
+                        <h2 class="description-title">¿Tienes dudas? ¡Contáctanos! 📩🐾</h2>
+                        <p class="description-text">
+                            Si quieres saber más sobre nuestros michis, el proceso de adopción, reservas en el café o
+                            cualquier otra consulta, estamos aquí para echarte una pata. ¡No dudes en escribirnos! Te
+                            atenderemos con la mayor brevedad posible.
+                        </p>
+                    </div>
+
+                    <div class="contact-section">
+                        <div class="contact-info">
+                            <img src="/logo-ftm.png" alt="Logo FTM" class="contact-logo" />
+                            <div class="contact-item">
+                                <i class="bi bi-envelope"></i>
+                                <a href="mailto:correolectronico@gmail.com">email&commat;ftm.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-telephone"></i>
+                                <a href="tel:+34123456789">+34 123 45 67 89</a>
+                            </div>
+                        </div>
+
+                        <form class="form-container" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Nombre" name="firstName" required
+                                    ngModel>
+                                <input type="text" class="form-control" placeholder="Apellidos" name="lastName" required
+                                    ngModel>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control full" placeholder="Correo electrónico"
+                                    name="email" required ngModel>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control full" placeholder="Comentarios" name="comments"
+                                    ngModel></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Reservar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flipped-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path fill="#62CAD5" fill-opacity="1"
+                        d="M0,32L48,53.3C96,75,192,117,288,165.3C384,213,480,267,576,272C672,277,768,235,864,186.7C960,139,1056,85,1152,74.7C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+
+    </main>
+</body>

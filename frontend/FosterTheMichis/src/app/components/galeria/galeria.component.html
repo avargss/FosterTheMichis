@@ -111,23 +111,17 @@
                         <p class="hero-subtitle">
                             Descubre a nuestros michis en adopción: historias únicas, miradas que enamoran y patitas que
                             buscan un hogar.
-                            <br>
-                            <br>
+                            <br><br>
                             ¡Tu siguiente gran (o pequeño) amigo te está esperando!
                         </p>
-                        <a href="/adopcion" class="btn-cta">
-                            Conoce a todos los michis 🐱→
-                        </a>
+                        <a routerLink="/adopcion" class="btn-cta">Conoce a todos los michis 🐱→</a>
                     </div>
                     <div class="hero-visual">
-                        <div id="michisCarousel" class="carousel slide" data-bs-ride="carousel"
-                            style="height:100%; width:100%;">
-                            <div class="carousel-inner" style="height:100%; width:100%;">
+                        <div id="michisCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
                                 <div class="carousel-item" *ngFor="let michi of adoptableMichis; let i = index"
-                                    [class.active]="i === 0"
-                                    style="height:100%; width:100%; display:flex; align-items:center; justify-content:center;">
-                                    <img [src]="michi.photo" [alt]="michi.name"
-                                        style="max-height: 260px; max-width: 100%; object-fit: contain; margin:auto; border-radius: 1rem; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+                                    [class.active]="i === 0">
+                                    <img [src]="michi.photo" [alt]="michi.name" class="d-block carousel-img" />
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#michisCarousel"
@@ -143,6 +137,7 @@
                         </div>
                     </div>
                 </section>
+
 
             </div>
 

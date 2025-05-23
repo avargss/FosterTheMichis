@@ -1,0 +1,113 @@
+/* Contenedor de página completo */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2eb8c7;
+    /* Turquesa claro */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Tarjeta del login */
+.login-card {
+    background: #e7dabb;
+    /* Arena suave */
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 380px;
+    width: 100%;
+}
+
+/* Encabezado con logo y título */
+.login-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.login-logo {
+    height: 60px;
+    margin-bottom: 0.5rem;
+    animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.login-header h2 {
+    margin: 0;
+    font-family: 'Kitten', sans-serif;
+    color: #2d2d2d;
+}
+
+/* Estilos de formulario */
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: 'Jockey One', sans-serif;
+    margin-bottom: 0.5rem;
+    color: #2d2d2d;
+}
+
+.form-group input {
+    padding: 0.75rem 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #c99d7d;
+    /* Arena más oscuro */
+}
+
+.form-group input.invalid {
+    border-color: #e63946;
+    /* Rojo para error */
+}
+
+/* Mensajes de error */
+.error {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: #e63946;
+}
+
+/* Botón de envío */
+.btn-submit {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2d2d2d;
+    /* Texto oscuro */
+    color: #fff;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-submit:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+.btn-submit:hover:not(:disabled) {
+    background-color: #444;
+    transform: translateY(-2px);
+}
