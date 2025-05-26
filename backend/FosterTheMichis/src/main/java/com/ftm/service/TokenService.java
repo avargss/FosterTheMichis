@@ -23,9 +23,14 @@ import java.util.concurrent.ConcurrentHashMap;
 public class TokenService {
 
     private final JwtConfig jwtConfig;
+    private final TokenBlacklistService blacklistService;
 
-    public String generateToken(Authentication authentication) {
-        // header + payload/claims + signature
+    public String generateToken(Authentication authentication, String currentToken) {
+
+        if (currentToken != null) {
+            blacklistService.blacklistToken(currentToken); // Invalida el token actual
+        }
+
         var header = new JWSHeader.Builder(jwtConfig.getAlgorithm())
                 .type(JOSEObjectType.JWT)
                 .build();

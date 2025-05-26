@@ -1,0 +1,110 @@
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2eb8c7;
+    min-height: 100vh;
+    padding: 20px;
+    
+}
+
+.register-card {
+    background: #e7dabb;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    /* Habilita flexbox */
+    flex-direction: column;
+    /* Asegura que los elementos estén en columna */
+    align-items: center;
+    /* Centra los elementos horizontalmente */
+    margin-bottom: 160px;
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    /* Reduce el margen inferior */
+}
+
+form {
+    width: 100%;
+    /* Asegura que el formulario ocupe todo el ancho disponible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra los campos horizontalmente */
+}
+
+.form-group,
+.form-group-row {
+    width: 100%;
+    /* Asegura que los grupos ocupen todo el ancho del formulario */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra los campos dentro del grupo */
+}
+
+.form-group-row {
+    flex-direction: row;
+    /* Coloca los campos en fila */
+    justify-content: center;
+    /* Centra los campos horizontalmente */
+    gap: 1rem;
+}
+
+.form-group-row input {
+    flex: 1;
+    max-width: 250px;
+    /* Limita el ancho máximo de los inputs */
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    /* Asegura que los inputs ocupen todo el ancho del grupo */
+    max-width: 400px;
+    /* Limita el ancho máximo */
+    padding: 0.75rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #2eb8c7;
+}
+
+.error {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: #e63946;
+}
+
+.btn-submit {
+    margin-top: 25px;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2eb8c7;
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #2399a6;
+}

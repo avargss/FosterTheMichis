@@ -39,7 +39,7 @@ export class LoginComponent {
         icon: 'success',
         confirmButtonText: 'Continuar'
       });
-      // Aquí podrías navegar o llamar a un servicio de autenticación
+      this.router.navigateByUrl('/');
     } else if (this.loginForm.invalid) {
       Swal.fire({
         title: 'Error',
@@ -47,7 +47,7 @@ export class LoginComponent {
         icon: 'error',
         confirmButtonText: 'Entendido'
       });
-      // Marcar todos como touched para mostrar errores
+
       this.loginForm.markAllAsTouched();
 
       return;
@@ -56,26 +56,13 @@ export class LoginComponent {
     this.hasLoaded = false;
     this.authService.login(this.loginForm.value).subscribe({
       next: (rtn) => {
-        /* console.log(rtn); */
 
         const validToken = this.tokenService.handle(rtn.token);
 
-        /* console.log(validToken); */
-
         if (validToken) {
           this.authService.changeAuthStatus(true);
-
           console.log("Login ok");
-
-          /* this.authService.me({token: rtn.token}).subscribe({
-            next: (rtn) => {
-              
-              this.router.navigateByUrl('/');
-            },
-            error: (error) => {
-              console.error(error);
-            },
-          }); */
+        
         }
       },
       error: (error) => {

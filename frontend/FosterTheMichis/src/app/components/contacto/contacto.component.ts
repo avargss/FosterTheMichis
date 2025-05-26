@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contacto',
-  imports: [FormsModule, NgIf],
+  imports: [FormsModule],
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })

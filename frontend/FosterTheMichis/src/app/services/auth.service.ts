@@ -1,9 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environment/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { TokenService } from './token.service';
-import { User } from '../model/users';
 
 @Injectable({
     providedIn: 'root'
@@ -12,6 +11,8 @@ import { User } from '../model/users';
 export class AuthService {
     private tokenService = inject(TokenService);
     private url = environment.apiUrl;
+    private tokenKey = 'authToken';
+
 
     private loggedIn = new BehaviorSubject<boolean>(this.tokenService.loggedIn());
     authStatus = this.loggedIn.asObservable();
@@ -29,19 +30,52 @@ export class AuthService {
         )
     }
 
-    logout(token: Object): Observable<any> {
-        return this.http.post(`${this.url}/users/logout`, token);
+    logout(): void {
+        // Actualiza el estado de autenticación en el frontend
+        this.changeAuthStatus(false);
+
+        // Elimina el token del almacenamiento local
+        this.tokenService.remove();
+
+        // Realiza la solicitud al backend para cerrar sesión
+        const token = this.tokenService.get();
+        if (token) {
+            const httpOptions = {
+                headers: new HttpHeaders({
+                    'Authorization': `Bearer ${token}`
+                })
+            };
+
+            this.http.post(`${this.url}/users/logout`, {}, httpOptions).subscribe({
+                next: () => {
+                    console.log('Sesión cerrada en el backend');
+                },
+                error: (err) => {
+                    console.error('Error al cerrar sesión en el backend:', err);
+                }
+            });
+        }
+    }
+
+    isAdmin(): boolean {
+        const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+        if (!token) return false;
+
+        const payload = JSON.parse(atob(token.split('.')[1])); // Decodifica el payload del token
+        return payload.role === 'admin'; // Verifica si el rol es "admin"
     }
 
     register(form: Object): Observable<any> {
         return this.http.post(`${this.url}/users/register`, form);
     }
 
-    /* me(token: Object): Observable<User> {
-        return this.http.post<User>(`${this.url}/users/me`, token);
-    } */
+    isAuthenticated(): boolean {
+        const token = localStorage.getItem(this.tokenKey); // Verifica si el token existe
+        return !!token; // Devuelve true si el token existe, false si no
+    }
 
     changeAuthStatus(value: boolean) {
         this.loggedIn.next(value);
     }
+
 }

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Slf4j
@@ -83,6 +84,7 @@ public class UsersController {
         return ResponseEntity.ok(loginResponse);
     }
 
+    // Para pasar el token por header
     @PostMapping("/logout")
     public ResponseEntity<Void> logout(HttpServletRequest request) {
         String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
@@ -94,5 +96,15 @@ public class UsersController {
         // este controller permite devolver un 200 explícito y borrar token en cliente.
         return ResponseEntity.ok().build();
     }
+
+    // Este logout es para pasarle el token por body
+    /*@PostMapping("/logout")
+    public ResponseEntity<Void> logout(@RequestBody Map<String, String> requestBody) {
+        String token = requestBody.get("token");
+        if (token != null) {
+            tokenBlacklistService.blacklistToken(token);
+        }
+        return ResponseEntity.ok().build();
+    }*/
     
 }

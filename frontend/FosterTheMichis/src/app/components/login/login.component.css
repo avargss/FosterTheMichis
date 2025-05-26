@@ -4,15 +4,13 @@
     justify-content: center;
     align-items: center;
     background-color: #2eb8c7;
-    /* Turquesa claro */
     min-height: 100vh;
-    padding: 20px;
+    padding-bottom: 175px;
 }
 
 /* Tarjeta del login */
 .login-card {
     background: #e7dabb;
-    /* Arena suave */
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);

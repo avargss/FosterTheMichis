@@ -74,7 +74,7 @@ public class UserService {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(input.email(), input.password()));
         User user = (User) authentication.getPrincipal();
-        String token = tokenService.generateToken(authentication);
+        String token = tokenService.generateToken(authentication, null); // Genera un nuevo token, el segundo parámetro es el token actual (null en este caso)
         return new SecurityConfig.LoginResponse(token, user.getName(), user.getEmail());
     }
 }

@@ -75,12 +75,11 @@ header>div:last-child>div p {
     width: 40px;
     border-radius: 50%;
     cursor: pointer;
+    text-decoration: none;
 }
 
-/* Botón hamburger */
 .menu-toggle {
     display: none;
-    /* oculto en desktop */
     background: none;
     border: none;
     font-size: 2rem;
@@ -92,7 +91,6 @@ header>div:last-child>div p {
     outline: none;
 }
 
-/* Nav items en desktop */
 .nav-items {
     display: flex;
     gap: 50px;
@@ -101,36 +99,31 @@ header>div:last-child>div p {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Asegura que los enlaces siempre sean negro */
-.nav-items a {
+.nav-items a.links {
     color: #2D2D2D;
-    /* color negro */
     text-decoration: none;
     position: relative;
-    /* para posicionar el ::after */
 }
 
 /* Pseudo-elemento que será la línea */
-.nav-items a::after {
+.nav-items a.links::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: -4px;
-    /* ajusta la separación */
     width: 0;
-    /* comienza sin longitud */
     height: 2px;
-    /* grosor de la línea */
     background-color: #2D2D2D;
-    /* mismo negro */
     transition: width 0.3s ease-in-out;
-    /* animación suave */
 }
 
 /* Al hover, la línea crece hasta el 100% */
-.nav-items a:hover::after {
+.nav-items a.links:hover::after {
     width: 100%;
-    /* de izquierda a derecha */
+}
+
+.dropdown {
+    color: #2D2D2D;
 }
 
 /* Responsive: móviles ≤768px */
@@ -156,8 +149,4 @@ header>div:last-child>div p {
     .nav-items.open {
         transform: translateX(0);
     }
-
-    /* slide-in */
-
-
 }

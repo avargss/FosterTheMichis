@@ -16,10 +16,15 @@ public class JwtBlacklistLogoutHandler implements LogoutHandler {
 
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
+
         String token = request.getHeader("Authorization");
+        System.out.println("Token agregado a la lista negra: " + token);
+
         if (token != null && token.startsWith("Bearer ")) {
-            token = token.substring(7);
-            tokenBlacklistService.blacklistToken(token);
+            token = token.substring(7); // Elimina el prefijo "Bearer "
+            tokenBlacklistService.blacklistToken(token); // Agrega el token a la lista negra
         }
+
+        System.out.println("Sesión cerrada correctamente");
     }
 }

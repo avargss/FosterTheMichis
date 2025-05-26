@@ -5,22 +5,23 @@ import { Injectable } from '@angular/core';
 })
 export class TokenService {
     constructor() { }
+    private tokenKey = 'authToken';
 
     handle(token: string) {
         this.set(token);
         return this.loggedIn();
     }
 
-    set(token: string) {
-        localStorage.setItem('token', token);
+    set(token: string): void {
+        localStorage.setItem(this.tokenKey, token);
     }
 
-    get() {
-        return localStorage.getItem('token');
+    get(): string | null {
+        return localStorage.getItem(this.tokenKey);
     }
 
-    remove() {
-        localStorage.removeItem('token');
+    remove(): void {
+        localStorage.removeItem(this.tokenKey);
     }
 
     isValid() {
@@ -37,7 +38,6 @@ export class TokenService {
                 return isIssuerValid && isNotExpired;
             }
         }
-
         return false;
     }
 
@@ -50,7 +50,7 @@ export class TokenService {
         return JSON.parse(atob(payload));
     }
 
-    loggedIn() {
-        return this.isValid();
+    loggedIn(): boolean {
+        return !!this.get(); // Devuelve true si hay un token almacenado
     }
 }

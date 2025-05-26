@@ -21,14 +21,24 @@
 
     <!-- Navegación principal -->
     <nav id="nav-items" class="nav-items" [class.open]="isMenuOpen" role="navigation">
-        <a routerLink="/menu">Menú</a>
-        <a routerLink="/galeria">Galería</a>
-        <a routerLink="/adopcion">Adopción</a>
-        <a routerLink="/reservas">Reservas</a>
-        <a routerLink="/contacto">Contacto</a>
-        <a class="icon-language"><i class="bi bi-globe"></i></a>
-        <a routerLink="/login" class="icon-user">
-            <img src="/user_icon.jpg" alt="Usuario" class="user-icon" />
-        </a>
+        <a class="links" routerLink="/menu">Menú</a>
+        <a class="links" routerLink="/galeria">Galería</a>
+        <a class="links" routerLink="/adopcion">Adopción</a>
+        <a class="links" routerLink="/reservas">Reservas</a>
+        <a class="links" routerLink="/contacto">Contacto</a>
+        <a class="icon-language links"><i class="bi bi-globe"></i></a>
+
+        <!-- Dropdown para usuario -->
+        <div class="dropdown">
+            <a class="user-icon" id="userDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="/user_icon.jpg" alt="Usuario" class="user-icon" />
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <li *ngIf="!isLoggedIn"><a class="dropdown-item" routerLink="/register">Registrar usuario</a></li>
+                <li *ngIf="!isLoggedIn"><a class="dropdown-item" routerLink="/login">Iniciar sesión</a></li>
+                <li *ngIf="isLoggedIn"><a class="dropdown-item" (click)="logout()">Cerrar sesión</a></li>
+            </ul>
+        </div>
     </nav>
 </header>

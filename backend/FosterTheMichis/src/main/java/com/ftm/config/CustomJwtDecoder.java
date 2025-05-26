@@ -10,16 +10,20 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Primary
-@AllArgsConstructor
 public class CustomJwtDecoder implements JwtDecoder {
-
     private final JwtDecoder delegate;
-    private final TokenBlacklistService tokenBlacklistService;
+    private final TokenBlacklistService blacklistService;
+
+    public CustomJwtDecoder(JwtDecoder delegate, TokenBlacklistService blacklistService) {
+        this.delegate = delegate;
+        this.blacklistService = blacklistService;
+    }
 
     @Override
     public Jwt decode(String token) throws JwtException {
-        if (tokenBlacklistService.isRevoked(token)) {
-            throw new JwtException("Token has been revoked");
+        if (blacklistService.isRevoked(token)) {
+
+            throw new JwtException("Token está en la lista negra");
         }
         return delegate.decode(token);
     }
