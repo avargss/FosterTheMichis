@@ -66,7 +66,14 @@ export class AuthService {
     }
 
     register(form: Object): Observable<any> {
-        return this.http.post(`${this.url}/users/register`, form);
+        return this.http.post(`${this.url}/users/register`, form).pipe(
+            tap((response: any) => {
+                if (response.token) {
+                    this.tokenService.set(response.token); // Guarda el token en localStorage
+                    this.changeAuthStatus(true); // Actualiza el estado de autenticación
+                }
+            })
+        );
     }
 
     isAuthenticated(): boolean {

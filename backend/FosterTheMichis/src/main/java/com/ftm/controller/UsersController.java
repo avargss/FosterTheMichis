@@ -97,7 +97,7 @@ public class UsersController {
         return ResponseEntity.ok().build();
     }
 
-    // Este logout es para pasarle el token por body
+    // Para pasar el token por body
     /*@PostMapping("/logout")
     public ResponseEntity<Void> logout(@RequestBody Map<String, String> requestBody) {
         String token = requestBody.get("token");

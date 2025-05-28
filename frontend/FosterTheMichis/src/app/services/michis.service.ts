@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Michi } from '../model/michis';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -25,15 +25,30 @@ export class MichisService {
   }
 
   addMichi(michi: Michi): Observable<Michi> {
-    return this.http.post<Michi>(this.michisUrl, michi);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.post<Michi>(this.michisUrl, michi, { headers });
   }
 
   updateMichi(michi: Michi): Observable<Michi> {
-    return this.http.put<Michi>(`${this.michisUrl}/${michi.id}`, michi);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.put<Michi>(`${this.michisUrl}/${michi.id}`, michi, { headers });
   }
 
   deleteMichi(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.michisUrl}/${id}`);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.delete<void>(`${this.michisUrl}/${id}`, { headers });
   }
 
   getNonAdoptableMichis(): Observable<Michi[]> {
@@ -42,5 +57,9 @@ export class MichisService {
 
   getAdoptableMichis(): Observable<Michi[]> {
     return this.http.get<Michi[]>(`${this.michisUrl}/adoptable`);
+  }
+
+  getBreeds(): Observable<string[]> {
+    return this.http.get<string[]>(`${this.michisUrl}/breeds`);
   }
 }

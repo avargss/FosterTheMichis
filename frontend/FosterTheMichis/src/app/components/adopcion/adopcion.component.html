@@ -16,6 +16,23 @@
             <div class="bottom-container">
                 <div class="bottom-content">
 
+                    <div class="admin-control" *ngIf="isAdmin">
+                        <div class="admin-header">
+                            <h2>Panel de Administrador</h2>
+                            <span class="badge">Nº de Michis: {{ getTotalMichis() }}</span>
+                        </div>
+                        <div class="admin-actions">
+
+                            <button class="btn btn-primary" (click)="openAddMichiForm()">
+                                <i class="bi bi-plus-circle"></i> Añadir Michi
+                            </button>
+
+                            <button class="btn btn-secondary">
+                                <i class="bi bi-bar-chart"></i> Estadísticas
+                            </button>
+                        </div>
+                    </div>
+
                     <div class="wave-text-container original-text">
                         <h2 class="description-title">🐾 Conoce a nuestros Meownagers</h2>
                         <p class="description-text">
@@ -26,7 +43,7 @@
                             más juguetón, aporta alegría y dinamismo al ambiente. Su presencia constante crea un entorno
                             acogedor y familiar para todos.
                         </p>
-                        
+
                     </div>
 
                     <div class="wave-text-container mobile-text">
@@ -48,6 +65,18 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ michi.name }}</h5>
                                     <p class="card-text">{{ michi.description }}</p>
+                                    <p class="card-text">Edad: {{ michi.age }}</p>
+                                    <p class="card-text">Raza: {{ michi.breed }}</p>
+
+                                    <!-- Botones visibles solo para usuarios con rol "admin" -->
+                                    <div class="buttons-crud">
+                                        <button *ngIf="isAdmin" class="btn btn-danger" (click)="deleteMichi(michi.id)">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+                                        <button *ngIf="isAdmin" class="btn btn-warning" (click)="editMichi(michi.id)">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -84,9 +113,24 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ michi.name }}</h5>
                                     <p class="card-text">{{ michi.description }}</p>
-                                    <button class="adopt-btn">
+                                    <p class="card-text">Edad: {{ michi.age }}</p>
+                                    <p class="card-text">Raza: {{ michi.breed }}</p>
+
+                                    <!-- Botón Adoptar visible para usuarios no autenticados o con rol "user" -->
+                                    <button *ngIf="isLoggedIn && !isAdmin" class="adopt-btn">
                                         Adoptar 🐾
                                     </button>
+
+                                    <!-- Botones visibles solo para usuarios con rol "admin" -->
+                                    <div class="buttons-crud">
+                                        <button *ngIf="isAdmin" class="btn btn-danger" (click)="deleteMichi(michi.id)">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+                                        <button *ngIf="isAdmin" class="btn btn-warning" (click)="editMichi(michi.id)">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

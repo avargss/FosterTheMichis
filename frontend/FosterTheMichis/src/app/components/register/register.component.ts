@@ -28,12 +28,12 @@ export class RegisterComponent implements OnInit {
       surname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      phone_number: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      phoneNumber: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
       role: ['user', Validators.required] // Asegúrate de que el valor sea válido
     });
 
-    // Verifica si el usuario actual es administrador
-    this.isAdmin = this.authService.isAdmin();
+    /* // Verifica si el usuario actual es administrador
+    this.isAdmin = this.authService.isAdmin(); */
   }
 
   submit(): void {

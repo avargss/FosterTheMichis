@@ -195,6 +195,135 @@ hr {
     color: #b07b50;
 }
 
+.buttons-crud {
+    display: flex;
+    gap: 5px;
+    margin: 5px;
+
+}
+
+/* ================================
+   Admin Control
+   ================================ */
+.admin-control {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    padding: 1.5rem 2rem;
+    background: #f1c7a9;
+    border: 2px solid #C99D7D;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabecera: título + badge */
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.admin-header h2 {
+    font-family: 'Kitten', sans-serif;
+    font-size: 1.8rem;
+    color: #2D2D2D;
+    margin: 0;
+}
+
+.admin-header .badge {
+    background: #E7DABB;
+    color: #2D2D2D;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 1rem;
+}
+
+/* Contenedor de acciones */
+.admin-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Buscador */
+.admin-search {
+    flex: 1 1 200px;
+    padding: 0.6rem 1rem;
+    border: 2px solid #C99D7D;
+    border-radius: 0.75rem;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.admin-search:focus {
+    outline: none;
+    border-color: #62CAD5;
+    box-shadow: 0 0 6px rgba(98, 202, 213, 0.4);
+}
+
+/* Botones de admin */
+.admin-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+    border-radius: 0.75rem;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.admin-actions .btn-info {
+    background: #62CAD5;
+    border: none;
+    color: #fff;
+}
+
+.admin-actions .btn-info:hover {
+    background: #4bb2be;
+    transform: translateY(-1px);
+}
+
+.admin-actions .btn-secondary {
+    background: #C99D7D;
+    border: none;
+    color: #2D2D2D;
+}
+
+.admin-actions .btn-secondary:hover {
+    background: #b07b50;
+    color: #fff;
+}
+
+.admin-actions .btn-outline-dark {
+    background: transparent;
+    border: 2px solid #2D2D2D;
+    color: #2D2D2D;
+}
+
+.admin-actions .btn-outline-dark:hover {
+    background: #2D2D2D;
+    color: #fff;
+}
+
+@media (max-width: 576px) {
+    .admin-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-actions .btn,
+    .admin-search {
+        width: 100%;
+    }
+}
+
+
 /* CARE CARDS */
 
 .pre-adoption-care {

@@ -61,7 +61,7 @@ export class LoginComponent {
 
         if (validToken) {
           this.authService.changeAuthStatus(true);
-          console.log("Login ok");
+          console.log("Logged in successfully");
         
         }
       },

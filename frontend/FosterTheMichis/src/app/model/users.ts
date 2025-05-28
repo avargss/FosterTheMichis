@@ -2,7 +2,7 @@ export interface User {
     id: number;
     name: string;
     surname: string;
-    phone_number: number;
+    phoneNumber: number;
     email: string;
     password: string;
     role: "admin" | "user";

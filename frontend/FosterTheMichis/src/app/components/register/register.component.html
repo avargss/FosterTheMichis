@@ -48,11 +48,11 @@
 
             <!-- Número de Teléfono -->
             <div class="form-group">
-                <label for="phone_number">Número de Teléfono</label>
-                <input id="phone_number" type="tel" formControlName="phone_number" placeholder="Número de Teléfono"
-                    [class.invalid]="registerForm.get('phone_number')?.invalid && registerForm.get('phone_number')?.touched" />
+                <label for="phoneNumber">Número de Teléfono</label>
+                <input id="phoneNumber" type="tel" formControlName="phoneNumber" placeholder="Número de Teléfono"
+                    [class.invalid]="registerForm.get('phoneNumber')?.invalid && registerForm.get('phoneNumber')?.touched" />
                 <div class="error"
-                    *ngIf="registerForm.get('phone_number')?.invalid && registerForm.get('phone_number')?.touched">
+                    *ngIf="registerForm.get('phoneNumber')?.invalid && registerForm.get('phoneNumber')?.touched">
                     El número de teléfono es requerido
                 </div>
             </div>
