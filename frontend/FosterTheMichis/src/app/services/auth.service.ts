@@ -85,4 +85,27 @@ export class AuthService {
         this.loggedIn.next(value);
     }
 
+    getUserData(): Observable<any> | null {
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            console.warn('No se encontró un token en el almacenamiento local.');
+            return null; // Devuelve null si no hay token
+        }
+
+        try {
+            const payload = JSON.parse(atob(token.split('.')[1])); // Decodifica el payload del token
+            const userId = payload.id; // Obtén el id del usuario del token
+
+            // Incluye el token en el encabezado de la solicitud
+            const headers = new HttpHeaders({
+                'Authorization': `Bearer ${token}`
+            });
+
+            // Realiza una solicitud al backend para obtener los datos del usuario
+            return this.http.get(`${this.url}/users/${userId}`, { headers });
+        } catch (error) {
+            console.error('Error al decodificar el token:', error);
+            return null; // Devuelve null si ocurre un error al decodificar el token
+        }
+    }
 }

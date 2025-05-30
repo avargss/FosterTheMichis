@@ -41,11 +41,6 @@ public class UsersController {
     @GetMapping
     public List<User> all() {
         log.info("Accediendo a todos los usuarios");
-
-        /*boolean ok = new BCryptPasswordEncoder()
-                .matches("admin12345", "$2a$10$ut0jA3gZaVXjfYV4nFjLgejmy4gqD04az7q8KzmYbjqVR3wNwPspS");
-        System.out.println(ok);*/
-
         return this.userService.all();
     }
 

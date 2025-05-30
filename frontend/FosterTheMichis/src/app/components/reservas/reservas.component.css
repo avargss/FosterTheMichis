@@ -75,6 +75,15 @@ main {
     color: #2D2D2D;
 }
 
+.wave-p-text {
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+    color: #ff7f50;
+}
+
 .original-text {
     display: block;
     flex: 1 1 auto;
@@ -196,10 +205,10 @@ hr {
 }
 
 .form-container h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 25px;
-    color: #ff7f50;
-    font-family: 'Kitten', sans-serif;
+    color: #2D2D2D;
+    font-family: 'Jockey One', sans-serif;
 }
 
 .form-group {

@@ -31,9 +31,6 @@ export class RegisterComponent implements OnInit {
       phoneNumber: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
       role: ['user', Validators.required] // Asegúrate de que el valor sea válido
     });
-
-    /* // Verifica si el usuario actual es administrador
-    this.isAdmin = this.authService.isAdmin(); */
   }
 
   submit(): void {
