@@ -15,7 +15,6 @@
 
             <div class="bottom-container">
                 <div class="bottom-content">
-
                     <div class="admin-control" *ngIf="isAdmin">
                         <div class="admin-header">
                             <h2>Panel de Administrador</h2>
@@ -117,7 +116,7 @@
                                     <p class="card-text">Raza: {{ michi.breed }}</p>
 
                                     <!-- Botón Adoptar visible para usuarios no autenticados o con rol "user" -->
-                                    <button *ngIf="isLoggedIn && !isAdmin" class="adopt-btn">
+                                    <button *ngIf="isLoggedIn && !isAdmin" class="adopt-btn" (click)="addToAdoptionList(michi)">
                                         Adoptar 🐾
                                     </button>
 

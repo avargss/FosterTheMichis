@@ -51,4 +51,8 @@ public class MichiService {
     public List<Michi> findAdoptableMichis() {
         return michiRepository.findByAdoptableTrue();
     }
+
+    public List<Michi> findAdoptionListByUserId(Long userId) {
+        return michiRepository.findAdoptionListByUserId(userId);
+    }
 }

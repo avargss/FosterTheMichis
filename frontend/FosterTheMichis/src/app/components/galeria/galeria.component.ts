@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Michi } from '../../model/michis';
 import { MichisService } from '../../services/michis.service';
 import { NgFor } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-galeria',
-  imports: [NgFor],
+  imports: [NgFor, RouterLink],
   templateUrl: './galeria.component.html',
   styleUrl: './galeria.component.css'
 })

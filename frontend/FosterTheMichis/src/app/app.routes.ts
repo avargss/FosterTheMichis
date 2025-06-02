@@ -7,6 +7,7 @@ import { AdopcionComponent } from './components/adopcion/adopcion.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { ReservasComponent } from './components/reservas/reservas.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GestionComponent } from './shared/gestion/gestion.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent, title: 'Home' },
@@ -17,4 +18,5 @@ export const routes: Routes = [
     { path: 'adopcion', component: AdopcionComponent, title: 'Adopción' },
     { path: 'contacto', component: ContactoComponent, title: 'Contacto' },
     { path: 'reservas', component: ReservasComponent, title: 'Reservas' },
+    { path: 'gestion', component: GestionComponent, title: 'Gestión' },
 ];

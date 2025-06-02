@@ -65,18 +65,19 @@
                         <p class="wave-p-text">
                             <a routerLink="/login">
                                 <button type="button" class="btn btn-success">
-                                    <i class="bi bi-info-circle"> Para poder realizar una reserva deberás inciar sesión</i>
+                                    <i class="bi bi-info-circle"> Para poder realizar una reserva deberás inciar
+                                        sesión</i>
                                 </button>
                             </a>
                         </p>
-                        
+
                     </div>
 
                     <div class="wave-text-container mobile-text">
                         <h2 class="description-title">Reserva una visita y pasa una maravillosa tarde junto a nuestros
                             michis</h2>
                         <p class="wave-p-text">Para poder realizar una reserva deberás iniciar sesión</p>
-                        
+
                     </div>
 
                     <div class="reservation-container">
@@ -98,33 +99,36 @@
                         </div>
 
                         <form class="form-container" (ngSubmit)="onSubmit(reservationForm)" #reservationForm="ngForm">
-
                             <div class="form-group">
                                 <input type="date" class="form-control" placeholder="Fecha de la reserva" name="date"
-                                    required ngModel [disabled]="!isAuthenticated">
+                                    required ngModel [readOnly]="!isAuthenticated">
                                 <input type="time" class="form-control" placeholder="Hora de la reserva" name="time"
-                                    required ngModel [disabled]="!isAuthenticated">
+                                    required ngModel [readOnly]="!isAuthenticated">
                             </div>
+
                             <div class="form-group">
                                 <input type="number" class="form-control" placeholder="Número de comensales"
-                                    name="guests" required ngModel [disabled]="!isAuthenticated">
+                                    name="guests" required ngModel [readOnly]="!isAuthenticated">
+                                    
                                 <input type="tel" class="form-control" placeholder="Número de Teléfono" name="phone"
-                                    required ngModel [value]="userData?.phoneNumber" [disabled]="!isAuthenticated">
+                                 ngModel value="{{userData?.phoneNumber}}" readonly>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" placeholder="Correo Electrónico" name="email"
-                                    required ngModel [value]="userData?.email" [disabled]="!isAuthenticated">
+                                 ngModel value="{{userData?.email}}" readonly>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombre" name="firstName" required
-                                    ngModel [value]="userData?.name" [disabled]="!isAuthenticated">
-                                <input type="text" class="form-control" placeholder="Apellidos" name="lastName" required
-                                    ngModel [value]="userData?.surname" [disabled]="!isAuthenticated">
+                                <input type="text" class="form-control" placeholder="Nombre" name="firstName"
+                                    ngModel value="{{userData?.name}}" readonly>
+                                <input type="text" class="form-control" placeholder="Apellidos" name="lastName"
+                                    ngModel value="{{userData?.surname}}" readonly>
                             </div>
+
                             <div class="form-group">
                                 <textarea class="form-control full" placeholder="Comentarios" name="comments" ngModel
-                                    [disabled]="!isAuthenticated"></textarea>
+                                    [readOnly]="!isAuthenticated"></textarea>
                             </div>
+
                             <button type="submit" class="submit-btn" [disabled]="!isAuthenticated">Reservar</button>
                         </form>
                     </div>

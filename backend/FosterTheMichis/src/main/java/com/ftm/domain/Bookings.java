@@ -1,5 +1,6 @@
 package com.ftm.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "id")
-public class Booking {
+public class Bookings {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

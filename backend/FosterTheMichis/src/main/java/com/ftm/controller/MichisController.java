@@ -61,4 +61,9 @@ public class MichisController {
         log.info("Accediendo a los michis adoptables");
         return michiService.findAdoptableMichis();
     }
+
+    @GetMapping("/adoption-list/{userId}")
+    public List<Michi> getAdoptionListByUserId(@PathVariable Long userId) {
+        return michiService.findAdoptionListByUserId(userId);
+    }
 }

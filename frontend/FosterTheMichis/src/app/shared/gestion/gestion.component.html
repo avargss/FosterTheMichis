@@ -1,0 +1,136 @@
+<body>
+    <main class="home-container" id="top">
+        <div class="title-container">
+            <h1 class="menu-title">Gestion</h1>
+        </div>
+
+        <div class="description-container">
+            <div class="wave-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path fill="#e7dabb" fill-opacity="1"
+                        d="M0,32L48,53.3C96,75,192,117,288,165.3C384,213,480,267,576,272C672,277,768,235,864,186.7C960,139,1056,85,1152,74.7C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                    </path>
+                </svg>
+            </div>
+
+            <div class="bottom-container">
+
+                <div class="description-container">
+                    <!-- Botones para cambiar entre pestañas -->
+                    <div class="tab-buttons">
+                        <button class="btn" [class.active]="activeTab === 'reservas'"
+                            (click)="setActiveTab('reservas')">Reservas</button>
+                        <button class="btn" [class.active]="activeTab === 'usuarios'"
+                            (click)="setActiveTab('usuarios')">Usuarios</button>
+                        <button class="btn" [class.active]="activeTab === 'michis'"
+                            (click)="setActiveTab('michis')">Michis</button>
+                    </div>
+
+                    <!-- Tabla dinámica -->
+                    <div class="table-container" style="border-radius: 16px;">
+                        <!-- Tabla de Reservas -->
+                        <table *ngIf="activeTab === 'reservas'" class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Fecha</th>
+                                    <th>Número de Personas</th>
+                                    <th>Comentarios</th>
+                                    <th>Usuario</th>
+                                    <th>Control</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let reservation of reservations">
+                                    <td>{{ reservation.id }}</td>
+                                    <td>{{ reservation.date}}</td>
+                                    <td>{{ reservation.peopleNumber }}</td>
+                                    <td>{{ reservation.comments || 'Sin comentarios' }}</td>
+                                    <td>{{ reservation.user?.name || 'Desconocido' }}</td>
+                                    <td style="display: flex; justify-content: space-around;">
+                                        <button class="btn btn-danger" (click)="deleteBooking(reservation.id)">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+                                        <button class="btn btn-warning" (click)="editBooking(reservation.id)">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Tabla de Usuarios -->
+                        <table *ngIf="activeTab === 'usuarios'" class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Correo</th>
+                                    <th>Teléfono</th>
+                                    <th>Rol</th>
+                                    <th>Control</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of users">
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.name }} {{ user.surname }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.phoneNumber }}</td>
+                                    <td>{{ user.role }}</td>
+                                    <td style="display: flex; justify-content: space-around;">
+                                        <button class="btn btn-danger" (click)="deleteUser(user.id)">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+                                        <button class="btn btn-warning" (click)="editUser(user.id)">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Tabla de Michis -->
+                        <table *ngIf="activeTab === 'michis'" class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Edad</th>
+                                    <th>Raza</th>
+                                    <th>Adoptable</th>
+                                    <th>Control</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let michi of michis">
+                                    <td>{{ michi.id }}</td>
+                                    <td>{{ michi.name }}</td>
+                                    <td>{{ michi.age }}</td>
+                                    <td>{{ michi.breed }}</td>
+                                    <td>{{ michi.adoptable ? 'Sí' : 'No' }}</td>
+                                    <td style="display: flex; justify-content: space-around;">
+                                        <button class="btn btn-danger" (click)="deleteMichi(michi.id)">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+                                        <button class="btn btn-warning" (click)="editMichi(michi.id)">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="flipped-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                        <path fill="#E7DABB" fill-opacity="1"
+                            d="M0,32L48,53.3C96,75,192,117,288,165.3C384,213,480,267,576,272C672,277,768,235,864,186.7C960,139,1056,85,1152,74.7C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

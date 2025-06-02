@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Bookings } from '../model/bookings';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -17,22 +17,51 @@ export class BookingsService {
   constructor() { }
 
   getAllBookings(): Observable<Bookings[]> {
-    return this.http.get<Bookings[]>(this.bookingsUrl);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.get<Bookings[]>(this.bookingsUrl, { headers });
   }
 
   getBookingById(id: number): Observable<Bookings> {
-    return this.http.get<Bookings>(`${this.bookingsUrl}/${id}`);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.get<Bookings>(`${this.bookingsUrl}/${id}`, { headers });
   }
 
   addBooking(booking: Bookings): Observable<Bookings> {
-    return this.http.post<Bookings>(this.bookingsUrl, booking);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.post<Bookings>(this.bookingsUrl, booking, { headers });
   }
 
   updateBooking(booking: Bookings): Observable<Bookings> {
-    return this.http.put<Bookings>(`${this.bookingsUrl}/${booking.id}`, booking);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.put<Bookings>(`${this.bookingsUrl}/${booking.id}`, booking, { headers });
   }
 
   deleteBooking(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.bookingsUrl}/${id}`);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.delete<void>(`${this.bookingsUrl}/${id}`, { headers });
+  }
+
+  getBookingsByUserId(userId: number): Observable<Bookings[]> {
+    return this.http.get<Bookings[]>(`${this.bookingsUrl}/user/${userId}`);
   }
 }

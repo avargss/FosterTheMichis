@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { User } from '../model/users';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -21,18 +21,38 @@ export class UsersService {
   }
 
   getUserById(id: number): Observable<User> {
-    return this.http.get<User>(`${this.usersUrl}/${id}`);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.get<User>(`${this.usersUrl}/${id}`, { headers });
   }
 
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.usersUrl, user);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.post<User>(this.usersUrl, user, { headers });
   }
 
   updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`${this.usersUrl}/${user.id}`, user);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.put<User>(`${this.usersUrl}/${user.id}`, user, { headers });
   }
 
   deleteUser(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.usersUrl}/${id}`);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.delete<void>(`${this.usersUrl}/${id}`, { headers });
   }
 }

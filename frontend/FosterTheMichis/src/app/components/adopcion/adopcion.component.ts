@@ -4,15 +4,16 @@ import { MichisService } from '../../services/michis.service';
 import { NgFor, NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adopcion',
   imports: [NgFor, NgIf],
   templateUrl: './adopcion.component.html',
   styleUrl: './adopcion.component.css'
+  
 })
 export class AdopcionComponent {
-
   nonAdoptableMichis: Michi[] = [];
   adoptableMichis: Michi[] = [];
   filteredMichis: Michi[] = [];
@@ -20,8 +21,10 @@ export class AdopcionComponent {
   isLoggedIn = false;
   breeds: string[] = [];
   selectedBreed: string = '';
+  hasLoaded = false;
+  adoptionList: Michi[] = [];
 
-  constructor(private michisService: MichisService, private authService: AuthService) { }
+  constructor(private michisService: MichisService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadNonAdoptableMichis();
@@ -187,6 +190,25 @@ export class AdopcionComponent {
   loadBreeds(): void {
     this.michisService.getBreeds().subscribe((breeds) => {
       this.breeds = breeds;
+    });
+  }
+
+  addToAdoptionList(michi: Michi): void {
+    // Añadir el gato a la lista
+    this.adoptionList.push(michi);
+
+    // Mostrar el popup de confirmación
+    Swal.fire({
+      title: '¡Michi añadido!',
+      text: `${michi.name} se ha añadido a tu lista de adopción.`,
+      icon: 'success',
+      showCancelButton: true,
+      confirmButtonText: 'Ir a Gestión',
+      cancelButtonText: 'Entendido'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/gestion']);
+      }
     });
   }
 

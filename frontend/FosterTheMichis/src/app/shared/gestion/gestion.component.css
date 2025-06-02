@@ -1,0 +1,575 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #C99D7D;
+    z-index: -1;
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior-x: contain;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    /* Para medir lo del svg del footer
+    cambio la altura desde aquí */
+    padding-bottom: 15%;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 200px;
+    position: relative;
+    z-index: 1;
+}
+
+.title-container {
+    margin-top: 75px;
+    margin-bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.menu-title {
+    font-family: 'Kitten', sans-serif;
+    color: #2D2D2D;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.description-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.wave-container {
+    width: 100%;
+    position: relative;
+    margin-top: -50px;
+    margin-bottom: 0;
+    color: #2D2D2D;
+}
+
+.wave-text-container {
+    max-width: 900px;
+    text-align: justify;
+    padding: 20px;
+    color: #2D2D2D;
+}
+
+.original-text {
+    display: block;
+    flex: 1 1 auto;
+}
+
+.description-title {
+    font-family: 'Kitten', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.description-text {
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* TARJETAS DE MEOW-MANAGERS Y NON-ADOPTABLE-CARDS */
+.non-adoptable-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    justify-items: center;
+    padding: 10px 0;
+}
+
+.card {
+    background: #fff8f1;
+    border: 2px solid #C99D7D;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(201, 157, 125, 0.10), 0 1.5px 6px rgba(45, 45, 45, 0.07);
+    overflow: hidden;
+    transition: transform 0.18s cubic-bezier(.4, 2, .6, 1), box-shadow 0.18s cubic-bezier(.4, 2, .6, 1);
+    max-width: 320px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(201, 157, 125, 0.18), 0 3px 12px rgba(45, 45, 45, 0.13);
+    border-color: #b07b50;
+    background: #fff3e3;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background: #e7dabb;
+    box-shadow: 0 2px 8px rgba(201, 157, 125, 0.08);
+}
+
+.card-body {
+    padding: 18px 18px 14px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 auto;
+}
+
+.card-title {
+    font-family: 'Kitten', sans-serif;
+    font-size: 1.7rem;
+    color: #C99D7D;
+    margin-bottom: 8px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.card-text {
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.08rem;
+    color: #2D2D2D;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    width: 55%;
+    background-color: #2D2D2D;
+    margin: 20px 0;
+}
+
+.adopt-btn {
+    margin-top: 14px;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 24px;
+    background: linear-gradient(90deg, #C99D7D 0%, #E7DABB 100%);
+    color: #2D2D2D;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(201, 157, 125, 0.10);
+    transition: background 0.2s, transform 0.15s;
+}
+
+.adopt-btn:hover {
+    background: linear-gradient(90deg, #E7DABB 0%, #C99D7D 100%);
+    transform: translateY(-2px) scale(1.04);
+    color: #b07b50;
+}
+
+.buttons-crud {
+    display: flex;
+    gap: 5px;
+    margin: 5px;
+
+}
+
+/* ================================
+   Admin Control
+   ================================ */
+.admin-control {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    padding: 1.5rem 2rem;
+    background: #f1c7a9;
+    border: 2px solid #C99D7D;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabecera: título + badge */
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.admin-header h2 {
+    font-family: 'Kitten', sans-serif;
+    font-size: 1.8rem;
+    color: #2D2D2D;
+    margin: 0;
+}
+
+.admin-header .badge {
+    background: #E7DABB;
+    color: #2D2D2D;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 1rem;
+}
+
+/* Contenedor de acciones */
+.admin-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Buscador */
+.admin-search {
+    flex: 1 1 200px;
+    padding: 0.6rem 1rem;
+    border: 2px solid #C99D7D;
+    border-radius: 0.75rem;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.admin-search:focus {
+    outline: none;
+    border-color: #62CAD5;
+    box-shadow: 0 0 6px rgba(98, 202, 213, 0.4);
+}
+
+/* Botones de admin */
+.admin-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Jockey One', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+    border-radius: 0.75rem;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.admin-actions .btn-info {
+    background: #62CAD5;
+    border: none;
+    color: #fff;
+}
+
+.admin-actions .btn-info:hover {
+    background: #4bb2be;
+    transform: translateY(-1px);
+}
+
+.admin-actions .btn-secondary {
+    background: #C99D7D;
+    border: none;
+    color: #2D2D2D;
+}
+
+.admin-actions .btn-secondary:hover {
+    background: #b07b50;
+    color: #fff;
+}
+
+.admin-actions .btn-outline-dark {
+    background: transparent;
+    border: 2px solid #2D2D2D;
+    color: #2D2D2D;
+}
+
+.admin-actions .btn-outline-dark:hover {
+    background: #2D2D2D;
+    color: #fff;
+}
+
+@media (max-width: 576px) {
+    .admin-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-actions .btn,
+    .admin-search {
+        width: 100%;
+    }
+}
+
+
+/* CARE CARDS */
+
+.pre-adoption-care {
+    max-width: 1200px;
+    background-color: #fff8e1;
+    padding: 2rem;
+    border-radius: 1rem;
+    color: #4e342e;
+}
+
+.care-header h2 {
+    font-family: 'Kitten', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.care-header p {
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+.care-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.care-card {
+    flex: 1 1 calc(33.333% - 2rem);
+    max-width: calc(33.333% - 2rem);
+    background-color: #ffe0b2;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.care-card .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.care-card h3 {
+    font-family: 'Jockey One', sans-serif;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.care-card p {
+    font-size: 1rem;
+}
+
+.care-footer p {
+    font-family: 'Jockey One', sans-serif;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* PARTE INFERIOR DE LA WEB */
+
+.wave-container svg {
+    display: block;
+    width: 100%;
+    height: 220px;
+    margin-bottom: 0;
+    position: relative;
+    transform: scaleX(-1);
+}
+
+.flipped-svg svg {
+    display: block;
+    width: 100%;
+    height: 220px;
+    margin-top: -150px;
+    margin-bottom: 0;
+    position: relative;
+    transform: scale(1, -1);
+}
+
+.bottom-container {
+    width: 100%;
+    background-color: #e7dabb;
+    margin-top: -1px;
+    padding: 20px;
+    position: relative;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    animation: rotate-right 7s linear infinite;
+}
+
+@keyframes rotate-right {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.mobile-text {
+    display: none;
+}
+
+.desktop-logo .logo {
+    display: block;
+}
+
+/* TABLA GESTIÓN */
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.tab-buttons .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c99d7d;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab-buttons .btn.active {
+    background-color: #b07b50;
+}
+
+.tab-buttons .btn:hover {
+    background-color: #b07b50;
+}
+
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #c99d7d;
+    color: white;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:hover {
+    background-color: #f1c7a9;
+}
+
+@media only screen and (max-width: 768px) {
+    .original-text {
+        display: none;
+    }
+
+    .mobile-text {
+        display: block;
+        text-align: justify;
+        padding: 20px;
+    }
+
+    .title-container {
+        margin-top: 80px;
+    }
+
+    .project-title {
+        font-size: 3.5rem;
+    }
+
+    .bottom-container {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .bottom-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .description-title {
+        font-size: 1.8rem;
+        margin-top: 20px;
+    }
+
+    .description-text {
+        font-size: 1rem;
+        line-height: 1.4;
+        padding: 0 15px;
+    }
+
+    .bottom-content .logo {
+        display: none;
+    }
+
+    .non-adoptable-cards {
+        grid-template-columns: 3fr 3fr 3fr;
+        gap: 20px;
+    }
+
+    .card-img-top {
+        height: 160px;
+    }
+}

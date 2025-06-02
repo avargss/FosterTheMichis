@@ -62,4 +62,9 @@ export class MichisService {
   getBreeds(): Observable<string[]> {
     return this.http.get<string[]>(`${this.michisUrl}/breeds`);
   }
+
+  // Obtener lista de adopción por ID de usuario
+  getAdoptionListByUserId(userId: number): Observable<Michi[]> {
+    return this.http.get<Michi[]>(`${this.michisUrl}/adoption-list/${userId}`);
+  }
 }

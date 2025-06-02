@@ -1,12 +1,16 @@
 package com.ftm.controller;
 
-import com.ftm.domain.Booking;
+import com.ftm.domain.Bookings;
+import com.ftm.domain.User;
+import com.ftm.dto.BookingsDTO;
 import com.ftm.service.BookingsService;
+import com.ftm.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @Slf4j
@@ -23,24 +27,29 @@ public class BookingsController {
     }
 
     @GetMapping
-    public List<Booking> all() {
+    public List<Bookings> all() {
         log.info("Accediendo a todas las reservas");
         return this.bookingsService.all();
     }
 
     @GetMapping("/{id}")
-    public Booking one(@PathVariable Long id) {
+    public Bookings one(@PathVariable Long id) {
         return this.bookingsService.one(id);
     }
 
+    @GetMapping("/user/{userId}")
+    public List<Bookings> getBookingsByUserId(@PathVariable Long userId) {
+        return bookingsService.findByUserId(userId);
+    }
+
     @PostMapping
-    public Booking newBooking(@RequestBody Booking booking) {
-        return this.bookingsService.save(booking);
+    public Bookings newBooking(@RequestBody Bookings bookings) {
+        return this.bookingsService.save(bookings);
     }
 
     @PutMapping("/{id}")
-    public Booking replaceBooking(@PathVariable Long id, @RequestBody Booking booking) {
-        return this.bookingsService.replace(id, booking);
+    public Bookings replaceBooking(@PathVariable Long id, @RequestBody Bookings bookings) {
+        return this.bookingsService.replace(id, bookings);
     }
 
     @ResponseBody

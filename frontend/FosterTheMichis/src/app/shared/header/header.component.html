@@ -37,6 +37,7 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                 <li *ngIf="!isLoggedIn"><a class="dropdown-item" routerLink="/register">Registrar usuario</a></li>
                 <li *ngIf="!isLoggedIn"><a class="dropdown-item" routerLink="/login">Iniciar sesión</a></li>
+                <li *ngIf="isLoggedIn"><a class="dropdown-item" routerLink="/gestion">Gestionar</a></li>
                 <li *ngIf="isLoggedIn"><a class="dropdown-item" (click)="logout()">Cerrar sesión</a></li>
             </ul>
         </div>
