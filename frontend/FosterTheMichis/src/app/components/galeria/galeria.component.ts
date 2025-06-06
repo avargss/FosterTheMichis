@@ -3,10 +3,11 @@ import { Michi } from '../../model/michis';
 import { MichisService } from '../../services/michis.service';
 import { NgFor } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-galeria',
-  imports: [NgFor, RouterLink],
+  imports: [NgFor, RouterLink, TranslateModule],
   templateUrl: './galeria.component.html',
   styleUrl: './galeria.component.css'
 })

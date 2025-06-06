@@ -315,6 +315,22 @@ hr {
     flex: 1 1 400px;
 }
 
+.hero-title {
+    font-family: 'Kitten', sans-serif;
+    font-size: 3.5rem;
+    color: #2D2D2D;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+
+
 .hero-visual {
     flex: 1 1 300px;
     display: flex;

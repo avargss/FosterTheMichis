@@ -5,10 +5,12 @@ import { MichisService } from '../../services/michis.service';
 import { UsersService } from '../../services/users.service';
 import Swal from 'sweetalert2';
 import { NgFor, NgIf } from '@angular/common';
+import { Michi } from '../../model/michis';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-gestion',
-  imports: [NgIf, NgFor],
+  imports: [NgIf, NgFor, TranslateModule],
   templateUrl: './gestion.component.html',
   styleUrl: './gestion.component.css'
 })
@@ -17,27 +19,61 @@ export class GestionComponent implements OnInit {
   reservations: any[] = [];
   users: any[] = [];
   michis: any[] = [];
+  adoptionList: Michi[] = []; // Lista de adopciones
+  isAdmin = false;
+  userData: any = {}; // Datos del usuario autenticado
 
   constructor(
     private bookingsService: BookingsService,
     private michisService: MichisService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
-    this.loadReservations(); // Cargar reservas por defecto
+    // Verificar si el usuario es administrador
+    this.isAdmin = this.authService.isAdmin();
+
+    // Obtener los datos del usuario autenticado
+    this.authService.getUserData().subscribe({
+      next: (data) => {
+        this.userData = data;
+
+        // Cargar datos según el rol del usuario
+        if (this.isAdmin) {
+          this.loadReservations(); // Cargar todas las reservas
+          this.loadUsers(); // Cargar todos los usuarios
+          this.loadMichis(); // Cargar todos los michis
+        } else {
+          this.loadUserReservations(); // Cargar solo las reservas del usuario
+          this.loadAdoptionList(); // Cargar lista de adopciones
+        }
+      },
+      error: (err) => {
+        console.error('Error al obtener los datos del usuario:', err);
+        Swal.fire('Error', 'No se pudieron cargar los datos del usuario.', 'error');
+      }
+    });
   }
 
   // Cambiar la pestaña activa
   setActiveTab(tab: string): void {
     this.activeTab = tab;
 
-    if (tab === 'reservas') {
-      this.loadReservations();
-    } else if (tab === 'usuarios') {
-      this.loadUsers();
-    } else if (tab === 'michis') {
-      this.loadMichis();
+    if (this.isAdmin) {
+      if (tab === 'reservas') {
+        this.loadReservations();
+      } else if (tab === 'usuarios') {
+        this.loadUsers();
+      } else if (tab === 'michis') {
+        this.loadMichis();
+      }
+    } else {
+      if (tab === 'reservas') {
+        this.loadUserReservations();
+      } else if (tab === 'michis') {
+        this.loadAdoptionList();
+      }
     }
   }
 
@@ -50,6 +86,19 @@ export class GestionComponent implements OnInit {
       error: (err) => {
         console.error('Error al cargar las reservas:', err);
         Swal.fire('Error', 'No se pudieron cargar las reservas.', 'error');
+      }
+    });
+  }
+
+  // Cargar reservas del usuario autenticado
+  loadUserReservations(): void {
+    this.bookingsService.getBookingsByUserId(this.userData.id).subscribe({
+      next: (reservations) => {
+        this.reservations = reservations;
+      },
+      error: (err) => {
+        console.error('Error al cargar las reservas del usuario:', err);
+        Swal.fire('Error', 'No se pudieron cargar tus reservas.', 'error');
       }
     });
   }
@@ -76,6 +125,58 @@ export class GestionComponent implements OnInit {
       error: (err) => {
         console.error('Error al cargar los michis:', err);
         Swal.fire('Error', 'No se pudieron cargar los michis.', 'error');
+      }
+    });
+  }
+
+  // Cargar lista de adopción del usuario
+  loadAdoptionList(): void {
+    this.authService.getUserData().subscribe({
+      next: (userData) => {
+        if (userData && userData.id) {
+          this.userData = userData;
+          this.michisService.getAdoptionListByUserId(userData.id).subscribe({
+            next: (list: Michi[]) => {
+              this.adoptionList = list;
+            },
+            error: (err) => {
+              console.error('Error al cargar la lista de adopción:', err);
+              Swal.fire('Error', 'No se pudo cargar tu lista de adopción.', 'error');
+            }
+          });
+        } else {
+          console.warn('No se pudo obtener el ID del usuario.');
+          Swal.fire('Error', 'No se pudo cargar tu lista de adopción (usuario inválido).', 'error');
+        }
+      },
+      error: (err) => {
+        console.error('Error al obtener los datos del usuario:', err);
+        Swal.fire('Error', 'No se pudieron cargar los datos del usuario.', 'error');
+      }
+    });
+  }
+
+  // Eliminar un michi de la lista de adopción
+  removeMichiFromAdoptionList(michiId: number): void {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción eliminará al michi de tu lista de adopción.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.michisService.deleteMichiFromAdoptionList(this.userData.id, michiId).subscribe({
+          next: () => {
+            Swal.fire('¡Eliminado!', 'El michi ha sido eliminado de tu lista de adopción.', 'success');
+            this.loadAdoptionList(); // Recargar la lista de adopción después de eliminar
+          },
+          error: (err) => {
+            console.error('Error al eliminar el michi de la lista de adopción:', err);
+            Swal.fire('Error', 'No se pudo eliminar el michi de tu lista de adopción.', 'error');
+          }
+        });
       }
     });
   }

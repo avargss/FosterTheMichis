@@ -1,7 +1,7 @@
 <body>
     <main class="home-container">
         <div class="title-container">
-            <h1 class="menu-title">¡Ven a visitarnos!</h1>
+            <h1 class="menu-title">{{ 'VISIT.TITLE' | translate }}</h1>
         </div>
 
         <div class="description-container">
@@ -25,111 +25,96 @@
 
                     <div class="wave-text-container original-text">
                         <p class="description-text">
-                            Nos encontramos en el corazón de la ciudad, en un ambiente acogedor y de fácil acceso.
-                            <br><br>
-                            En FosterTheMichis, cada rincón ha sido pensado para el bienestar de nuestros adorables
-                            felinos y la comodidad de nuestros visitantes. Nuestro diseño incluye estructuras seguras
-                            para que los gatos trepen y jueguen libremente, zonas de descanso acogedoras y espacios
-                            amplios donde humanos y michis pueden convivir en armonía.
-                            Además, nuestro café cuenta con medidas de seguridad para garantizar una experiencia
-                            tranquila tanto para los gatos como para nuestros visitantes, con áreas separadas para los
-                            más tímidos y espacios interactivos para quienes buscan jugar.
-                            <br><br>
-                            📍 Nos encontramos en el corazón de la ciudad, en un ambiente acogedor y de fácil acceso.
-                            ¡Ven a disfrutar de un café mientras compartes tiempo con nuestros adorables mininos! 🐾☕
+                            {{ 'VISIT.DESCRIPTION_P1' | translate }}
                         </p>
                     </div>
 
                     <div class="wave-text-container mobile-text">
                         <p class="description-text">
-                            Nos encontramos en el corazón de la ciudad, en un ambiente acogedor y de fácil acceso.
-                            <br><br>
-                            En FosterTheMichis, cada rincón ha sido pensado para el bienestar de nuestros adorables
-                            felinos y la comodidad de nuestros visitantes. Nuestro diseño incluye estructuras seguras
-                            para que los gatos trepen y jueguen libremente, zonas de descanso acogedoras y espacios
-                            amplios donde humanos y michis pueden convivir en armonía.
-                            Además, nuestro café cuenta con medidas de seguridad para garantizar una experiencia
-                            tranquila tanto para los gatos como para nuestros visitantes, con áreas separadas para los
-                            más tímidos y espacios interactivos para quienes buscan jugar.
-                            <br><br>
-                            📍 Nos encontramos en el corazón de la ciudad, en un ambiente acogedor y de fácil acceso.
-                            ¡Ven a disfrutar de un café mientras compartes tiempo con nuestros adorables mininos! 🐾☕
+                            {{ 'VISIT.DESCRIPTION_P1' | translate }}
                         </p>
                     </div>
 
                     <hr>
 
                     <div class="wave-text-container original-text">
-                        <h2 class="description-title">Reserva una visita y pasa una maravillosa tarde junto a nuestros
-                            michis</h2>
+                        <h2 class="description-title">{{ 'VISIT.RESERVATION_TITLE' | translate }}</h2>
                         <p class="wave-p-text">
                             <a routerLink="/login">
                                 <button type="button" class="btn btn-success">
-                                    <i class="bi bi-info-circle"> Para poder realizar una reserva deberás inciar
-                                        sesión</i>
+                                    <i class="bi bi-info-circle"></i>
+                                    {{ 'VISIT.LOGIN_REQUIRED' | translate }}
                                 </button>
                             </a>
                         </p>
-
                     </div>
 
                     <div class="wave-text-container mobile-text">
-                        <h2 class="description-title">Reserva una visita y pasa una maravillosa tarde junto a nuestros
-                            michis</h2>
-                        <p class="wave-p-text">Para poder realizar una reserva deberás iniciar sesión</p>
-
+                        <h2 class="description-title">{{ 'VISIT.RESERVATION_TITLE' | translate }}</h2>
+                        <p class="wave-p-text">
+                            {{ 'VISIT.LOGIN_REQUIRED' | translate }}
+                        </p>
                     </div>
 
                     <div class="reservation-container">
                         <div class="info-container">
-                            <h3 class="info-title">🐾 Normas del Café</h3>
+                            <h3 class="info-title">{{ 'VISIT.RULES_TITLE' | translate }}</h3>
                             <ul class="info-list">
-                                <li>Respetar a los gatos en todo momento.</li>
-                                <li>No alimentar a los gatos con comida externa.</li>
-                                <li>Evitar ruidos fuertes para no asustarlos.</li>
-                                <li>Los niños deben estar supervisados por un adulto.</li>
-                                <li>Disfruta de tu tiempo con los michis y relájate.</li>
+                                <li>{{ 'VISIT.RULES.ITEM1' | translate }}</li>
+                                <li>{{ 'VISIT.RULES.ITEM2' | translate }}</li>
+                                <li>{{ 'VISIT.RULES.ITEM3' | translate }}</li>
+                                <li>{{ 'VISIT.RULES.ITEM4' | translate }}</li>
+                                <li>{{ 'VISIT.RULES.ITEM5' | translate }}</li>
                             </ul>
-                            <h3 class="info-title">✨ Beneficios de visitarnos</h3>
+                            <h3 class="info-title">{{ 'VISIT.BENEFITS_TITLE' | translate }}</h3>
                             <p class="info-text">
-                                Al reservar una visita, no solo disfrutarás de la compañía de nuestros adorables gatos,
-                                sino que también estarás apoyando su bienestar y cuidado. ¡Gracias por ser parte de
-                                nuestra misión! 🐱❤️
+                                {{ 'VISIT.BENEFITS_TEXT' | translate }}
                             </p>
                         </div>
 
                         <form class="form-container" (ngSubmit)="onSubmit(reservationForm)" #reservationForm="ngForm">
                             <div class="form-group">
-                                <input type="date" class="form-control" placeholder="Fecha de la reserva" name="date"
-                                    required ngModel [readOnly]="!isAuthenticated">
-                                <input type="time" class="form-control" placeholder="Hora de la reserva" name="time"
-                                    required ngModel [readOnly]="!isAuthenticated">
+                                <input type="date" class="form-control"
+                                    placeholder="{{ 'VISIT.PLACEHOLDER_DATE' | translate }}" name="date" required
+                                    ngModel [readOnly]="!isAuthenticated">
+                                <input type="time" class="form-control"
+                                    placeholder="{{ 'VISIT.PLACEHOLDER_TIME' | translate }}" name="time" required
+                                    ngModel [readOnly]="!isAuthenticated">
                             </div>
 
                             <div class="form-group">
-                                <input type="number" class="form-control" placeholder="Número de comensales"
-                                    name="guests" required ngModel [readOnly]="!isAuthenticated">
-                                    
-                                <input type="tel" class="form-control" placeholder="Número de Teléfono" name="phone"
-                                 ngModel value="{{userData?.phoneNumber}}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Correo Electrónico" name="email"
-                                 ngModel value="{{userData?.email}}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombre" name="firstName"
-                                    ngModel value="{{userData?.name}}" readonly>
-                                <input type="text" class="form-control" placeholder="Apellidos" name="lastName"
-                                    ngModel value="{{userData?.surname}}" readonly>
+                                <input type="number" class="form-control"
+                                    placeholder="{{ 'VISIT.PLACEHOLDER_GUESTS' | translate }}" name="guests" required
+                                    ngModel [readOnly]="!isAuthenticated">
+                                <input type="tel" class="form-control"
+                                    placeholder="{{ 'VISIT.PLACEHOLDER_PHONE' | translate }}" name="phone" ngModel
+                                    value="{{ userData?.phoneNumber }}" readonly>
                             </div>
 
                             <div class="form-group">
-                                <textarea class="form-control full" placeholder="Comentarios" name="comments" ngModel
+                                <input type="email" class="form-control"
+                                    placeholder="{{ 'VISIT.PLACEHOLDER_EMAIL' | translate }}" name="email" ngModel
+                                    value="{{ userData?.email }}" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control"
+                                    placeholder="{{ 'VISIT.PLACEHOLDER_FIRSTNAME' | translate }}" name="firstName"
+                                    ngModel value="{{ userData?.name }}" readonly>
+                                <input type="text" class="form-control"
+                                    placeholder="{{ 'VISIT.PLACEHOLDER_LASTNAME' | translate }}" name="lastName" ngModel
+                                    value="{{ userData?.surname }}" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-control full"
+                                    placeholder="{{ 'VISIT.PLACEHOLDER_COMMENTS' | translate }}" name="comments" ngModel
                                     [readOnly]="!isAuthenticated"></textarea>
                             </div>
 
-                            <button type="submit" class="submit-btn" [disabled]="!isAuthenticated">Reservar</button>
+                            <button type="submit" class="submit-btn" [disabled]="!isAuthenticated">
+                                {{ 'VISIT.BUTTON_SUBMIT' | translate }}
+                            </button>
                         </form>
                     </div>
 

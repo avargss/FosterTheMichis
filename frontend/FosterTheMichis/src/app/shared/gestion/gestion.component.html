@@ -1,7 +1,7 @@
 <body>
     <main class="home-container" id="top">
         <div class="title-container">
-            <h1 class="menu-title">Gestion</h1>
+            <h1 class="menu-title">{{ 'MANAGEMENT.TITLE' | translate }}</h1>
         </div>
 
         <div class="description-container">
@@ -19,11 +19,11 @@
                     <!-- Botones para cambiar entre pestañas -->
                     <div class="tab-buttons">
                         <button class="btn" [class.active]="activeTab === 'reservas'"
-                            (click)="setActiveTab('reservas')">Reservas</button>
-                        <button class="btn" [class.active]="activeTab === 'usuarios'"
-                            (click)="setActiveTab('usuarios')">Usuarios</button>
-                        <button class="btn" [class.active]="activeTab === 'michis'"
-                            (click)="setActiveTab('michis')">Michis</button>
+                            (click)="setActiveTab('reservas')">{{ 'MANAGEMENT.TABS.RESERVATIONS' | translate }}</button>
+                        <button *ngIf="isAdmin" class="btn" [class.active]="activeTab === 'usuarios'"
+                            (click)="setActiveTab('usuarios')">{{ 'MANAGEMENT.TABS.USERS' | translate }}</button>
+                        <button class="btn" [class.active]="activeTab === 'michis'" (click)="setActiveTab('michis')">{{
+                            'MANAGEMENT.TABS.KITTIES' | translate }}</button>
                     </div>
 
                     <!-- Tabla dinámica -->
@@ -32,22 +32,28 @@
                         <table *ngIf="activeTab === 'reservas'" class="table">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Fecha</th>
-                                    <th>Número de Personas</th>
-                                    <th>Comentarios</th>
-                                    <th>Usuario</th>
-                                    <th>Control</th>
+                                    <th *ngIf="isAdmin">{{ 'MANAGEMENT.RESERVATIONS.HEADER.ID' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.RESERVATIONS.HEADER.DATE' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.RESERVATIONS.HEADER.PEOPLE' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.RESERVATIONS.HEADER.COMMENTS' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.RESERVATIONS.HEADER.USER' | translate }}</th>
+                                    <th *ngIf="isAdmin">{{ 'MANAGEMENT.RESERVATIONS.HEADER.CONTROL' | translate }}</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr *ngIf="reservations.length === 0">
+                                    <td colspan="6" style="text-align: center;">{{ 'MANAGEMENT.RESERVATIONS.NO_ENTRIES'
+                                        | translate }}</td>
+                                </tr>
                                 <tr *ngFor="let reservation of reservations">
-                                    <td>{{ reservation.id }}</td>
-                                    <td>{{ reservation.date}}</td>
+                                    <td *ngIf="isAdmin">{{ reservation.id }}</td>
+                                    <td>{{ reservation.date }}</td>
                                     <td>{{ reservation.peopleNumber }}</td>
-                                    <td>{{ reservation.comments || 'Sin comentarios' }}</td>
-                                    <td>{{ reservation.user?.name || 'Desconocido' }}</td>
-                                    <td style="display: flex; justify-content: space-around;">
+                                    <td>{{ reservation.comments || ( 'MANAGEMENT.RESERVATIONS.NO_COMMENTS' | translate )
+                                        }}</td>
+                                    <td>{{ reservation.user?.name || ( 'MANAGEMENT.RESERVATIONS.UNKNOWN_USER' |
+                                        translate ) }}</td>
+                                    <td *ngIf="isAdmin" style="display: flex; justify-content: space-around;">
                                         <button class="btn btn-danger" (click)="deleteBooking(reservation.id)">
                                             <i class="bi bi-trash3"></i>
                                         </button>
@@ -60,25 +66,25 @@
                         </table>
 
                         <!-- Tabla de Usuarios -->
-                        <table *ngIf="activeTab === 'usuarios'" class="table">
+                        <table *ngIf="activeTab === 'usuarios' && isAdmin" class="table">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Correo</th>
-                                    <th>Teléfono</th>
-                                    <th>Rol</th>
-                                    <th>Control</th>
+                                    <th *ngIf="isAdmin">{{ 'MANAGEMENT.USERS.HEADER.ID' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.USERS.HEADER.NAME' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.USERS.HEADER.EMAIL' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.USERS.HEADER.PHONE' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.USERS.HEADER.ROLE' | translate }}</th>
+                                    <th *ngIf="isAdmin">{{ 'MANAGEMENT.USERS.HEADER.CONTROL' | translate }}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let user of users">
-                                    <td>{{ user.id }}</td>
+                                    <td *ngIf="isAdmin">{{ user.id }}</td>
                                     <td>{{ user.name }} {{ user.surname }}</td>
                                     <td>{{ user.email }}</td>
                                     <td>{{ user.phoneNumber }}</td>
                                     <td>{{ user.role }}</td>
-                                    <td style="display: flex; justify-content: space-around;">
+                                    <td *ngIf="isAdmin" style="display: flex; justify-content: space-around;">
                                         <button class="btn btn-danger" (click)="deleteUser(user.id)">
                                             <i class="bi bi-trash3"></i>
                                         </button>
@@ -94,22 +100,34 @@
                         <table *ngIf="activeTab === 'michis'" class="table">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Edad</th>
-                                    <th>Raza</th>
-                                    <th>Adoptable</th>
-                                    <th>Control</th>
+                                    <th *ngIf="isAdmin">{{ 'MANAGEMENT.KITTIES.HEADER.ID' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.KITTIES.HEADER.NAME' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.KITTIES.HEADER.AGE' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.KITTIES.HEADER.DESCRIPTION' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.KITTIES.HEADER.BREED' | translate }}</th>
+                                    <th *ngIf="isAdmin">{{ 'MANAGEMENT.KITTIES.HEADER.ADOPTABLE' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.KITTIES.HEADER.CONTROL' | translate }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let michi of michis">
-                                    <td>{{ michi.id }}</td>
+                                <tr *ngIf="(isAdmin ? michis : adoptionList).length === 0">
+                                    <td colspan="7" style="text-align: center;">{{ 'MANAGEMENT.KITTIES.NO_ENTRIES' |
+                                        translate }}</td>
+                                </tr>
+                                <tr *ngFor="let michi of (isAdmin ? michis : adoptionList)">
+                                    <td *ngIf="isAdmin">{{ michi.id }}</td>
                                     <td>{{ michi.name }}</td>
                                     <td>{{ michi.age }}</td>
+                                    <td>{{ michi.description }}</td>
                                     <td>{{ michi.breed }}</td>
-                                    <td>{{ michi.adoptable ? 'Sí' : 'No' }}</td>
-                                    <td style="display: flex; justify-content: space-around;">
+                                    <td *ngIf="isAdmin">{{ michi.adoptable ? ( 'MANAGEMENT.KITTIES.YES' | translate ) :
+                                        ( 'MANAGEMENT.KITTIES.NO' | translate ) }}</td>
+                                    <td *ngIf="!isAdmin" style="display: flex; justify-content: space-around;">
+                                        <button class="btn btn-danger" (click)="removeMichiFromAdoptionList(michi.id)">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+                                    </td>
+                                    <td *ngIf="isAdmin" style="display: flex; justify-content: space-around;">
                                         <button class="btn btn-danger" (click)="deleteMichi(michi.id)">
                                             <i class="bi bi-trash3"></i>
                                         </button>

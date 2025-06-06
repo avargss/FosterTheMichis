@@ -1,7 +1,7 @@
 <body>
     <main class="home-container" id="top">
         <div class="title-container">
-            <h1 class="menu-title">¡Adopta un michi!</h1>
+            <h1 class="menu-title">{{ 'ADOPTION.TITLE' | translate }}</h1>
         </div>
 
         <div class="description-container">
@@ -17,43 +17,33 @@
                 <div class="bottom-content">
                     <div class="admin-control" *ngIf="isAdmin">
                         <div class="admin-header">
-                            <h2>Panel de Administrador</h2>
-                            <span class="badge">Nº de Michis: {{ getTotalMichis() }}</span>
+                            <h2>{{ 'ADOPTION.ADMIN_PANEL_TITLE' | translate }}</h2>
+                            <span class="badge">{{ 'ADOPTION.TOTAL_MICHIS_LABEL' | translate }} {{ getTotalMichis()
+                                }}</span>
                         </div>
                         <div class="admin-actions">
 
                             <button class="btn btn-primary" (click)="openAddMichiForm()">
-                                <i class="bi bi-plus-circle"></i> Añadir Michi
+                                <i class="bi bi-plus-circle"></i> {{ 'ADOPTION.BUTTON_ADD' | translate }}
                             </button>
 
                             <button class="btn btn-secondary">
-                                <i class="bi bi-bar-chart"></i> Estadísticas
+                                <i class="bi bi-bar-chart"></i> {{ 'ADOPTION.BUTTON_STATS' | translate }}
                             </button>
                         </div>
                     </div>
 
                     <div class="wave-text-container original-text">
-                        <h2 class="description-title">🐾 Conoce a nuestros Meownagers</h2>
+                        <h2 class="description-title">{{ 'ADOPTION.MEOWNAGERS_TITLE' | translate }}</h2>
                         <p class="description-text">
-                            En FosterTheMichis, contamos con tres residentes muy especiales: Zipi, Fay y Dany. Estos
-                            encantadores felinos no están disponibles para adopción, ya que son los "meownagers"
-                            oficiales del café. Zipi, con su mirada curiosa, supervisa cada rincón del local; Fay,
-                            siempre atenta, se asegura de que todos los visitantes se sientan bienvenidos; y Dany, el
-                            más juguetón, aporta alegría y dinamismo al ambiente. Su presencia constante crea un entorno
-                            acogedor y familiar para todos.
+                            {{ 'ADOPTION.MEOWNAGERS_P1' | translate }}
                         </p>
-
                     </div>
 
                     <div class="wave-text-container mobile-text">
-                        <h2 class="description-title">🐾 Conoce a nuestros Meownagers</h2>
+                        <h2 class="description-title">{{ 'ADOPTION.MEOWNAGERS_TITLE' | translate }}</h2>
                         <p class="description-text">
-                            En FosterTheMichis, contamos con tres residentes muy especiales: Zipi, Fay y Dany. Estos
-                            encantadores felinos no están disponibles para adopción, ya que son los "meownagers"
-                            oficiales del café. Zipi, con su mirada curiosa, supervisa cada rincón del local; Fay,
-                            siempre atenta, se asegura de que todos los visitantes se sientan bienvenidos; y Dany, el
-                            más juguetón, aporta alegría y dinamismo al ambiente. Su presencia constante crea un entorno
-                            acogedor y familiar para todos.
+                            {{ 'ADOPTION.MEOWNAGERS_P1' | translate }}
                         </p>
                     </div>
 
@@ -64,8 +54,8 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ michi.name }}</h5>
                                     <p class="card-text">{{ michi.description }}</p>
-                                    <p class="card-text">Edad: {{ michi.age }}</p>
-                                    <p class="card-text">Raza: {{ michi.breed }}</p>
+                                    <p class="card-text">{{ 'ADOPTION.AGE_LABEL' | translate }} {{ michi.age }}</p>
+                                    <p class="card-text">{{ 'ADOPTION.BREED_LABEL' | translate }} {{ michi.breed }}</p>
 
                                     <!-- Botones visibles solo para usuarios con rol "admin" -->
                                     <div class="buttons-crud">
@@ -84,24 +74,16 @@
                     <hr>
 
                     <div class="wave-text-container original-text">
-                        <h2 class="description-title">🐱 Descubre a los michis en busca de un hogar</h2>
+                        <h2 class="description-title">{{ 'ADOPTION.ADOPTABLE_TITLE' | translate }}</h2>
                         <p class="description-text">
-                            Además de nuestros queridos meownagers, FosterTheMichis alberga a muchos otros gatos que
-                            esperan encontrar una familia que los ame. Cada uno tiene su propia historia y personalidad,
-                            y están ansiosos por compartir su cariño contigo. Te invitamos a visitar nuestra sección de
-                            adopciones para conocerlos mejor y, quién sabe, tal vez encuentres a tu compañero felino
-                            ideal.
+                            {{ 'ADOPTION.ADOPTABLE_P1' | translate }}
                         </p>
                     </div>
 
                     <div class="wave-text-container mobile-text">
-                        <h2 class="description-title">🐱 Descubre a los michis en busca de un hogar</h2>
+                        <h2 class="description-title">{{ 'ADOPTION.ADOPTABLE_TITLE' | translate }}</h2>
                         <p class="description-text">
-                            Además de nuestros queridos meownagers, FosterTheMichis alberga a muchos otros gatos que
-                            esperan encontrar una familia que los ame. Cada uno tiene su propia historia y personalidad,
-                            y están ansiosos por compartir su cariño contigo. Te invitamos a visitar nuestra sección de
-                            adopciones para conocerlos mejor y, quién sabe, tal vez encuentres a tu compañero felino
-                            ideal.
+                            {{ 'ADOPTION.ADOPTABLE_P1' | translate }}
                         </p>
                     </div>
 
@@ -112,12 +94,13 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ michi.name }}</h5>
                                     <p class="card-text">{{ michi.description }}</p>
-                                    <p class="card-text">Edad: {{ michi.age }}</p>
-                                    <p class="card-text">Raza: {{ michi.breed }}</p>
+                                    <p class="card-text">{{ 'ADOPTION.AGE_LABEL' | translate }} {{ michi.age }}</p>
+                                    <p class="card-text">{{ 'ADOPTION.BREED_LABEL' | translate }} {{ michi.breed }}</p>
 
                                     <!-- Botón Adoptar visible para usuarios no autenticados o con rol "user" -->
-                                    <button *ngIf="isLoggedIn && !isAdmin" class="adopt-btn" (click)="addToAdoptionList(michi)">
-                                        Adoptar 🐾
+                                    <button *ngIf="isLoggedIn && !isAdmin" class="adopt-btn"
+                                        (click)="addToAdoptionList(michi)">
+                                        {{ 'ADOPTION.BUTTON_ADOPT' | translate }}
                                     </button>
 
                                     <!-- Botones visibles solo para usuarios con rol "admin" -->
@@ -137,54 +120,49 @@
 
                     <section class="pre-adoption-care">
                         <div class="care-header">
-                            <h2>🏡🐾 Cuidamos su bienestar antes de la adopción</h2>
+                            <h2>{{ 'ADOPTION.CARE_HEADER_TITLE' | translate }}</h2>
                             <p>
-                                En FosterTheMichis, nos aseguramos de que cada gato esté sano y listo para encontrar su
-                                hogar definitivo. Todos nuestros michis reciben atención veterinaria completa antes de
-                                la adopción, incluyendo:
+                                {{ 'ADOPTION.CARE_HEADER_P1' | translate }}
                             </p>
                         </div>
                         <div class="care-cards">
                             <div class="care-card">
                                 <span class="icon">🩺</span>
-                                <h3>Chequeo general</h3>
-                                <p>Evaluamos su estado de salud con un examen veterinario completo.</p>
+                                <h3>{{ 'ADOPTION.CARE_ITEM1_TITLE' | translate }}</h3>
+                                <p>{{ 'ADOPTION.CARE_ITEM1_TEXT' | translate }}</p>
                             </div>
                             <div class="care-card">
                                 <span class="icon">✂️</span>
-                                <h3>Esterilización</h3>
-                                <p>Promovemos una tenencia responsable mediante la esterilización obligatoria.</p>
+                                <h3>{{ 'ADOPTION.CARE_ITEM2_TITLE' | translate }}</h3>
+                                <p>{{ 'ADOPTION.CARE_ITEM2_TEXT' | translate }}</p>
                             </div>
                             <div class="care-card">
                                 <span class="icon">💉</span>
-                                <h3>Vacunación</h3>
-                                <p>Protegemos a nuestros michis con las vacunas necesarias.</p>
+                                <h3>{{ 'ADOPTION.CARE_ITEM3_TITLE' | translate }}</h3>
+                                <p>{{ 'ADOPTION.CARE_ITEM3_TEXT' | translate }}</p>
                             </div>
                             <div class="care-card">
                                 <span class="icon">🔖</span>
-                                <h3>Microchip</h3>
-                                <p>Colocamos un microchip registrado para su identificación y seguridad.</p>
+                                <h3>{{ 'ADOPTION.CARE_ITEM4_TITLE' | translate }}</h3>
+                                <p>{{ 'ADOPTION.CARE_ITEM4_TEXT' | translate }}</p>
                             </div>
                             <div class="care-card">
                                 <span class="icon">🧪</span>
-                                <h3>Pruebas médicas</h3>
-                                <p>Realizamos pruebas para descartar enfermedades como FeLV y FIV.</p>
+                                <h3>{{ 'ADOPTION.CARE_ITEM5_TITLE' | translate }}</h3>
+                                <p>{{ 'ADOPTION.CARE_ITEM5_TEXT' | translate }}</p>
                             </div>
                             <div class="care-card">
                                 <span class="icon">🐛</span>
-                                <h3>Desparasitación</h3>
-                                <p>Aplicamos tratamientos internos y externos para su bienestar.</p>
+                                <h3>{{ 'ADOPTION.CARE_ITEM6_TITLE' | translate }}</h3>
+                                <p>{{ 'ADOPTION.CARE_ITEM6_TEXT' | translate }}</p>
                             </div>
                         </div>
                         <div class="care-footer">
                             <p>
-                                Adoptar es un compromiso de amor y responsabilidad. Antes de llevar a tu nuevo compañero
-                                a casa, te informaremos sobre su historia, cuidados y necesidades. ¡Así nos aseguramos
-                                de que cada michi tenga un hogar lleno de amor y seguridad! 💛🐱
+                                {{ 'ADOPTION.CARE_FOOTER_TEXT' | translate }}
                             </p>
                         </div>
                     </section>
-
 
                 </div>
             </div>

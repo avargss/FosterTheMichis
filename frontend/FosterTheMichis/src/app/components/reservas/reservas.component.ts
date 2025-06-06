@@ -4,10 +4,11 @@ import Swal from 'sweetalert2';
 import { AuthService } from '../../services/auth.service';
 import { RouterLink } from '@angular/router';
 import { BookingsService } from '../../services/bookings.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-reservas',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, TranslateModule],
   templateUrl: './reservas.component.html',
   styleUrl: './reservas.component.css'
 })
@@ -28,15 +29,6 @@ export class ReservasComponent {
         next: (data) => {
           this.userData = data;
           console.log('Datos del usuario:', this.userData);
-        },
-        error: (err) => {
-          console.error('Error al obtener los datos del usuario:', err);
-          Swal.fire({
-            title: 'Error',
-            text: 'No se pudieron cargar los datos del usuario. Por favor, inicia sesión nuevamente.',
-            icon: 'error',
-            confirmButtonText: 'Entendido'
-          });
         }
       });
     } else {

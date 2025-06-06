@@ -15,6 +15,5 @@ public interface MichiRepository extends JpaRepository<Michi, Long> {
 
     List<Michi> findByAdoptableTrue();
 
-    @Query("SELECT m FROM Michi m JOIN m.users u WHERE u.id = :userId")
-    List<Michi> findAdoptionListByUserId(@Param("userId") Long userId);
+    List<Michi> findByUsers_Id(Long userId);
 }

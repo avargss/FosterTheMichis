@@ -1,0 +1,222 @@
+{
+    "HOME": {
+        "PROJECT_TITLE": "FosterTheMichis",
+        "WHAT_IS_TITLE": "What is FosterTheMichis?",
+        "WHAT_IS_P1": "FosterTheMichis is an innovative cat café that combines a passion for cats with the experience of enjoying a drink in a cozy environment. In our establishment, visitors can relax while interacting with a variety of cats, fostering a sense of wellbeing for both felines and animal lovers.",
+        "WHAT_IS_P2": "Besides being a gathering space, FosterTheMichis is committed to responsible adoption. All our cats come from partnered shelters and are looking for a permanent home. Come meet them, and if you feel a special connection, you might be the one to give them a second chance at life.",
+        "OUR_MISSION": {
+            "TITLE": "Our mission",
+            "ITEM1_TITLE": "Unique experience",
+            "ITEM1_TEXT": "Offer our customers the opportunity to enjoy high-quality drinks and snacks in the company of cats, creating a space of relaxation and connection with these animals.",
+            "ITEM2_TITLE": "Promote responsible adoption",
+            "ITEM2_TEXT": "All our cats are available for adoption. Visitors who fall in love with one of our felines can start an adoption process, ensuring all necessary requirements are met to guarantee the animal's wellbeing.",
+            "ITEM3_TITLE": "Animal welfare",
+            "ITEM3_TEXT": "Guarantee a safe, clean, and enriching environment for all our cats, prioritizing their physical and emotional health in every aspect of the café. Our team cares for them with dedication, ensuring proper feeding, rest, and socialization routines, always respecting their natural rhythm.",
+            "ITEM4_TITLE": "Education and awareness",
+            "ITEM4_TEXT": "Inform and raise awareness among our visitors about the reality of animal abandonment, responsible cat care, and the importance of spaying/neutering and ethical adoption.",
+            "ITEM5_TITLE": "Community and collaboration",
+            "ITEM5_TEXT": "Build an active community of cat lovers who participate in charitable events, workshops, and educational activities together with shelters and volunteers.",
+            "ITEM6_TITLE": "Sustainability",
+            "ITEM6_TEXT": "Integrate sustainable practices into the café's operation, from using ecological products to responsible waste management, reducing environmental impact."
+        }
+    },
+    "MENU": {
+        "TITLE": "Menu & Snacks",
+        "DESCRIPTION_TITLE": "Delights for you and the kitties",
+        "DESCRIPTION_P1": "At FosterTheMichis, we want you to enjoy a unique experience while sharing special moments with our adorable felines. Explore our menu featuring a selection of hot and cold drinks, irresistible desserts, and homemade options made with love.",
+        "DESCRIPTION_P2": "And because our kitties deserve a treat too, we have a small corner with special snacks just for them. Order something tasty, relax, and let the purrs do the rest! 🐾☕🍰",
+        "BUTTON_HOT_DRINKS": "View Hot Drinks",
+        "BUTTON_COLD_DRINKS": "View Cold Drinks",
+        "BUTTON_DESSERTS": "View Desserts",
+        "BUTTON_HOMEMADE": "View Homemade Snacks",
+        "BUTTON_FELINE": "View Feline Treats",
+        "PRICE_LABEL": "Price:"
+    },
+    "ADOPTION": {
+        "TITLE": "Adopt a kitty!",
+        "ADMIN_PANEL_TITLE": "Administrator Panel",
+        "TOTAL_MICHIS_LABEL": "Number of Kitties:",
+        "BUTTON_ADD": "Add Kitty",
+        "BUTTON_STATS": "Statistics",
+        "MEOWNAGERS_TITLE": "🐾 Meet our Meownagers",
+        "MEOWNAGERS_P1": "At FosterTheMichis, we have three very special residents: Zipi, Fay, and Dany. These charming felines are not available for adoption because they are the official “meownagers” of the café. Zipi, with his curious gaze, supervises every corner of the place; Fay, always attentive, ensures that every visitor feels welcome; and Dany, the most playful, brings joy and energy to the atmosphere. Their constant presence creates a warm, family-like environment for everyone.",
+        "AGE_LABEL": "Age:",
+        "BREED_LABEL": "Breed:",
+        "ADOPTABLE_TITLE": "🐱 Discover the kitties looking for a home",
+        "ADOPTABLE_P1": "In addition to our beloved meownagers, FosterTheMichis shelters many other cats waiting to find a loving family. Each one has its own story and personality, and they are eager to share their affection with you. We invite you to explore our adoption section to get to know them better—and who knows, you might find your perfect feline companion.",
+        "BUTTON_ADOPT": "Adopt 🐾",
+        "CARE_HEADER_TITLE": "🏡🐾 We ensure their well-being before adoption",
+        "CARE_HEADER_P1": "At FosterTheMichis, we make sure every cat is healthy and ready to find its forever home. All our kitties receive full veterinary care prior to adoption, including:",
+        "CARE_ITEM1_TITLE": "General Check-up",
+        "CARE_ITEM1_TEXT": "We assess their health status through a complete veterinary examination.",
+        "CARE_ITEM2_TITLE": "Spaying/Neutering",
+        "CARE_ITEM2_TEXT": "We promote responsible pet ownership through mandatory spaying/neutering.",
+        "CARE_ITEM3_TITLE": "Vaccination",
+        "CARE_ITEM3_TEXT": "We protect our kitties with necessary vaccinations.",
+        "CARE_ITEM4_TITLE": "Microchip",
+        "CARE_ITEM4_TEXT": "We insert a registered microchip for identification and safety.",
+        "CARE_ITEM5_TITLE": "Medical Testing",
+        "CARE_ITEM5_TEXT": "We run tests to rule out diseases like FeLV and FIV.",
+        "CARE_ITEM6_TITLE": "Deworming",
+        "CARE_ITEM6_TEXT": "We apply internal and external treatments for their well-being.",
+        "CARE_FOOTER_TEXT": "Adoption is a pledge of love and responsibility. Before bringing your new companion home, we’ll inform you about their history, care, and needs. This way, we ensure every kitty finds a home full of love and security! 💛🐱"
+    },
+    "COMMON": {
+        "MENU": "Menu",
+        "GALLERY": "Gallery",
+        "ADOPTION": "Adoption",
+        "RESERVATIONS": "Reservations",
+        "CONTACT": "Contact",
+        "LANGUAGE": "Language",
+        "SPANISH": "Spanish",
+        "ENGLISH": "English",
+        "REGISTER": "Register",
+        "LOGIN": "Login",
+        "LOGOUT": "Logout",
+        "MANAGE": "Manage"
+    },
+    "VISIT": {
+        "TITLE": "Come visit us!",
+        "DESCRIPTION_P1": "We are located in the heart of the city, in a welcoming and easily accessible environment.\n\nAt FosterTheMichis, every corner has been designed for the well-being of our adorable felines and the comfort of our visitors. Our layout includes secure structures for cats to climb and play freely, cozy resting areas, and spacious zones where humans and kitties can coexist in harmony. Additionally, our café has safety measures to ensure a calm experience for both the cats and our visitors, with separate areas for the shyest and interactive spaces for those looking to play.\n\n📍 We are in the heart of the city, in a welcoming and easily accessible environment. Come enjoy a coffee while spending time with our adorable fur friends! 🐾☕",
+        "RESERVATION_TITLE": "Book a visit and spend a wonderful afternoon with our kitties",
+        "LOGIN_REQUIRED": "You must log in to make a reservation",
+        "RULES_TITLE": "🐾 Café Rules",
+        "RULES": {
+            "ITEM1": "Respect the cats at all times.",
+            "ITEM2": "Do not feed the cats outside food.",
+            "ITEM3": "Avoid loud noises so as not to scare them.",
+            "ITEM4": "Children must be supervised by an adult.",
+            "ITEM5": "Enjoy your time with the kitties and relax."
+        },
+        "BENEFITS_TITLE": "✨ Benefits of visiting us",
+        "BENEFITS_TEXT": "By booking a visit, you’ll not only enjoy the company of our adorable cats but also support their well-being and care. Thank you for being part of our mission! 🐱❤️",
+        "PLACEHOLDER_DATE": "Reservation date",
+        "PLACEHOLDER_TIME": "Reservation time",
+        "PLACEHOLDER_GUESTS": "Number of guests",
+        "PLACEHOLDER_PHONE": "Phone number",
+        "PLACEHOLDER_EMAIL": "Email address",
+        "PLACEHOLDER_FIRSTNAME": "First name",
+        "PLACEHOLDER_LASTNAME": "Last name",
+        "PLACEHOLDER_COMMENTS": "Comments",
+        "BUTTON_SUBMIT": "Reserve"
+    },
+    "CONTACT": {
+        "TITLE": "Let us help you!",
+        "HEADER": "Have questions? Contact us! 📩🐾",
+        "PARAGRAPH1": "If you want to know more about our kitties, the adoption process, café reservations, or any other inquiry, we’re here to lend a paw!🐾",
+        "PARAGRAPH2": "Don’t hesitate to write to us! We’ll get back to you as soon as possible.",
+        "PARAGRAPH_MOBILE": "If you want to know more about our kitties, the adoption process, café reservations, or any other inquiry, we’re here to lend a paw. Don’t hesitate to write to us! We’ll get back to you as soon as possible.",
+        "PLACEHOLDER_FIRSTNAME": "First name",
+        "PLACEHOLDER_LASTNAME": "Last name",
+        "PLACEHOLDER_EMAIL": "Email address",
+        "PLACEHOLDER_COMMENTS": "Comments",
+        "BUTTON_SEND": "Send message"
+    },
+    "LOGIN": {
+        "TITLE": "Log In",
+        "LABEL_EMAIL": "Email",
+        "PLACEHOLDER_EMAIL": "email@example.com",
+        "ERROR_INVALID_EMAIL": "Enter a valid email",
+        "LABEL_PASSWORD": "Password",
+        "PLACEHOLDER_PASSWORD": "Password",
+        "ERROR_PASSWORD_REQUIRED": "Password is required",
+        "BUTTON_SUBMIT": "Log In"
+    },
+    "REGISTER": {
+        "TITLE": "Register User",
+        "LABEL_NAME": "First Name",
+        "PLACEHOLDER_NAME": "First Name",
+        "ERROR_NAME_REQUIRED": "First name is required",
+        "LABEL_SURNAME": "Last Name",
+        "PLACEHOLDER_SURNAME": "Last Name",
+        "ERROR_SURNAME_REQUIRED": "Last name is required",
+        "LABEL_EMAIL": "Email",
+        "PLACEHOLDER_EMAIL": "email@example.com",
+        "ERROR_EMAIL_INVALID": "Enter a valid email",
+        "LABEL_PASSWORD": "Password",
+        "PLACEHOLDER_PASSWORD": "Password",
+        "ERROR_PASSWORD_REQUIRED": "Password is required",
+        "LABEL_PHONE": "Phone Number",
+        "PLACEHOLDER_PHONE": "Phone Number",
+        "ERROR_PHONE_REQUIRED": "Phone number is required",
+        "BUTTON_SUBMIT": "Register"
+    },
+    "MANAGEMENT": {
+        "TITLE": "Management",
+        "TABS": {
+            "RESERVATIONS": "Reservations",
+            "USERS": "Users",
+            "KITTIES": "Kitties"
+        },
+        "RESERVATIONS": {
+            "HEADER": {
+                "ID": "ID",
+                "DATE": "Date",
+                "PEOPLE": "Number of People",
+                "COMMENTS": "Comments",
+                "USER": "User",
+                "CONTROL": "Control"
+            },
+            "NO_ENTRIES": "No reservations added",
+            "NO_COMMENTS": "No comments",
+            "UNKNOWN_USER": "Unknown"
+        },
+        "USERS": {
+            "HEADER": {
+                "ID": "ID",
+                "NAME": "Name",
+                "EMAIL": "Email",
+                "PHONE": "Phone",
+                "ROLE": "Role",
+                "CONTROL": "Control"
+            }
+        },
+        "KITTIES": {
+            "HEADER": {
+                "ID": "ID",
+                "NAME": "Name",
+                "AGE": "Age",
+                "DESCRIPTION": "Description",
+                "BREED": "Breed",
+                "ADOPTABLE": "Adoptable",
+                "CONTROL": "Control"
+            },
+            "NO_ENTRIES": "No kitties in the adoption list.",
+            "YES": "Yes",
+            "NO": "No"
+        }
+    },
+    "INSTALLATIONS": {
+        "TITLE": "Our Facilities",
+        "SUBTITLE": "A space designed just for them 🐾✨",
+        "P1": "Every corner of FosterTheMichis has been carefully designed with our kitties’ safety, comfort, and enrichment in mind. In the images you’ll discover elevated areas for climbing, quiet corners for resting, interactive toys, and structures that stimulate their curiosity. Our venue isn’t just welcoming for visitors—it prioritizes the cats’ physical and emotional well-being, providing an environment full of positive stimuli and freedom to move at their own pace.",
+        "P2": "You’ll also see how we’ve integrated separate areas for play, feeding, and resting, respecting each cat’s natural needs. Everything is adapted to offer them a calm temporary home, where they can feel safe while waiting for their forever families.",
+        "IMAGE1_ALT": "FosterTheMichis interior 1",
+        "IMAGE2_ALT": "FosterTheMichis interior 2",
+        "IMAGE3_ALT": "FosterTheMichis interior 3",
+        "IMAGE4_ALT": "FosterTheMichis interior 4",
+        "IMAGE5_ALT": "FosterTheMichis interior 5",
+        "IMAGE6_ALT": "FosterTheMichis interior 6",
+        "SECTION1": {
+            "TITLE": "Designed for Feline Well-being",
+            "TEXT": "At FosterTheMichis, every element of the space has been planned with cats’ needs for comfort, stimulation, and security in mind. We have elevated zones, cozy hiding spots, play areas, and resting spaces carefully distributed. The ambiance, soft lighting, and natural materials create an ideal environment for their physical and emotional health."
+        },
+        "SECTION2": {
+            "TITLE": "A Cozy Environment for Everyone",
+            "TEXT": "Our venue combines modern design with feline functionality: ramps, platforms, tunnels, and scratching posts form an ecosystem where cats can explore and relax with total freedom. Everything has been adapted according to recommendations from ethologists and animal behavior experts."
+        },
+        "SECTION3": {
+            "TITLE": "A Loving Temporary Home",
+            "TEXT": "FosterTheMichis isn’t just a cat café—it’s a temporary shelter for cats waiting to be adopted. That’s why our facilities are equipped with everything needed to ensure their health, hygiene, and peace of mind. We supervise daily cleaning, ventilation, and have separate areas to minimize stress among felines."
+        },
+        "ADOPT": {
+            "TITLE": "Ready to change a life?",
+            "SUBTITLE": "Meet our adoptable kitties: unique stories, loving eyes, and tiny paws searching for a home.\n\nYour next big (or little) friend is waiting for you!",
+            "BUTTON": "Meet all the kitties 🐱→"
+        }
+    },
+    "CAROUSEL": {
+        "PREV": "Previous",
+        "NEXT": "Next"
+    }
+}

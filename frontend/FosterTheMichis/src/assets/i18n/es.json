@@ -1,0 +1,221 @@
+{
+    "HOME": {
+        "PROJECT_TITLE": "FosterTheMichis",
+        "WHAT_IS_TITLE": "¿Qué es FosterTheMichis?",
+        "WHAT_IS_P1": "FosterTheMichis es un innovador cat café que combina la pasión por los gatos con la experiencia de disfrutar de una bebida en un ambiente acogedor. En nuestro establecimiento, los visitantes pueden relajarse mientras interactúan con una variedad de gatos, promoviendo un entorno de bienestar tanto para los felinos como para los amantes de los animales.",
+        "WHAT_IS_P2": "Además de ser un espacio de encuentro, FosterTheMichis tiene un compromiso con la adopción responsable. Todos nuestros gatos provienen de protectoras asociadas y están en búsqueda de un hogar definitivo. Visítanos, conócelos, y si surge una conexión especial, podrías ser tú quien les dé una nueva oportunidad de vida.",
+        "OUR_MISSION": {
+            "TITLE": "Nuestra misión",
+            "ITEM1_TITLE": "Experiencia única",
+            "ITEM1_TEXT": "Ofrecer a nuestros clientes la oportunidad de disfrutar de bebidas y aperitivos de alta calidad en compañía de gatos, creando un espacio de relajación y conexión con estos animales.",
+            "ITEM2_TITLE": "Fomento de la adopción responsable",
+            "ITEM2_TEXT": "Todos nuestros gatos están disponibles para adopción. Los visitantes que se enamoren de alguno de nuestros felinos pueden iniciar un proceso de adopción, siempre asegurando que se cumplan los requisitos necesarios para garantizar el bienestar del animal.",
+            "ITEM3_TITLE": "Bienestar animal",
+            "ITEM3_TEXT": "Garantizar un entorno seguro, limpio y enriquecedor para todos nuestros gatos, priorizando su salud física y emocional en cada aspecto del café. Nuestro equipo cuida de ellos con dedicación, asegurando rutinas de alimentación, descanso y socialización, respetando siempre su ritmo natural.",
+            "ITEM4_TITLE": "Educación y concienciación",
+            "ITEM4_TEXT": "Informar y sensibilizar a nuestros visitantes sobre la realidad del abandono animal, el cuidado responsable de los gatos y la importancia de la esterilización y la adopción ética.",
+            "ITEM5_TITLE": "Comunidad y colaboración",
+            "ITEM5_TEXT": "Construir una comunidad activa de amantes de los gatos que participe en eventos solidarios, talleres y actividades educativas en conjunto con protectoras y voluntarios.",
+            "ITEM6_TITLE": "Sostenibilidad",
+            "ITEM6_TEXT": "Integrar prácticas sostenibles en el funcionamiento del café, desde el uso de productos ecológicos hasta la gestión responsable de residuos, reduciendo el impacto ambiental."
+        }
+    },
+    "MENU": {
+        "TITLE": "Menú y aperitivos",
+        "DESCRIPTION_TITLE": "Delicias para ti y para los michis",
+        "DESCRIPTION_P1": "En FosterTheMichis, queremos que disfrutes de una experiencia única mientras compartes momentos especiales con nuestros adorables felinos. Explora nuestro menú con una selección de bebidas calientes y frías, postres irresistibles y opciones caseras hechas con mucho amor.",
+        "DESCRIPTION_P2": "Y porque nuestros michis también merecen un mimo, contamos con un pequeño rincón de snacks y comiditas especiales para ellos. ¡Pide algo rico, relájate y deja que los ronroneos hagan el resto! 🐾☕🍰",
+        "BUTTON_HOT_DRINKS": "Ver Bebidas Calientes",
+        "BUTTON_COLD_DRINKS": "Ver Bebidas Frías",
+        "BUTTON_DESSERTS": "Ver Postres",
+        "BUTTON_HOMEMADE": "Ver Aperitivos Caseros",
+        "BUTTON_FELINE": "Ver Aperitivos Felinos",
+        "PRICE_LABEL": "Precio:"
+    },
+    "ADOPTION": {
+        "TITLE": "¡Adopta un michi!",
+        "ADMIN_PANEL_TITLE": "Panel de Administrador",
+        "TOTAL_MICHIS_LABEL": "Nº de Michis:",
+        "BUTTON_ADD": "Añadir Michi",
+        "BUTTON_STATS": "Estadísticas",
+        "MEOWNAGERS_TITLE": "🐾 Conoce a nuestros Meownagers",
+        "MEOWNAGERS_P1": "En FosterTheMichis, contamos con tres residentes muy especiales: Zipi, Fay y Dany. Estos encantadores felinos no están disponibles para adopción, ya que son los \"meownagers\" oficiales del café. Zipi, con su mirada curiosa, supervisa cada rincón del local; Fay, siempre atenta, se asegura de que todos los visitantes se sientan bienvenidos; y Dany, el más juguetón, aporta alegría y dinamismo al ambiente. Su presencia constante crea un entorno acogedor y familiar para todos.",
+        "AGE_LABEL": "Edad:",
+        "BREED_LABEL": "Raza:",
+        "ADOPTABLE_TITLE": "🐱 Descubre a los michis en busca de un hogar",
+        "ADOPTABLE_P1": "Además de nuestros queridos meownagers, FosterTheMichis alberga a muchos otros gatos que esperan encontrar una familia que los ame. Cada uno tiene su propia historia y personalidad, y están ansiosos por compartir su cariño contigo. Te invitamos a visitar nuestra sección de adopciones para conocerlos mejor y, quién sabe, tal vez encuentres a tu compañero felino ideal.",
+        "BUTTON_ADOPT": "Adoptar 🐾",
+        "CARE_HEADER_TITLE": "🏡🐾 Cuidamos su bienestar antes de la adopción",
+        "CARE_HEADER_P1": "En FosterTheMichis, nos aseguramos de que cada gato esté sano y listo para encontrar su hogar definitivo. Todos nuestros michis reciben atención veterinaria completa antes de la adopción, incluyendo:",
+        "CARE_ITEM1_TITLE": "Chequeo general",
+        "CARE_ITEM1_TEXT": "Evaluamos su estado de salud con un examen veterinario completo.",
+        "CARE_ITEM2_TITLE": "Esterilización",
+        "CARE_ITEM2_TEXT": "Promovemos una tenencia responsable mediante la esterilización obligatoria.",
+        "CARE_ITEM3_TITLE": "Vacunación",
+        "CARE_ITEM3_TEXT": "Protegemos a nuestros michis con las vacunas necesarias.",
+        "CARE_ITEM4_TITLE": "Microchip",
+        "CARE_ITEM4_TEXT": "Colocamos un microchip registrado para su identificación y seguridad.",
+        "CARE_ITEM5_TITLE": "Pruebas médicas",
+        "CARE_ITEM5_TEXT": "Realizamos pruebas para descartar enfermedades como FeLV y FIV.",
+        "CARE_ITEM6_TITLE": "Desparasitación",
+        "CARE_ITEM6_TEXT": "Aplicamos tratamientos internos y externos para su bienestar.",
+        "CARE_FOOTER_TEXT": "Adoptar es un compromiso de amor y responsabilidad. Antes de llevar a tu nuevo compañero a casa, te informaremos sobre su historia, cuidados y necesidades. ¡Así nos aseguramos de que cada michi tenga un hogar lleno de amor y seguridad! 💛🐱"
+    },
+    "COMMON": {
+        "MENU": "Menú",
+        "GALLERY": "Galería",
+        "ADOPTION": "Adopción",
+        "RESERVATIONS": "Reservas",
+        "CONTACT": "Contacto",
+        "LANGUAGE": "Idioma",
+        "SPANISH": "Español",
+        "ENGLISH": "Inglés",
+        "REGISTER": "Registrar usuario",
+        "LOGIN": "Iniciar sesión",
+        "LOGOUT": "Cerrar sesión",
+        "MANAGE": "Gestionar"
+    },
+    "VISIT": {
+        "TITLE": "¡Ven a visitarnos!",
+        "DESCRIPTION_P1": "Nos encontramos en el corazón de la ciudad, en un ambiente acogedor y de fácil acceso.\n\nEn FosterTheMichis, cada rincón ha sido pensado para el bienestar de nuestros adorables felinos y la comodidad de nuestros visitantes. Nuestro diseño incluye estructuras seguras para que los gatos trepen y jueguen libremente, zonas de descanso acogedoras y espacios amplios donde humanos y michis pueden convivir en armonía. Además, nuestro café cuenta con medidas de seguridad para garantizar una experiencia tranquila tanto para los gatos como para nuestros visitantes, con áreas separadas para los más tímidos y espacios interactivos para quienes buscan jugar.\n\n📍 Nos encontramos en el corazón de la ciudad, en un ambiente acogedor y de fácil acceso. ¡Ven a disfrutar de un café mientras compartes tiempo con nuestros adorables mininos! 🐾☕",
+        "RESERVATION_TITLE": "Reserva una visita y pasa una maravillosa tarde junto a nuestros michis",
+        "LOGIN_REQUIRED": "Para poder realizar una reserva deberás iniciar sesión",
+        "RULES_TITLE": "🐾 Normas del Café",
+        "RULES": {
+            "ITEM1": "Respetar a los gatos en todo momento.",
+            "ITEM2": "No alimentar a los gatos con comida externa.",
+            "ITEM3": "Evitar ruidos fuertes para no asustarlos.",
+            "ITEM4": "Los niños deben estar supervisados por un adulto.",
+            "ITEM5": "Disfruta de tu tiempo con los michis y relájate."
+        },
+        "BENEFITS_TITLE": "✨ Beneficios de visitarnos",
+        "BENEFITS_TEXT": "Al reservar una visita, no solo disfrutarás de la compañía de nuestros adorables gatos, sino que también estarás apoyando su bienestar y cuidado. ¡Gracias por ser parte de nuestra misión! 🐱❤️",
+        "PLACEHOLDER_DATE": "Fecha de la reserva",
+        "PLACEHOLDER_TIME": "Hora de la reserva",
+        "PLACEHOLDER_GUESTS": "Número de asistentes",
+        "PLACEHOLDER_PHONE": "Número de Teléfono",
+        "PLACEHOLDER_EMAIL": "Correo Electrónico",
+        "PLACEHOLDER_FIRSTNAME": "Nombre",
+        "PLACEHOLDER_LASTNAME": "Apellidos",
+        "PLACEHOLDER_COMMENTS": "Comentarios",
+        "BUTTON_SUBMIT": "Reservar"
+    },
+    "CONTACT": {
+        "TITLE": "¡Permítenos ayudarte!",
+        "HEADER": "¿Tienes dudas? ¡Contáctanos! 📩🐾",
+        "PARAGRAPH1": "Si quieres saber más sobre nuestros michis, el proceso de adopción, reservas en el café o cualquier otra consulta, ¡Estamos aquí para echarte una pata!🐾.",
+        "PARAGRAPH2": "¡No dudes en escribirnos! Te atenderemos con la mayor brevedad posible.",
+        "PARAGRAPH_MOBILE": "Si quieres saber más sobre nuestros michis, el proceso de adopción, reservas en el café o cualquier otra consulta, estamos aquí para echarte una pata. ¡No dudes en escribirnos! Te atenderemos con la mayor brevedad posible.",
+        "PLACEHOLDER_FIRSTNAME": "Nombre",
+        "PLACEHOLDER_LASTNAME": "Apellidos",
+        "PLACEHOLDER_EMAIL": "Correo electrónico",
+        "PLACEHOLDER_COMMENTS": "Comentarios",
+        "BUTTON_SEND": "Enviar mensaje"
+    },
+    "LOGIN": {
+        "TITLE": "Iniciar Sesión",
+        "LABEL_EMAIL": "Usuario",
+        "PLACEHOLDER_EMAIL": "correo@ejemplo.com",
+        "ERROR_INVALID_EMAIL": "Ingresa un correo válido",
+        "LABEL_PASSWORD": "Contraseña",
+        "PLACEHOLDER_PASSWORD": "Contraseña",
+        "ERROR_PASSWORD_REQUIRED": "La contraseña es requerida",
+        "BUTTON_SUBMIT": "Iniciar Sesión"
+    },
+    "REGISTER": {
+        "TITLE": "Registrar Usuario",
+        "LABEL_NAME": "Nombre",
+        "PLACEHOLDER_NAME": "Nombre",
+        "ERROR_NAME_REQUIRED": "El nombre es requerido",
+        "LABEL_SURNAME": "Apellidos",
+        "PLACEHOLDER_SURNAME": "Apellidos",
+        "ERROR_SURNAME_REQUIRED": "Los apellidos son requeridos",
+        "LABEL_EMAIL": "Correo Electrónico",
+        "PLACEHOLDER_EMAIL": "correo@ejemplo.com",
+        "ERROR_EMAIL_INVALID": "Ingresa un correo válido",
+        "LABEL_PASSWORD": "Contraseña",
+        "PLACEHOLDER_PASSWORD": "Contraseña",
+        "ERROR_PASSWORD_REQUIRED": "La contraseña es requerida",
+        "LABEL_PHONE": "Número de Teléfono",
+        "PLACEHOLDER_PHONE": "Número de Teléfono",
+        "ERROR_PHONE_REQUIRED": "El número de teléfono es requerido",
+        "BUTTON_SUBMIT": "Registrar"
+    },
+    "MANAGEMENT": {
+        "TITLE": "Gestión",
+        "TABS": {
+            "RESERVATIONS": "Reservas",
+            "USERS": "Usuarios",
+            "KITTIES": "Michis"
+        },
+        "RESERVATIONS": {
+            "HEADER": {
+                "ID": "ID",
+                "DATE": "Fecha",
+                "PEOPLE": "Número de Personas",
+                "COMMENTS": "Comentarios",
+                "USER": "Usuario",
+                "CONTROL": "Control"
+            },
+            "NO_ENTRIES": "No se han añadido reservas",
+            "NO_COMMENTS": "Sin comentarios",
+            "UNKNOWN_USER": "Desconocido"
+        },
+        "USERS": {
+            "HEADER": {
+                "ID": "ID",
+                "NAME": "Nombre",
+                "EMAIL": "Correo",
+                "PHONE": "Teléfono",
+                "ROLE": "Rol",
+                "CONTROL": "Control"
+            }
+        },
+        "KITTIES": {
+            "HEADER": {
+                "ID": "ID",
+                "NAME": "Nombre",
+                "AGE": "Edad",
+                "DESCRIPTION": "Descripción",
+                "BREED": "Raza",
+                "ADOPTABLE": "Adoptable",
+                "CONTROL": "Control"
+            },
+            "NO_ENTRIES": "No hay michis en la lista de adopción.",
+            "YES": "Sí",
+            "NO": "No"
+        }
+    },
+    "INSTALLATIONS": {
+        "TITLE": "Nuestras instalaciones",
+        "SUBTITLE": "Un espacio diseñado para ellos 🐾✨",
+        "P1": "Cada rincón de FosterTheMichis ha sido cuidadosamente diseñado pensando en la seguridad, comodidad y enriquecimiento de nuestros michis. En las imágenes podrás descubrir zonas elevadas para trepar, rincones tranquilos para descansar, juguetes interactivos y estructuras que estimulan su curiosidad. Nuestro local no solo es acogedor para los visitantes, sino que prioriza el bienestar físico y emocional de los gatos, brindándoles un entorno lleno de estímulos positivos y libertad para moverse a su ritmo.",
+        "P2": "También podrás ver cómo hemos integrado áreas diferenciadas para el juego, la alimentación y el descanso, respetando las necesidades naturales de cada gato. Todo está adaptado para ofrecerles un hogar temporal lleno de calma, donde puedan sentirse seguros mientras esperan a su familia definitiva.",
+        "IMAGE1_ALT": "Interior de FosterTheMichis 1",
+        "IMAGE2_ALT": "Interior de FosterTheMichis 2",
+        "IMAGE3_ALT": "Interior de FosterTheMichis 3",
+        "IMAGE4_ALT": "Interior de FosterTheMichis 4",
+        "IMAGE5_ALT": "Interior de FosterTheMichis 5",
+        "SECTION1": {
+            "TITLE": "Diseñado para el bienestar gatuno",
+            "TEXT": "En FosterTheMichis, cada elemento del espacio ha sido planeado pensando en lo que los gatos necesitan para sentirse cómodos, estimulados y seguros. Contamos con zonas elevadas, escondites tranquilos, áreas de juego y espacios de descanso cuidadosamente distribuidos. La ambientación, la iluminación suave y los materiales naturales crean un entorno ideal para su bienestar físico y emocional."
+        },
+        "SECTION2": {
+            "TITLE": "Un entorno acogedor para todos",
+            "TEXT": "Nuestro local combina diseño moderno con funcionalidad felina: rampas, plataformas, túneles y rascadores forman parte de un ecosistema donde los gatos pueden explorar y relajarse con total libertad. Todo ha sido adaptado siguiendo recomendaciones de etólogos y expertos en comportamiento animal."
+        },
+        "SECTION3": {
+            "TITLE": "Un hogar temporal lleno de cuidados",
+            "TEXT": "FosterTheMichis no es solo un cat café, es un refugio temporal para gatos que esperan ser adoptados. Por eso, nuestras instalaciones están equipadas con todo lo necesario para garantizar su salud, su higiene y su tranquilidad. Supervisamos la limpieza diaria, la ventilación y contamos con zonas separadas para evitar el estrés entre felinos."
+        },
+        "ADOPT": {
+            "TITLE": "¿Listo para cambiar una vida?",
+            "SUBTITLE": "Descubre a nuestros michis en adopción: historias únicas, miradas que enamoran y patitas que buscan un hogar.\n\n¡Tu siguiente gran (o pequeño) amigo te está esperando!",
+            "BUTTON": "Conoce a todos los michis 🐱→"
+        }
+    },
+    "CAROUSEL": {
+        "PREV": "Anterior",
+        "NEXT": "Siguiente"
+    }
+}

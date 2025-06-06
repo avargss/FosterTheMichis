@@ -1,9 +1,11 @@
 package com.ftm.service;
 
 import com.ftm.config.SecurityConfig;
+import com.ftm.domain.Michi;
 import com.ftm.domain.User;
 import com.ftm.dto.FullUserDTO;
 import com.ftm.exception.UserNotFoundException;
+import com.ftm.repository.MichiRepository;
 import com.ftm.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,12 +22,14 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final TokenService tokenService;
+    private final MichiRepository michiRepository;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, TokenService tokenService) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, TokenService tokenService, MichiRepository michiRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
         this.tokenService = tokenService;
+        this.michiRepository = michiRepository;
     }
 
     public List<User> all() {

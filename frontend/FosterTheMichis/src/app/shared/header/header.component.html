@@ -1,5 +1,6 @@
-<header>
+<!-- src/app/components/header/header.component.html -->
 
+<header>
     <div>
         <a routerLink="/">
             <img src="./assets/logo-ftm.png" alt="Logo FTM" class="logo" />
@@ -21,24 +22,52 @@
 
     <!-- Navegación principal -->
     <nav id="nav-items" class="nav-items" [class.open]="isMenuOpen" role="navigation">
-        <a class="links" routerLink="/menu">Menú</a>
-        <a class="links" routerLink="/galeria">Galería</a>
-        <a class="links" routerLink="/adopcion">Adopción</a>
-        <a class="links" routerLink="/reservas">Reservas</a>
-        <a class="links" routerLink="/contacto">Contacto</a>
-        <a class="icon-language links"><i class="bi bi-globe"></i></a>
+        <a class="links" routerLink="/menu">{{ 'COMMON.MENU' | translate }}</a>
+        <a class="links" routerLink="/galeria">{{ 'COMMON.GALLERY' | translate }}</a>
+        <a class="links" routerLink="/adopcion">{{ 'COMMON.ADOPTION' | translate }}</a>
+        <a class="links" routerLink="/reservas">{{ 'COMMON.RESERVATIONS' | translate }}</a>
+        <a class="links" routerLink="/contacto">{{ 'COMMON.CONTACT' | translate }}</a>
+
+        <!-- Selector de idioma -->
+        <div class="dropdown">
+            <a class="icon-language links dropdown-toggle" id="languageDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="bi bi-globe"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                <li>
+                    <button type="button" class="dropdown-item" (click)="changeLanguage('es')">
+                        {{ 'COMMON.SPANISH' | translate }}
+                        <span *ngIf="currentLang === 'es'">✔</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item" (click)="changeLanguage('en')">
+                        {{ 'COMMON.ENGLISH' | translate }}
+                        <span *ngIf="currentLang === 'en'">✔</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
 
         <!-- Dropdown para usuario -->
         <div class="dropdown">
-            <a class="user-icon" id="userDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <a class="user-icon" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="/user_icon.jpg" alt="Usuario" class="user-icon" />
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                <li *ngIf="!isLoggedIn"><a class="dropdown-item" routerLink="/register">Registrar usuario</a></li>
-                <li *ngIf="!isLoggedIn"><a class="dropdown-item" routerLink="/login">Iniciar sesión</a></li>
-                <li *ngIf="isLoggedIn"><a class="dropdown-item" routerLink="/gestion">Gestionar</a></li>
-                <li *ngIf="isLoggedIn"><a class="dropdown-item" (click)="logout()">Cerrar sesión</a></li>
+                <li *ngIf="!isLoggedIn">
+                    <a class="dropdown-item" routerLink="/register">{{ 'COMMON.REGISTER' | translate }}</a>
+                </li>
+                <li *ngIf="!isLoggedIn">
+                    <a class="dropdown-item" routerLink="/login">{{ 'COMMON.LOGIN' | translate }}</a>
+                </li>
+                <li *ngIf="isLoggedIn">
+                    <a class="dropdown-item" routerLink="/gestion">{{ 'COMMON.MANAGE' | translate }}</a>
+                </li>
+                <li *ngIf="isLoggedIn">
+                    <a class="dropdown-item" (click)="logout()">{{ 'COMMON.LOGOUT' | translate }}</a>
+                </li>
             </ul>
         </div>
     </nav>

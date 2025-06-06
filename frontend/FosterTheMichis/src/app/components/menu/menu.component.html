@@ -1,7 +1,7 @@
 <body>
     <main class="home-container">
         <div class="title-container">
-            <h1 class="menu-title">Menú y aperitivos</h1>
+            <h1 class="menu-title">{{ 'MENU.TITLE' | translate }}</h1>
         </div>
 
         <div class="description-container">
@@ -17,32 +17,22 @@
                 <div class="bottom-content">
 
                     <div class="wave-text-container original-text">
-                        <h2 class="description-title">Delicias para ti y para los michis</h2>
+                        <h2 class="description-title">{{ 'MENU.DESCRIPTION_TITLE' | translate }}</h2>
                         <p class="description-text">
-                            En FosterTheMichis, queremos que disfrutes de una experiencia única mientras compartes
-                            momentos especiales con nuestros adorables felinos. Explora nuestro menú con una selección
-                            de bebidas calientes y frías, postres irresistibles y opciones caseras hechas con mucho
-                            amor.
+                            {{ 'MENU.DESCRIPTION_P1' | translate }}
                         </p>
                         <p class="description-text">
-                            Y porque nuestros michis también merecen un mimo, contamos con un pequeño rincón de snacks y
-                            comiditas especiales para ellos. ¡Pide algo rico, relájate y deja que los ronroneos hagan el
-                            resto! 🐾☕🍰
+                            {{ 'MENU.DESCRIPTION_P2' | translate }}
                         </p>
                     </div>
 
                     <div class="wave-text-container mobile-text">
-                        <h2 class="description-title">Delicias para ti y para los michis</h2>
+                        <h2 class="description-title">{{ 'MENU.DESCRIPTION_TITLE' | translate }}</h2>
                         <p class="description-text">
-                            En FosterTheMichis, queremos que disfrutes de una experiencia única mientras compartes
-                            momentos especiales con nuestros adorables felinos. Explora nuestro menú con una selección
-                            de bebidas calientes y frías, postres irresistibles y opciones caseras hechas con mucho
-                            amor.
+                            {{ 'MENU.DESCRIPTION_P1' | translate }}
                         </p>
                         <p class="description-text">
-                            Y porque nuestros michis también merecen un mimo, contamos con un pequeño rincón de snacks y
-                            comiditas especiales para ellos. ¡Pide algo rico, relájate y deja que los ronroneos hagan el
-                            resto! 🐾☕🍰
+                            {{ 'MENU.DESCRIPTION_P2' | translate }}
                         </p>
                     </div>
 
@@ -51,7 +41,7 @@
                         <div class="dropdown-container">
                             <button class="btn btn-primary custom-toggle" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#hotDrinks" aria-expanded="false" aria-controls="hotDrinks">
-                                Ver Bebidas Calientes
+                                {{ 'MENU.BUTTON_HOT_DRINKS' | translate }}
                                 <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
@@ -64,7 +54,7 @@
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ product.name }}</h5>
-                                                <p class="card-text"><strong>Precio:</strong> {{ product.price }}</p>
+                                                <p class="card-text"><strong>{{ 'MENU.PRICE_LABEL' | translate }}</strong> {{ product.price }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +66,7 @@
                         <div class="dropdown-container">
                             <button class="btn btn-primary custom-toggle" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#coldDrinks" aria-expanded="false" aria-controls="coldDrinks">
-                                Ver Bebidas Frías
+                                {{ 'MENU.BUTTON_COLD_DRINKS' | translate }}
                                 <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
@@ -89,7 +79,7 @@
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ product.name }}</h5>
-                                                <p class="card-text"><strong>Precio:</strong> {{ product.price }}</p>
+                                                <p class="card-text"><strong>{{ 'MENU.PRICE_LABEL' | translate }}</strong> {{ product.price }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -101,7 +91,7 @@
                         <div class="dropdown-container">
                             <button class="btn btn-primary custom-toggle" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#desserts" aria-expanded="false" aria-controls="desserts">
-                                Ver Postres
+                                {{ 'MENU.BUTTON_DESSERTS' | translate }}
                                 <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
@@ -114,7 +104,7 @@
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ product.name }}</h5>
-                                                <p class="card-text"><strong>Precio:</strong> {{ product.price }}</p>
+                                                <p class="card-text"><strong>{{ 'MENU.PRICE_LABEL' | translate }}</strong> {{ product.price }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -126,7 +116,7 @@
                         <div class="dropdown-container">
                             <button class="btn btn-primary custom-toggle" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#homemade" aria-expanded="false" aria-controls="homemade">
-                                Ver Aperitivos Caseros
+                                {{ 'MENU.BUTTON_HOMEMADE' | translate }}
                                 <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
@@ -139,7 +129,7 @@
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ product.name }}</h5>
-                                                <p class="card-text"><strong>Precio:</strong> {{ product.price }}</p>
+                                                <p class="card-text"><strong>{{ 'MENU.PRICE_LABEL' | translate }}</strong> {{ product.price }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +141,7 @@
                         <div class="dropdown-container">
                             <button class="btn btn-primary custom-toggle" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#felineTreats" aria-expanded="false" aria-controls="felineTreats">
-                                Ver Aperitivos Felinos
+                                {{ 'MENU.BUTTON_FELINE' | translate }}
                                 <svg class="toggle-icon" width="16" height="16" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
@@ -164,7 +154,7 @@
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ product.name }}</h5>
-                                                <p class="card-text"><strong>Precio:</strong> {{ product.price }}</p>
+                                                <p class="card-text"><strong>{{ 'MENU.PRICE_LABEL' | translate }}</strong> {{ product.price }}</p>
                                             </div>
                                         </div>
                                     </div>

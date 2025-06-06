@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environment/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { TokenService } from './token.service';
 
 @Injectable({
@@ -85,27 +85,24 @@ export class AuthService {
         this.loggedIn.next(value);
     }
 
-    getUserData(): Observable<any> | null {
+    getUserData(): Observable<any> {
         const token = localStorage.getItem('authToken');
         if (!token) {
             console.warn('No se encontró un token en el almacenamiento local.');
-            return null; // Devuelve null si no hay token
+            return of(null);  // retorna un Observable que emite null inmediatamente
         }
 
         try {
-            const payload = JSON.parse(atob(token.split('.')[1])); // Decodifica el payload del token
-            const userId = payload.id; // Obtén el id del usuario del token
-
-            // Incluye el token en el encabezado de la solicitud
+            const payload = JSON.parse(atob(token.split('.')[1]));
+            const userId = payload.id;
             const headers = new HttpHeaders({
                 'Authorization': `Bearer ${token}`
             });
-
-            // Realiza una solicitud al backend para obtener los datos del usuario
             return this.http.get(`${this.url}/users/${userId}`, { headers });
         } catch (error) {
             console.error('Error al decodificar el token:', error);
-            return null; // Devuelve null si ocurre un error al decodificar el token
+            return of(null); // en caso de error, devolvemos un Observable que emite null
         }
     }
+
 }

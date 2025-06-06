@@ -34,6 +34,15 @@ export class BookingsService {
     return this.http.get<Bookings>(`${this.bookingsUrl}/${id}`, { headers });
   }
 
+  getBookingsByUserId(userId: number): Observable<any[]> {
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.get<any[]>(`http://localhost:8080/bookings/user/${userId}`, { headers });
+  }
+
   addBooking(booking: Bookings): Observable<Bookings> {
     const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
     const headers = new HttpHeaders({
@@ -59,9 +68,5 @@ export class BookingsService {
     });
 
     return this.http.delete<void>(`${this.bookingsUrl}/${id}`, { headers });
-  }
-
-  getBookingsByUserId(userId: number): Observable<Bookings[]> {
-    return this.http.get<Bookings[]>(`${this.bookingsUrl}/user/${userId}`);
   }
 }

@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Products } from '../../model/products';
 import { ProductsService } from '../../services/products.service';
 import { NgFor } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-menu',
-  imports: [NgFor],
+  imports: [NgFor, TranslateModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })

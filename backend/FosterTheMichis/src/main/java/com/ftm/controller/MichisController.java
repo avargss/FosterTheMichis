@@ -63,7 +63,21 @@ public class MichisController {
     }
 
     @GetMapping("/adoption-list/{userId}")
-    public List<Michi> getAdoptionListByUserId(@PathVariable Long userId) {
-        return michiService.findAdoptionListByUserId(userId);
+    public List<Michi> getAdoptionListByUser(@PathVariable("userId") Long userId) {
+        log.info("Accediendo a la lista de adopción del usuario {}", userId);
+        return this.michiService.getAdoptionList(userId);
+    }
+
+    @PostMapping("/{michiId}/adopt/{userId}")
+    public Michi adoptMichi(@PathVariable("michiId") Long michiId, @PathVariable("userId") Long userId) {
+        log.info("Usuario {} está adoptando (o añadiendo a su lista) el michi {}", userId, michiId);
+        return this.michiService.addMichiToUser(userId, michiId);
+    }
+
+    @DeleteMapping("/{michiId}/adopt/{userId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void removeAdoption(@PathVariable("michiId") Long michiId, @PathVariable("userId") Long userId) {
+        log.info("Usuario {} quita al michi {} de su lista de adopción", userId, michiId);
+        this.michiService.removeMichiFromUser(userId, michiId);
     }
 }

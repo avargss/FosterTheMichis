@@ -5,35 +5,48 @@ import { NgFor, NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-adopcion',
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, TranslateModule],
   templateUrl: './adopcion.component.html',
   styleUrl: './adopcion.component.css'
-  
+
 })
 export class AdopcionComponent {
   nonAdoptableMichis: Michi[] = [];
   adoptableMichis: Michi[] = [];
-  filteredMichis: Michi[] = [];
   isAdmin = false;
   isLoggedIn = false;
-  breeds: string[] = [];
-  selectedBreed: string = '';
-  hasLoaded = false;
   adoptionList: Michi[] = [];
+  currentUserId!: number;
 
   constructor(private michisService: MichisService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    // 1) Cargamos el usuario actual (para saber su ID)
+    this.authService.getUserData().subscribe({
+      next: user => {
+        if (user && user.id) {
+          this.currentUserId = user.id;
+        }
+      },
+      error: () => {
+        console.warn('No se pudo obtener el usuario autenticado al inicializar AdopcionComponent.');
+      }
+    });
+
+    // 2) Cargamos listas de michis
     this.loadNonAdoptableMichis();
     this.loadAdoptableMichis();
 
+    // 3) Estado de sesión/rol
     this.isLoggedIn = this.authService.isAuthenticated();
     this.isAdmin = this.authService.isAdmin();
 
-    console.log('isAdmin:', this.isAdmin); // Verifica el valor de isAdmin
+    console.log(`Usuario autenticado: ${this.isLoggedIn}, Rol de administrador: ${this.isAdmin}`);
+
   }
 
   openAddMichiForm(): void {
@@ -187,30 +200,39 @@ export class AdopcionComponent {
   }
 
   // Método para cargar las razas desde la base de datos
-  loadBreeds(): void {
+  /* loadBreeds(): void {
     this.michisService.getBreeds().subscribe((breeds) => {
       this.breeds = breeds;
     });
-  }
+  } */
 
   addToAdoptionList(michi: Michi): void {
-    // Añadir el gato a la lista
-    this.adoptionList.push(michi);
+    // Llamamos al endpoint POST /michis/{michiId}/adopt/{userId}
+    this.michisService.addMichiToAdoptionList(this.currentUserId, michi.id!).subscribe({
+      next: () => {
+        // Actualizamos la lista local para que se refleje en la vista de ‘Gestión’
+        this.adoptionList.push(michi);
 
-    // Mostrar el popup de confirmación
-    Swal.fire({
-      title: '¡Michi añadido!',
-      text: `${michi.name} se ha añadido a tu lista de adopción.`,
-      icon: 'success',
-      showCancelButton: true,
-      confirmButtonText: 'Ir a Gestión',
-      cancelButtonText: 'Entendido'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.router.navigate(['/gestion']);
+        Swal.fire({
+          title: '¡Michi añadido!',
+          text: `${michi.name} se ha añadido a tu lista de adopción.`,
+          icon: 'success',
+          showCancelButton: true,
+          confirmButtonText: 'Ir a Gestión',
+          cancelButtonText: 'Entendido'
+        }).then(result => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/gestion']);
+          }
+        });
+      },
+      error: err => {
+        console.error('Error al añadir a lista de adopción:', err);
+        Swal.fire('Error', 'No se pudo añadir el michi a tu lista de adopción.', 'error');
       }
     });
   }
+
 
   getTotalMichis(): number {
     return this.nonAdoptableMichis.length + this.adoptableMichis.length;

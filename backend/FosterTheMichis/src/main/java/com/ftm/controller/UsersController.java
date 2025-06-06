@@ -1,9 +1,12 @@
 package com.ftm.controller;
 
+import com.ftm.domain.Michi;
 import com.ftm.domain.User;
 import com.ftm.dto.FullUserDTO;
 import com.ftm.config.SecurityConfig.LoginResponse;
 import com.ftm.config.SecurityConfig.LoginDTO;
+import com.ftm.exception.MichiNotFoundException;
+import com.ftm.exception.UserNotFoundException;
 import com.ftm.service.TokenBlacklistService;
 import com.ftm.service.TokenService;
 import com.ftm.service.UserService;
@@ -28,9 +31,7 @@ import java.util.UUID;
 @RequestMapping("/users")
 public class UsersController {
 
-    @Autowired
-    private UserService userService;
-
+    private final UserService userService;
     private final TokenBlacklistService tokenBlacklistService;
 
     public UsersController(UserService userService, TokenBlacklistService tokenBlacklistService) {
@@ -101,5 +102,4 @@ public class UsersController {
         }
         return ResponseEntity.ok().build();
     }*/
-    
 }

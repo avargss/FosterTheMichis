@@ -1,15 +1,11 @@
 package com.ftm.service;
 
 import com.ftm.domain.Bookings;
-import com.ftm.domain.User;
 import com.ftm.exception.BookingNotFoundException;
-import com.ftm.exception.UserNotFoundException;
 import com.ftm.repository.BookingsRepository;
 import com.ftm.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.awt.print.Book;
 import java.util.List;
 
 @Service

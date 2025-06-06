@@ -65,6 +65,29 @@ export class MichisService {
 
   // Obtener lista de adopción por ID de usuario
   getAdoptionListByUserId(userId: number): Observable<Michi[]> {
-    return this.http.get<Michi[]>(`${this.michisUrl}/adoption-list/${userId}`);
+    const token = localStorage.getItem('authToken') || '';
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    return this.http.get<Michi[]>(`${this.michisUrl}/adoption-list/${userId}`, { headers });
   }
+
+  // Añadir un michi a la lista de adopción de un usuario
+  addMichiToAdoptionList(userId: number, michiId: number): Observable<Michi> {
+    const token = localStorage.getItem('authToken') || '';
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+    return this.http.post<Michi>(
+      `${this.michisUrl}/${michiId}/adopt/${userId}`, {}, { headers }
+    );
+  }
+
+  // Eliminar un michi de la lista de adopción de un usuario
+  deleteMichiFromAdoptionList(userId: number, michiId: number): Observable<void> {
+    const token = localStorage.getItem('authToken') || '';
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    return this.http.delete<void>(
+      `${this.michisUrl}/${michiId}/adopt/${userId}`, { headers }
+    );
+  }
+  
 }

@@ -1,11 +1,12 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contacto',
-  imports: [FormsModule],
+  imports: [FormsModule, TranslateModule],
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })

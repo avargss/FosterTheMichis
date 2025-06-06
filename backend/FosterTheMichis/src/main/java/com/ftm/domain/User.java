@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -44,6 +45,7 @@ public class User implements UserDetails {
      * Se mapea inversamente a través del atributo "users" en la entidad Michis.
      */
     @ManyToMany(mappedBy = "users")
+    @JsonIgnore
     private Set<Michi> michis = new HashSet<>();
 
     @OneToMany(mappedBy = "user")

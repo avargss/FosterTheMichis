@@ -1,7 +1,7 @@
 <body>
     <main class="home-container">
         <div class="title-container">
-            <h1 class="menu-title">¡Permítenos ayudarte!</h1>
+            <h1 class="menu-title">{{ 'CONTACT.TITLE' | translate }}</h1>
         </div>
 
         <div class="description-container">
@@ -17,21 +17,18 @@
                 <div class="bottom-content">
 
                     <div class="wave-text-container original-text">
-                        <h2 class="description-title">¿Tienes dudas? ¡Contáctanos! 📩🐾</h2>
+                        <h2 class="description-title">{{ 'CONTACT.HEADER' | translate }}</h2>
                         <p class="description-text">
-                            Si quieres saber más sobre nuestros michis, el proceso de adopción, reservas en el café o
-                            cualquier otra consulta, ¡Estamos aquí para echarte una pata!🐾.
+                            {{ 'CONTACT.PARAGRAPH1' | translate }}
                             <br><br>
-                            ¡No dudes en escribirnos! Te atenderemos con la mayor brevedad posible.
+                            {{ 'CONTACT.PARAGRAPH2' | translate }}
                         </p>
                     </div>
 
                     <div class="wave-text-container mobile-text">
-                        <h2 class="description-title">¿Tienes dudas? ¡Contáctanos! 📩🐾</h2>
+                        <h2 class="description-title">{{ 'CONTACT.HEADER' | translate }}</h2>
                         <p class="description-text">
-                            Si quieres saber más sobre nuestros michis, el proceso de adopción, reservas en el café o
-                            cualquier otra consulta, estamos aquí para echarte una pata. ¡No dudes en escribirnos! Te
-                            atenderemos con la mayor brevedad posible.
+                            {{ 'CONTACT.PARAGRAPH_MOBILE' | translate }}
                         </p>
                     </div>
 
@@ -50,20 +47,26 @@
 
                         <form class="form-container" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombre" name="firstName" required
-                                    ngModel>
-                                <input type="text" class="form-control" placeholder="Apellidos" name="lastName" required
+                                <input type="text" class="form-control"
+                                    placeholder="{{ 'CONTACT.PLACEHOLDER_FIRSTNAME' | translate }}" name="firstName"
+                                    required ngModel>
+                                <input type="text" class="form-control"
+                                    placeholder="{{ 'CONTACT.PLACEHOLDER_LASTNAME' | translate }}" name="lastName"
+                                    required ngModel>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control full"
+                                    placeholder="{{ 'CONTACT.PLACEHOLDER_EMAIL' | translate }}" name="email" required
                                     ngModel>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control full" placeholder="Correo electrónico"
-                                    name="email" required ngModel>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control full" placeholder="Comentarios" name="comments"
+                                <textarea class="form-control full"
+                                    placeholder="{{ 'CONTACT.PLACEHOLDER_COMMENTS' | translate }}" name="comments"
                                     ngModel></textarea>
                             </div>
-                            <button type="submit" class="submit-btn">Enviar mensaje</button>
+                            <button type="submit" class="submit-btn">
+                                {{ 'CONTACT.BUTTON_SEND' | translate }}
+                            </button>
                         </form>
                     </div>
                 </div>
