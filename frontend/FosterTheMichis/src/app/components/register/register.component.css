@@ -4,8 +4,6 @@
     align-items: center;
     background-color: #2eb8c7;
     min-height: 100vh;
-    padding: 20px;
-    
 }
 
 .register-card {
@@ -20,8 +18,6 @@
     flex-direction: column;
     /* Asegura que los elementos estén en columna */
     align-items: center;
-    /* Centra los elementos horizontalmente */
-    margin-bottom: 160px;
 }
 
 .register-header {

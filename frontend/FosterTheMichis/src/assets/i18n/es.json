@@ -217,5 +217,15 @@
     "CAROUSEL": {
         "PREV": "Anterior",
         "NEXT": "Siguiente"
+    },
+    "FOOTER": {
+        "NAV_TITLE": "Explora nuestra web",
+        "LINK_MENU": "Menú",
+        "LINK_GALLERY": "Galería",
+        "LINK_ADOPTION": "Adopción",
+        "LINK_BOOKINGS": "Reservas",
+        "LINK_CONTACT": "Contacto",
+        "FIND_US": "¡Encuéntranos!",
+        "COPYRIGHT": "Todos los derechos reservados."
     }
 }

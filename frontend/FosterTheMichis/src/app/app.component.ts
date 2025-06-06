@@ -3,11 +3,13 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./shared/header/header.component";
 import { FooterComponent } from "./shared/footer/footer.component";
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [NgIf, RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -15,7 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'FosterTheMichis';
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private router: Router) {
     // Registramos idiomas
     this.translate.addLangs(['es', 'en']);
     // Leemos localStorage o usamos 'es' por defecto
@@ -25,4 +27,10 @@ export class AppComponent {
     this.translate.use(initialLang);
 
   }
+
+  // Método para verificar si el footer debe mostrarse
+    shouldShowFooter(): boolean {
+      const currentRoute = this.router.url;
+      return !(currentRoute === '/login' || currentRoute === '/register');
+    }
 }

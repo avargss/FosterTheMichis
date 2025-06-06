@@ -4,7 +4,6 @@ body {
     padding: 0;
     background-color: #C99D7D;
     z-index: -1;
-    height: 100%;
     overflow: hidden;
     overscroll-behavior-x: contain;
     overflow-x: hidden;
@@ -16,7 +15,7 @@ body {
     height: auto;
     /* Para medir lo del svg del footer
     cambio la altura desde aquí */
-    padding-bottom: 15%;
+    padding-bottom: 9%;
 }
 
 main {

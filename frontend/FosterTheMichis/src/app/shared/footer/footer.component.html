@@ -11,36 +11,36 @@
 
     <div class="footer-container">
         <!-- Sección: Nuestras protectoras asociadas -->
-        <div class="footer-section footer-left">
+        <!-- <div class="footer-section footer-left">
             <h2>Nuestras protectoras asociadas</h2>
             <p>
                 En FosterTheMichis colaboramos con varias protectoras dedicadas al rescate y bienestar de los gatos.
                 Gracias a su increíble labor, muchos michis encuentran un hogar lleno de amor. Si quieres adoptar o
                 ayudar, ¡pásate a conocerlos en nuestro café! 💛🐱
             </p>
-        </div>
+        </div> -->
 
         <!-- Sección: Explora nuestra web -->
         <div class="footer-section footer-center">
-            <h2>Explora nuestra web</h2>
+            <h2>{{ 'FOOTER.NAV_TITLE' | translate }}</h2>
             <nav class="footer-nav">
-                <a routerLink="/menu">Menú</a>
-                <a routerLink="/galeria">Galería</a>
-                <a routerLink="/adopcion">Adopción</a>
-                <a routerLink="/reservas">Reservas</a>
-                <a routerLink="/contacto">Contacto</a>
+                <a routerLink="/menu">{{ 'FOOTER.LINK_MENU' | translate }}</a>
+                <a routerLink="/galeria">{{ 'FOOTER.LINK_GALLERY' | translate }}</a>
+                <a routerLink="/adopcion">{{ 'FOOTER.LINK_ADOPTION' | translate }}</a>
+                <a routerLink="/reservas">{{ 'FOOTER.LINK_BOOKINGS' | translate }}</a>
+                <a routerLink="/contacto">{{ 'FOOTER.LINK_CONTACT' | translate }}</a>
             </nav>
         </div>
 
         <!-- Sección: Encuéntranos -->
         <div class="footer-section footer-right">
-            <h2>¡Encuéntranos!</h2>
+            <h2>{{ 'FOOTER.FIND_US' | translate }}</h2>
             <div class="footer-socials">
-                <a routerLink="#"><img src="/svg-twitter.png" alt="Twitter" /></a>
-                <a routerLink="#"><img src="/svg-instagram.png" alt="Instagram" /></a>
-                <a routerLink="#"><img src="/svg-youtube.png" alt="YouTube" /></a>
-                <a routerLink="#"><img src="/svg-facebook.png" alt="Facebook" /></a>
-                <a routerLink="#"><img src="/svg-gmail.png" alt="Correo" /></a>
+                <a routerLink="/"><img src="/svg-twitter.png" alt="Twitter" /></a>
+                <a routerLink="/"><img src="/svg-instagram.png" alt="Instagram" /></a>
+                <a routerLink="/"><img src="/svg-youtube.png" alt="YouTube" /></a>
+                <a routerLink="/"><img src="/svg-facebook.png" alt="Facebook" /></a>
+                <a routerLink="/"><img src="/svg-gmail.png" alt="Correo" /></a>
             </div>
         </div>
     </div>
@@ -48,6 +48,6 @@
     <hr>
 
     <div class="footer-bottom">
-        <p>Copyright © <img src="/logo-ftm.png" alt="Logo FTM" class="footer-logo"> 2025. All rights reserved.</p>
+        <p>Copyright © <img src="/logo-ftm.png" alt="Logo FTM" class="footer-logo"> 2025. {{ 'FOOTER.COPYRIGHT' | translate }}</p>
     </div>
 </footer>

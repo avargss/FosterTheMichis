@@ -1,14 +1,14 @@
 footer {
     position: absolute;
     /* Cambiar a fixed para que esté siempre en la parte inferior */
-    margin-top: -300px;
+    margin-top: -250px;
     width: 100%;
     /* Ajustar la altura según sea necesario */
     z-index: 10;
     /* Asegura que esté por encima del main */
     color: #2D2D2D;
     padding: 32px 60px 0 60px;
-    background: rgba(255, 255, 255, 0.25);
+    /* background: rgba(255, 255, 255, 0.25); */
     font-family: Arial, sans-serif;
     overflow: hidden;
 }

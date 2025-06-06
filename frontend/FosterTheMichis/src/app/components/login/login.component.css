@@ -1,11 +1,9 @@
-/* Contenedor de página completo */
 .login-page {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #2eb8c7;
     min-height: 100vh;
-    padding-bottom: 175px;
 }
 
 /* Tarjeta del login */
