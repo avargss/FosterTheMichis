@@ -16,12 +16,18 @@ export class ReservasComponent {
   reservationForm!: FormGroup;
   userData: any = {};
   isAuthenticated: boolean = false;
+  // Restricciones para fecha y hora
+  minDate: string = '';
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private bookingsService: BookingsService) { }
 
   ngOnInit(): void {
     this.isAuthenticated = this.authService.isAuthenticated();
     console.log('Usuario autenticado:', this.isAuthenticated);
+
+    // Obtener la fecha actual en formato YYYY-MM-DD
+    const today = new Date();
+    this.minDate = today.toISOString().split('T')[0];
 
     const userDataObservable = this.authService.getUserData();
     if (userDataObservable) {

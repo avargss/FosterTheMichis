@@ -38,6 +38,7 @@
                                     <th>{{ 'MANAGEMENT.RESERVATIONS.HEADER.COMMENTS' | translate }}</th>
                                     <th>{{ 'MANAGEMENT.RESERVATIONS.HEADER.USER' | translate }}</th>
                                     <th *ngIf="isAdmin">{{ 'MANAGEMENT.RESERVATIONS.HEADER.CONTROL' | translate }}</th>
+                                    <th>{{ 'MANAGEMENT.KITTIES.HEADER.CONTROL' | translate }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,6 +54,15 @@
                                         }}</td>
                                     <td>{{ reservation.user?.name || ( 'MANAGEMENT.RESERVATIONS.UNKNOWN_USER' |
                                         translate ) }}</td>
+
+                                    <!-- User Control -->
+                                    <td *ngIf="!isAdmin" style="display: flex; justify-content: space-around;">
+                                        <button class="btn btn-danger" (click)="deleteBooking(reservation.id)">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+                                    </td>
+
+                                    <!-- Admin Control -->
                                     <td *ngIf="isAdmin" style="display: flex; justify-content: space-around;">
                                         <button class="btn btn-danger" (click)="deleteBooking(reservation.id)">
                                             <i class="bi bi-trash3"></i>
@@ -122,11 +132,19 @@
                                     <td>{{ michi.breed }}</td>
                                     <td *ngIf="isAdmin">{{ michi.adoptable ? ( 'MANAGEMENT.KITTIES.YES' | translate ) :
                                         ( 'MANAGEMENT.KITTIES.NO' | translate ) }}</td>
+
+                                    <!-- User Control -->
                                     <td *ngIf="!isAdmin" style="display: flex; justify-content: space-around;">
                                         <button class="btn btn-danger" (click)="removeMichiFromAdoptionList(michi.id)">
                                             <i class="bi bi-trash3"></i>
                                         </button>
+                                        <button class="btn btn-info" (click)="adoptMichi()">
+                                            <i class="bi bi-heart"></i>
+                                        </button>
+
                                     </td>
+
+                                    <!-- Admin Control -->
                                     <td *ngIf="isAdmin" style="display: flex; justify-content: space-around;">
                                         <button class="btn btn-danger" (click)="deleteMichi(michi.id)">
                                             <i class="bi bi-trash3"></i>

@@ -90,97 +90,6 @@ export class GestionComponent implements OnInit {
     });
   }
 
-  // Cargar reservas del usuario autenticado
-  loadUserReservations(): void {
-    this.bookingsService.getBookingsByUserId(this.userData.id).subscribe({
-      next: (reservations) => {
-        this.reservations = reservations;
-      },
-      error: (err) => {
-        console.error('Error al cargar las reservas del usuario:', err);
-        Swal.fire('Error', 'No se pudieron cargar tus reservas.', 'error');
-      }
-    });
-  }
-
-  // Cargar usuarios
-  loadUsers(): void {
-    this.usersService.getAllUsers().subscribe({
-      next: (users) => {
-        this.users = users;
-      },
-      error: (err) => {
-        console.error('Error al cargar los usuarios:', err);
-        Swal.fire('Error', 'No se pudieron cargar los usuarios.', 'error');
-      }
-    });
-  }
-
-  // Cargar michis
-  loadMichis(): void {
-    this.michisService.getAllMichis().subscribe({
-      next: (michis) => {
-        this.michis = michis;
-      },
-      error: (err) => {
-        console.error('Error al cargar los michis:', err);
-        Swal.fire('Error', 'No se pudieron cargar los michis.', 'error');
-      }
-    });
-  }
-
-  // Cargar lista de adopción del usuario
-  loadAdoptionList(): void {
-    this.authService.getUserData().subscribe({
-      next: (userData) => {
-        if (userData && userData.id) {
-          this.userData = userData;
-          this.michisService.getAdoptionListByUserId(userData.id).subscribe({
-            next: (list: Michi[]) => {
-              this.adoptionList = list;
-            },
-            error: (err) => {
-              console.error('Error al cargar la lista de adopción:', err);
-              Swal.fire('Error', 'No se pudo cargar tu lista de adopción.', 'error');
-            }
-          });
-        } else {
-          console.warn('No se pudo obtener el ID del usuario.');
-          Swal.fire('Error', 'No se pudo cargar tu lista de adopción (usuario inválido).', 'error');
-        }
-      },
-      error: (err) => {
-        console.error('Error al obtener los datos del usuario:', err);
-        Swal.fire('Error', 'No se pudieron cargar los datos del usuario.', 'error');
-      }
-    });
-  }
-
-  // Eliminar un michi de la lista de adopción
-  removeMichiFromAdoptionList(michiId: number): void {
-    Swal.fire({
-      title: '¿Estás seguro?',
-      text: 'Esta acción eliminará al michi de tu lista de adopción.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.michisService.deleteMichiFromAdoptionList(this.userData.id, michiId).subscribe({
-          next: () => {
-            Swal.fire('¡Eliminado!', 'El michi ha sido eliminado de tu lista de adopción.', 'success');
-            this.loadAdoptionList(); // Recargar la lista de adopción después de eliminar
-          },
-          error: (err) => {
-            console.error('Error al eliminar el michi de la lista de adopción:', err);
-            Swal.fire('Error', 'No se pudo eliminar el michi de tu lista de adopción.', 'error');
-          }
-        });
-      }
-    });
-  }
-
   // Eliminar una reserva
   deleteBooking(id: number): void {
     Swal.fire({
@@ -245,6 +154,32 @@ export class GestionComponent implements OnInit {
       error: (err) => {
         console.error('Error al obtener la reserva:', err);
         Swal.fire('Error', 'No se pudo obtener la reserva.', 'error');
+      }
+    });
+  }
+
+  // Cargar reservas del usuario autenticado
+  loadUserReservations(): void {
+    this.bookingsService.getBookingsByUserId(this.userData.id).subscribe({
+      next: (reservations) => {
+        this.reservations = reservations;
+      },
+      error: (err) => {
+        console.error('Error al cargar las reservas del usuario:', err);
+        Swal.fire('Error', 'No se pudieron cargar tus reservas.', 'error');
+      }
+    });
+  }
+
+  // Cargar usuarios
+  loadUsers(): void {
+    this.usersService.getAllUsers().subscribe({
+      next: (users) => {
+        this.users = users;
+      },
+      error: (err) => {
+        console.error('Error al cargar los usuarios:', err);
+        Swal.fire('Error', 'No se pudieron cargar los usuarios.', 'error');
       }
     });
   }
@@ -324,6 +259,29 @@ export class GestionComponent implements OnInit {
     });
   }
 
+  // Cargar michis
+  loadMichis(): void {
+    this.michisService.getAllMichis().subscribe({
+      next: (michis) => {
+        this.michis = michis;
+      },
+      error: (err) => {
+        console.error('Error al cargar los michis:', err);
+        Swal.fire('Error', 'No se pudieron cargar los michis.', 'error');
+      }
+    });
+  }
+
+  // Adoptar un nuevo michi
+  adoptMichi(): void {
+    Swal.fire({
+      title: '¡Nos alegra que quieras adoptar un michi!',
+      text: 'Nos pondremos en contacto contigo lo antes posible para coordinar la adopción. ¡Muchas gracias por tu interés!',
+      icon: 'success',
+      confirmButtonText: 'Entendido'
+    });
+  }
+
   // Eliminar un michi
   deleteMichi(id: number): void {
     Swal.fire({
@@ -397,5 +355,56 @@ export class GestionComponent implements OnInit {
     });
   }
 
+  // Cargar lista de adopción del usuario
+  loadAdoptionList(): void {
+    this.authService.getUserData().subscribe({
+      next: (userData) => {
+        if (userData && userData.id) {
+          this.userData = userData;
+          this.michisService.getAdoptionListByUserId(userData.id).subscribe({
+            next: (list: Michi[]) => {
+              this.adoptionList = list;
+            },
+            error: (err) => {
+              console.error('Error al cargar la lista de adopción:', err);
+              Swal.fire('Error', 'No se pudo cargar tu lista de adopción.', 'error');
+            }
+          });
+        } else {
+          console.warn('No se pudo obtener el ID del usuario.');
+          Swal.fire('Error', 'No se pudo cargar tu lista de adopción (usuario inválido).', 'error');
+        }
+      },
+      error: (err) => {
+        console.error('Error al obtener los datos del usuario:', err);
+        Swal.fire('Error', 'No se pudieron cargar los datos del usuario.', 'error');
+      }
+    });
+  }
+
+  // Eliminar un michi de la lista de adopción
+  removeMichiFromAdoptionList(michiId: number): void {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción eliminará al michi de tu lista de adopción.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.michisService.deleteMichiFromAdoptionList(this.userData.id, michiId).subscribe({
+          next: () => {
+            Swal.fire('¡Eliminado!', 'El michi ha sido eliminado de tu lista de adopción.', 'success');
+            this.loadAdoptionList(); // Recargar la lista de adopción después de eliminar
+          },
+          error: (err) => {
+            console.error('Error al eliminar el michi de la lista de adopción:', err);
+            Swal.fire('Error', 'No se pudo eliminar el michi de tu lista de adopción.', 'error');
+          }
+        });
+      }
+    });
+  }
 
 }

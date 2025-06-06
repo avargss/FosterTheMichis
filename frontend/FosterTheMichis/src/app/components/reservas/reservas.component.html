@@ -76,7 +76,7 @@
                             <div class="form-group">
                                 <input type="date" class="form-control"
                                     placeholder="{{ 'VISIT.PLACEHOLDER_DATE' | translate }}" name="date" required
-                                    ngModel [readOnly]="!isAuthenticated">
+                                    ngModel [min]="minDate" [readOnly]="!isAuthenticated">
                                 <input type="time" class="form-control"
                                     placeholder="{{ 'VISIT.PLACEHOLDER_TIME' | translate }}" name="time" required
                                     ngModel [readOnly]="!isAuthenticated">
