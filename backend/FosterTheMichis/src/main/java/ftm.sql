@@ -1,6 +1,11 @@
-DROP DATABASE IF EXISTS `FosterTheMichis`;
-CREATE DATABASE `FosterTheMichis`;
-USE `FosterTheMichis`;
+DROP
+    DATABASE IF EXISTS `FosterTheMichis`;
+CREATE
+    DATABASE `FosterTheMichis`;
+USE
+    `FosterTheMichis`;
+
+-- USERS TABLE
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`
@@ -18,23 +23,17 @@ CREATE TABLE `users`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
--- USERS TABLE
-
-LOCK TABLES `users` WRITE;
+LOCK
+    TABLES `users` WRITE;
 INSERT INTO `users`
-VALUES (999999999, 1, 'admin@ftm.com', 'admin', '$2a$10$RPuqKb.dxBFAejsuVi3ea.7lmedHfnXpOCUkTe0G4RHR7YIvt/4UC',
-        'principal', 'admin'),
-       (987654321, 17, 'user@ftm.com', 'user', '$2a$10$P.4buR6dx2pqqn0eSWNpFu0XUfPvYcUuHImGxUjc8QHa/RScjneY.', 'user',
-        'user'),
-       (123987456, 18, 'vero@ftm.com', 'vero', '$2a$10$LdE7UcyMrL2wfMd1uQhxSu/3DZYJ4E9/Tftq0UBWsY3H7sUkgdnKG', 'vero',
-        'user'),
+VALUES (123987456, 18, 'vero@ftm.com', 'Veronika', '$2a$10$LdE7UcyMrL2wfMd1uQhxSu/3DZYJ4E9/Tftq0UBWsY3H7sUkgdnKG',
+        'Tryhubyak', 'user'),
        (111111111, 19, 'admin1prueba@ftm.com', 'admin', '$2a$10$MuNkAmdNZCTKufGOS8fdxe2rMaxCMxJjBNDngODAyNlgHFHZzTHlK',
-        'principal', 'admin'),
+        '', 'admin'),
        (684388781, 20, 'ariana@ftm.com', 'Ariana', '$2a$10$tRh2ttXRZud1Cby3nYn0LOsJhKlLgtS0w0SrbEXxCIUs5cr80iCF2',
-        'Martín', 'user'),
-       (607779357, 21, 'alex@ftm.com', 'Alex', '$2a$10$nUCtLzaeSQCwQHwidZzDIebX4Scy4dlbmZLL86iIjBjW0itBFJocO', 'Vargas',
-        'user');
-UNLOCK TABLES;
+        'Martín', 'user');
+UNLOCK
+    TABLES;
 
 -- MICHIS TABLE
 
@@ -50,27 +49,28 @@ CREATE TABLE `michis`
     `photo`       varchar(255) DEFAULT NULL,
     PRIMARY KEY (`id_michis`)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 20
+  AUTO_INCREMENT = 22
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-LOCK TABLES `michis` WRITE;
+LOCK
+    TABLES `michis` WRITE;
 INSERT INTO `michis`
 VALUES (_binary '\0', 11, 1, 'Fatass', 'Just a little boy', 'Zipi',
         'https://res.cloudinary.com/dlnrzmzjf/image/upload/v1747394133/Zipi4_vjpt5x.jpg'),
-       (_binary '\0', 7, 2, 'Demon', 'Just a little demon', 'Dany',
+       (_binary '\0', 7, 2, 'Demoniaca', 'Just a little demon', 'Dany',
         'https://res.cloudinary.com/dlnrzmzjf/image/upload/v1747397048/Dany_b5glsm.jpg'),
-       (_binary '\0', 8, 3, 'Smol', 'Just a little void', 'Fay',
+       (_binary '\0', 8, 3, 'Smol', 'Un pequeño agujero negro que absorve todas las lonchas de pavo que huele', 'Fay',
         'https://res.cloudinary.com/dlnrzmzjf/image/upload/v1747394260/Fay4_quazz4.jpg'),
-       (_binary '', 4, 4, 'Orange', 'Alocao', 'Eustaquio',
+       (_binary '', 4, 4, 'Europeo de pelo corto', 'Alocao', 'Eustaquio',
         'https://preview.redd.it/v0xhq8kxzjrd1.jpeg?width=640&crop=smart&auto=webp&s=1a66eac83f4d32dcc96bbd30b1ff158890db4810'),
-       (_binary '', 4, 6, 'Orange', 'Alocado y lleno de energía', 'Leonardo',
+       (_binary '', 4, 6, 'Europeo de pelo corto', 'Alocado y lleno de energía', 'Leonardo',
         'https://res.cloudinary.com/dlnrzmzjf/image/upload/v1747391807/Screenshot-2024-12-06-at-10.01.02_E2_80_AFPM_p3subd.png'),
        (_binary '', 2, 7, 'Siamés', 'Cariñosa y muy juguetona', 'Mía',
         'https://res.cloudinary.com/dlnrzmzjf/image/upload/v1747391409/gato-siames-caracter-historia_xhw1ig.jpg'),
        (_binary '', 3, 8, 'Maine Coon', 'Tranquilo y sociable', 'Simba',
         'https://res.cloudinary.com/dlnrzmzjf/image/upload/v1747392045/neroigMesa-de-trabajo-1-50_htg3de.jpg'),
-       (_binary '', 1, 9, 'Europea', 'Curiosa y llena de vida', 'Luna',
+       (_binary '', 1, 9, 'Europeo común', 'Curiosa y llena de vida', 'Luna',
         'https://res.cloudinary.com/dlnrzmzjf/image/upload/v1747392387/black-cat-min-e1680636929915_jh1wlk.jpg'),
        (_binary '', 5, 10, 'Persa', 'Le encanta dormir todo el día', 'Tomás',
         'https://res.cloudinary.com/dlnrzmzjf/image/upload/v1747392464/gatos-persas_uakjjw.jpg'),
@@ -84,13 +84,18 @@ VALUES (_binary '\0', 11, 1, 'Fatass', 'Just a little boy', 'Zipi',
         'https://res.cloudinary.com/dlnrzmzjf/image/upload/v1747392837/mg_7718-modifier-1-1024x683_eq5uwh.jpg'),
        (_binary '', 2, 15, 'Abisinio', 'Inteligente y juguetona', 'Cleo',
         'https://res.cloudinary.com/dlnrzmzjf/image/upload/v1747392952/abisinio-1_igac8k.jpg'),
-       (_binary '', 2, 16, 'Orange', 'Pináculo del autismo condensado', 'DouDou',
+       (_binary '', 2, 16, 'Europeo común', 'Lentita pero mimosa', 'DouDou',
         'https://i.pinimg.com/736x/d7/87/05/d787057242b451806157f82a9ccd285e.jpg'),
-       (_binary '', 3, 19, 'Naranja', 'Gato', 'Queso',
-        'https://estaticos-cdn.prensaiberica.es/clip/4aa0daef-e0d4-4ffd-b233-adf99148177e_16-9-discover-aspect-ratio_640w_0.jpg');
-UNLOCK TABLES;
+       (_binary '', 3, 19, 'Europeo común', 'Gato', 'Queso',
+        'https://estaticos-cdn.prensaiberica.es/clip/4aa0daef-e0d4-4ffd-b233-adf99148177e_16-9-discover-aspect-ratio_640w_0.jpg'),
+       (_binary '', 3, 20, 'Europeo común', 'Gordo y vago', 'Leo',
+        'https://res.cloudinary.com/dr5rih8sj/image/upload/v1749141948/9c689c3d-a9b9-46f3-8c6e-40a48007e9a0_klvn79.jpg'),
+       (_binary '', 4, 21, 'Europeo común', 'Gritona y te juzga con la mirada', 'Misi',
+        'https://res.cloudinary.com/dr5rih8sj/image/upload/v1749142342/19735514-63ec-4291-8294-829e98704be0_bwrxlu.jpg');
+UNLOCK
+    TABLES;
 
--- CATEGORY TABLE
+-- CATEGORIES TABLE
 
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories`
@@ -103,16 +108,18 @@ CREATE TABLE `categories`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-LOCK TABLES `categories` WRITE;
+LOCK
+    TABLES `categories` WRITE;
 INSERT INTO `categories`
 VALUES (1, 'Bebidas calientes'),
        (2, 'Bebidas frias'),
        (3, 'Postres'),
        (4, 'Caseros'),
        (5, 'Aperitivos felinos');
-UNLOCK TABLES;
+UNLOCK
+    TABLES;
 
--- PRODUCT TABLE
+-- PRODUCTS TABLE
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products`
@@ -129,7 +136,8 @@ CREATE TABLE `products`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-LOCK TABLES `products` WRITE;
+LOCK
+    TABLES `products` WRITE;
 INSERT INTO `products`
 VALUES (2.5, 1, 1, 'Té Verde'),
        (2, 1, 2, 'Té de Manzanilla'),
@@ -176,7 +184,8 @@ VALUES (2.5, 1, 1, 'Té Verde'),
        (2.3, 5, 43, 'Bocaditos de Atún'),
        (1.8, 5, 44, 'Barritas de Pavo para Gatos'),
        (2.1, 5, 45, 'Galletitas Crujientes de Queso');
-UNLOCK TABLES;
+UNLOCK
+    TABLES;
 
 -- BOOKINGS TABLE
 
@@ -192,13 +201,18 @@ CREATE TABLE `bookings`
     KEY `FK7n19id7tbioal42r2i75bg4fx` (`id_user`),
     CONSTRAINT `FK7n19id7tbioal42r2i75bg4fx` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_users`)
 ) ENGINE = InnoDB
+  AUTO_INCREMENT = 19
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-LOCK TABLES `bookings` WRITE;
-UNLOCK TABLES;
+LOCK
+    TABLES `bookings` WRITE;
+INSERT INTO `bookings`
+VALUES (4, '2025-06-06 11:40:00.000000', 18, 20, 'Reserva de prueba');
+UNLOCK
+    TABLES;
 
--- MICHIS-USER TABLE
+-- MICHIS_USER TABLE
 
 DROP TABLE IF EXISTS `michi_user`;
 CREATE TABLE `michi_user`
@@ -213,5 +227,11 @@ CREATE TABLE `michi_user`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-LOCK TABLES `michi_user` WRITE;
-UNLOCK TABLES;
+LOCK
+    TABLES `michi_user` WRITE;
+INSERT INTO `michi_user`
+VALUES (4, 20),
+       (6, 20),
+       (7, 20);
+UNLOCK
+    TABLES;
