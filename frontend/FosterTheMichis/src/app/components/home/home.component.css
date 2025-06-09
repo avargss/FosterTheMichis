@@ -237,6 +237,113 @@ main {
     border-radius: 26px;
 }
 
+/* PANTALLAS MEDIANAS */
+
+@media only screen and (max-width: 1440px) and (max-height: 900px) {
+    .home-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 200px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .title-container {
+        margin-top: 120px;
+        margin-bottom: 40px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .project-title {
+        font-family: 'Kitten', sans-serif;
+        color: #2D2D2D;
+        font-size: 7rem;
+        text-align: center;
+    }
+
+    .description-container {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: -450px;
+        z-index: 1;
+    }
+
+    .description-title {
+        font-family: 'Kitten', sans-serif;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        margin-top: 370px;
+        margin-left: -100px;
+        text-align: center;
+    }
+
+    .description-text {
+        font-family: 'Jockey One', sans-serif;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-left: -40px;
+        text-align: justify;
+    }
+
+    .bottom-container {
+        width: 100%;
+        height: 100px;
+        background-color: #C99D7D;
+        margin-top: -1px;
+        padding-bottom: -1px;
+        position: relative;
+    }
+
+    .bottom-content {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 15px;
+    }
+
+    .carousel-container {
+        width: 50%;
+        margin-top: 517px;
+        margin-left: 330px;
+        padding: 15px 0;
+    }
+
+    .carousel-inner img {
+        border-radius: 20px;
+    }
+
+    .mission-top-container {
+        margin-top: 200px;
+    }
+
+    .mission-title {
+        font-size: 2.5rem;
+    }
+
+    .mission-content {
+        gap: 20px;
+    }
+
+    .mission-item {
+        max-width: 400px;
+        padding: 15px;
+    }
+
+    .mission-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .mission-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* PANTALLAS PEQUEÑAS */
+
 @media only screen and (max-width: 768px) {
     .original-text {
         display: none;
