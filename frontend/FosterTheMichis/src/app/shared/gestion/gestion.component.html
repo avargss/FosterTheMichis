@@ -37,8 +37,8 @@
                                     <th>{{ 'MANAGEMENT.RESERVATIONS.HEADER.PEOPLE' | translate }}</th>
                                     <th>{{ 'MANAGEMENT.RESERVATIONS.HEADER.COMMENTS' | translate }}</th>
                                     <th>{{ 'MANAGEMENT.RESERVATIONS.HEADER.USER' | translate }}</th>
+                                    <th *ngIf="!isAdmin">{{ 'MANAGEMENT.RESERVATIONS.HEADER.CONTROL' | translate }}</th>
                                     <th *ngIf="isAdmin">{{ 'MANAGEMENT.RESERVATIONS.HEADER.CONTROL' | translate }}</th>
-                                    <th>{{ 'MANAGEMENT.KITTIES.HEADER.CONTROL' | translate }}</th>
                                 </tr>
                             </thead>
                             <tbody>

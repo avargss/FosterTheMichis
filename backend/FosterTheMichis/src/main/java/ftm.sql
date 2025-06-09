@@ -1,9 +1,6 @@
-DROP
-    DATABASE IF EXISTS `FosterTheMichis`;
-CREATE
-    DATABASE `FosterTheMichis`;
-USE
-    `FosterTheMichis`;
+DROP DATABASE IF EXISTS `FosterTheMichis`;
+CREATE DATABASE `FosterTheMichis`;
+USE `FosterTheMichis`;
 
 -- USERS TABLE
 
@@ -23,8 +20,8 @@ CREATE TABLE `users`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
 
-LOCK
-    TABLES `users` WRITE;
+LOCK TABLES `users` WRITE;
+
 INSERT INTO `users`
 VALUES (123987456, 18, 'vero@ftm.com', 'Veronika', '$2a$10$LdE7UcyMrL2wfMd1uQhxSu/3DZYJ4E9/Tftq0UBWsY3H7sUkgdnKG',
         'Tryhubyak', 'user'),
@@ -32,8 +29,7 @@ VALUES (123987456, 18, 'vero@ftm.com', 'Veronika', '$2a$10$LdE7UcyMrL2wfMd1uQhxS
         '', 'admin'),
        (684388781, 20, 'ariana@ftm.com', 'Ariana', '$2a$10$tRh2ttXRZud1Cby3nYn0LOsJhKlLgtS0w0SrbEXxCIUs5cr80iCF2',
         'Martín', 'user');
-UNLOCK
-    TABLES;
+UNLOCK TABLES;
 
 -- MICHIS TABLE
 
