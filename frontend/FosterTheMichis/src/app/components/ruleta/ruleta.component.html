@@ -21,7 +21,6 @@
                             <div #michiElem class="michi" *ngFor="let michi of michis"
                                 [class.selected]="michi === selectedMichi">
                                 <img [src]="michi.photo" [alt]="michi.name" />
-                                <p class="michi-name">{{ michi.name }}</p>
                             </div>
                         </div>
                         <button class="spin-button" (click)="spinRoulette()" [disabled]="isSpinning">
