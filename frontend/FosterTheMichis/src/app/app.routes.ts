@@ -8,6 +8,7 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { ReservasComponent } from './components/reservas/reservas.component';
 import { RegisterComponent } from './components/register/register.component';
 import { GestionComponent } from './shared/gestion/gestion.component';
+import { RuletaComponent } from './components/ruleta/ruleta.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent, title: 'Home' },
@@ -19,4 +20,6 @@ export const routes: Routes = [
     { path: 'contacto', component: ContactoComponent, title: 'Contacto' },
     { path: 'reservas', component: ReservasComponent, title: 'Reservas' },
     { path: 'gestion', component: GestionComponent, title: 'Gestión' },
+    { path: 'ruleta', component: RuletaComponent, title: 'Ruleta' }
+
 ];

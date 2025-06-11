@@ -1,0 +1,224 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #C99D7D;
+    z-index: -1;
+    overflow: hidden;
+    overscroll-behavior-x: contain;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    /* Para medir lo del svg del footer
+    cambio la altura desde aquí */
+    padding-bottom: 9%;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 200px;
+    position: relative;
+    z-index: 1;
+}
+
+.title-container {
+    margin-top: 75px;
+    margin-bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.menu-title {
+    font-family: 'Kitten', sans-serif;
+    color: #2D2D2D;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.description-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.wave-container {
+    width: 100%;
+    position: relative;
+    margin-top: -50px;
+    margin-bottom: 0;
+    color: #2D2D2D;
+}
+
+.wave-text-container {
+    max-width: 1000px;
+    text-align: justify;
+    padding: 20px;
+    color: #2D2D2D;
+}
+
+.original-text {
+    display: block;
+    flex: 1 1 auto;
+}
+
+.description-title {
+    font-family: 'Kitten', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.description-text {
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.wave-container svg {
+    display: block;
+    width: 100%;
+    height: 220px;
+    margin-bottom: 0;
+    position: relative;
+    transform: scaleX(-1);
+}
+
+.flipped-svg svg {
+    display: block;
+    width: 100%;
+    height: 220px;
+    margin-bottom: 0;
+    position: relative;
+    transform: scale(1, -1);
+}
+
+.bottom-container {
+    width: 100%;
+    background-color: #e7dabb;
+    margin-top: -1px;
+    padding: 20px;
+    position: relative;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Contenedor principal */
+.roulette-container {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #fdf5e6;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+.roulette-title {
+    font-family: 'Kitten', sans-serif;
+    font-size: 2.5rem;
+    color: #c99d7d;
+    margin-bottom: 20px;
+}
+
+/* Ruleta circular */
+.roulette {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    border: 10px solid #c99d7d;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #fff8f1, #f5e1c8);
+}
+
+/* Cada michi */
+.michi {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transform-origin: 250px 250px;
+    /* Centro del círculo */
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.michi img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.michi-name {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #2d2d2d;
+}
+
+/* Botón */
+.spin-button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #c99d7d;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.spin-button:hover {
+    background-color: #e7dabb;
+    transform: scale(1.1);
+}
+
+.spin-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Animación de giro */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

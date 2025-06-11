@@ -4,12 +4,12 @@ import { MichisService } from '../../services/michis.service';
 import { NgFor, NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-adopcion',
-  imports: [NgFor, NgIf, TranslateModule],
+  imports: [NgFor, NgIf, TranslateModule, RouterLink],
   templateUrl: './adopcion.component.html',
   styleUrl: './adopcion.component.css'
 

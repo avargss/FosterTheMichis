@@ -322,6 +322,59 @@ hr {
     }
 }
 
+.roulette-container {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff8f1;
+    border: 2px solid #c99d7d;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.roulette-title {
+    font-family: 'Kitten', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #c99d7d;
+    margin-bottom: 10px;
+}
+
+.roulette-description {
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.2rem;
+    color: #2d2d2d;
+    margin-bottom: 20px;
+}
+
+.roulette-button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #ff0000, #ff9900, #ffff00, #00ff00, #00ffff, #0000ff, #9900ff, #ff00ff);
+    background-size: 300%;
+    animation: casino-colors 5s infinite linear;
+    transition: transform 0.3s;
+}
+
+.roulette-button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes casino-colors {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 100%;
+    }
+}
+
 
 /* CARE CARDS */
 

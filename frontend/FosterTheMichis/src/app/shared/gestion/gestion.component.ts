@@ -496,14 +496,17 @@ export class GestionComponent implements OnInit {
           title: 'Editar Michi',
           showCancelButton: true,
           html: `
-          <input id="name" class="swal2-input" placeholder="Nombre" value="${michi.name}">
-          <input id="age" class="swal2-input" placeholder="Edad" value="${michi.age}">
-          <input id="breed" class="swal2-input" placeholder="Raza" value="${michi.breed}">
-          <select id="adoptable" class="swal2-select">
-            <option value="true" ${michi.adoptable ? 'selected' : ''}>Sí</option>
-            <option value="false" ${!michi.adoptable ? 'selected' : ''}>No</option>
-          </select>
-        `,
+            <input id="swal-input-name" class="swal2-input" placeholder="Nombre" value="${michi.name}" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;">
+            <input id="swal-input-age" type="number" class="swal2-input" placeholder="Edad" value="${michi.age}" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;">
+            <input id="swal-input-breed" class="swal2-input" placeholder="Raza" value="${michi.breed}" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;">
+            <textarea id="swal-input-description" class="swal2-textarea" placeholder="Descripción" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;">${michi.description}</textarea>
+            <input id="swal-input-photo" class="swal2-input" placeholder="URL de la foto" value="${michi.photo}" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;">
+            <label for="swal-input-adoptable" style="display: block; margin-bottom: 5px; font-weight: bold;">¿Es adoptable?</label>
+            <select id="swal-input-adoptable" class="swal2-select" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;">
+              <option value="true" ${michi.adoptable ? 'selected' : ''}>Sí</option>
+              <option value="false" ${!michi.adoptable ? 'selected' : ''}>No</option>
+            </select>
+            `,
           focusConfirm: false,
           preConfirm: () => {
             const name = (document.getElementById('name') as HTMLInputElement).value;
