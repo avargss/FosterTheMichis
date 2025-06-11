@@ -66,6 +66,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/users").permitAll()
                         .requestMatchers(HttpMethod.GET, "/products/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/michis/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/categories/**").permitAll()
 
                         // Todo lo demás requiere token
                         .anyRequest().authenticated()

@@ -15,19 +15,6 @@
 
             <div class="bottom-container">
                 <div class="bottom-content">
-                    <div class="admin-control" *ngIf="isAdmin">
-                        <div class="admin-header">
-                            <h2>{{ 'ADOPTION.ADMIN_PANEL_TITLE' | translate }}</h2>
-                            <span class="badge">{{ 'ADOPTION.TOTAL_MICHIS_LABEL' | translate }} {{ getTotalMichis()
-                                }}</span>
-                        </div>
-                        <div class="admin-actions">
-
-                            <button class="btn btn-primary" (click)="openAddMichiForm()">
-                                <i class="bi bi-plus-circle"></i> {{ 'ADOPTION.BUTTON_ADD' | translate }}
-                            </button>
-                        </div>
-                    </div>
 
                     <div class="wave-text-container original-text">
                         <h2 class="description-title">{{ 'ADOPTION.MEOWNAGERS_TITLE' | translate }}</h2>

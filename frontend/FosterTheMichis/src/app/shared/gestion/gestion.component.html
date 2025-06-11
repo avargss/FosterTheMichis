@@ -19,11 +19,62 @@
                     <!-- Botones para cambiar entre pestañas -->
                     <div class="tab-buttons">
                         <button class="btn" [class.active]="activeTab === 'reservas'"
-                            (click)="setActiveTab('reservas')">{{ 'MANAGEMENT.TABS.RESERVATIONS' | translate }}</button>
+                            (click)="setActiveTab('reservas')">
+                            {{ 'MANAGEMENT.TABS.RESERVATIONS' | translate }}
+                        </button>
                         <button *ngIf="isAdmin" class="btn" [class.active]="activeTab === 'usuarios'"
-                            (click)="setActiveTab('usuarios')">{{ 'MANAGEMENT.TABS.USERS' | translate }}</button>
-                        <button class="btn" [class.active]="activeTab === 'michis'" (click)="setActiveTab('michis')">{{
-                            'MANAGEMENT.TABS.KITTIES' | translate }}</button>
+                            (click)="setActiveTab('usuarios')">
+                            {{ 'MANAGEMENT.TABS.USERS' | translate }}
+                        </button>
+                        <button class="btn" [class.active]="activeTab === 'michis'" (click)="setActiveTab('michis')">
+                            {{ 'MANAGEMENT.TABS.KITTIES' | translate }}
+                        </button>
+                        <button *ngIf="isAdmin" class="btn" [class.active]="activeTab === 'productos'"
+                            (click)="setActiveTab('productos')">
+                            {{ 'MANAGEMENT.TABS.PRODUCTS' | translate }}
+                        </button>
+                    </div>
+
+                    <!-- Panel de Administrador para Productos -->
+                    <div class="admin-control" *ngIf="activeTab === 'productos' && isAdmin">
+                        <div class="admin-header">
+                            <h2>{{ 'MANAGEMENT.PRODUCTS.ADMIN_PANEL_TITLE' | translate }}</h2>
+                            <span class="badge">{{ 'MANAGEMENT.PRODUCTS.TOTAL_LABEL' | translate }} : {{ products.length
+                                }}</span>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="btn btn-primary" (click)="addProduct()">
+                                <i class="bi bi-plus-circle"></i> {{ 'MANAGEMENT.PRODUCTS.BUTTON_ADD' | translate }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Panel de Administrador para Usuarios -->
+                    <div class="admin-control" *ngIf="activeTab === 'usuarios' && isAdmin">
+                        <div class="admin-header">
+                            <h2>{{ 'MANAGEMENT.USERS.ADMIN_PANEL_TITLE' | translate }}</h2>
+                            <span class="badge">{{ 'MANAGEMENT.USERS.TOTAL_LABEL' | translate }} : {{ users.length
+                                }}</span>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="btn btn-primary" (click)="addUser()">
+                                <i class="bi bi-plus-circle"></i> {{ 'MANAGEMENT.USERS.BUTTON_ADD' | translate }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Panel de Administrador para Michis -->
+                    <div class="admin-control" *ngIf="activeTab === 'michis' && isAdmin">
+                        <div class="admin-header">
+                            <h2>{{ 'MANAGEMENT.KITTIES.ADMIN_PANEL_TITLE' | translate }}</h2>
+                            <span class="badge">{{ 'MANAGEMENT.KITTIES.TOTAL_LABEL' | translate }} : {{ michis.length
+                                }}</span>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="btn btn-primary" (click)="addMichi()">
+                                <i class="bi bi-plus-circle"></i> {{ 'MANAGEMENT.KITTIES.BUTTON_ADD' | translate }}
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Tabla dinámica -->
@@ -74,6 +125,38 @@
                                 </tr>
                             </tbody>
                         </table>
+
+                        <!-- Tabla de Productos -->
+                        <div class="table-container" style="border-radius: 16px;"
+                            *ngIf="activeTab === 'productos' && isAdmin">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>{{ 'MANAGEMENT.PRODUCTS.HEADER.ID' | translate }}</th>
+                                        <th>{{ 'MANAGEMENT.PRODUCTS.HEADER.NAME' | translate }}</th>
+                                        <th>{{ 'MANAGEMENT.PRODUCTS.HEADER.PRICE' | translate }}</th>
+                                        <th>{{ 'MANAGEMENT.PRODUCTS.HEADER.CATEGORY' | translate }}</th>
+                                        <th>{{ 'MANAGEMENT.KITTIES.HEADER.CONTROL' | translate }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let product of products">
+                                        <td>{{ product.id }}</td>
+                                        <td>{{ product.name }}</td>
+                                        <td>{{ product.price }}</td>
+                                        <td>{{ product.category.name }}</td>
+                                        <td style="display: flex; justify-content: space-around;">
+                                            <button class="btn btn-danger" (click)="deleteProduct(product.id)">
+                                                <i class="bi bi-trash3"></i>
+                                            </button>
+                                            <button class="btn btn-warning" (click)="editProduct(product.id)">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <!-- Tabla de Usuarios -->
                         <table *ngIf="activeTab === 'usuarios' && isAdmin" class="table">

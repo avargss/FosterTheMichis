@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Products } from '../model/products';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -25,15 +25,30 @@ export class ProductsService {
   }
 
   addProduct(product: Products): Observable<Products> {
-    return this.http.post<Products>(this.productsUrl, product);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.post<Products>(this.productsUrl, product, { headers });
   }
 
   updateProduct(product: Products): Observable<Products> {
-    return this.http.put<Products>(`${this.productsUrl}/${product.id}`, product);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.put<Products>(`${this.productsUrl}/${product.id}`, product, { headers });
   }
 
   deleteProduct(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.productsUrl}/${id}`);
+    const token = localStorage.getItem('authToken'); // Obtén el token del almacenamiento local
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Incluye el token en el encabezado
+    });
+
+    return this.http.delete<void>(`${this.productsUrl}/${id}`, { headers });
   }
 
   // Método para obtener productos por categoría usando el ID numérico

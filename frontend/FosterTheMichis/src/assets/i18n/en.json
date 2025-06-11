@@ -146,7 +146,8 @@
         "TABS": {
             "RESERVATIONS": "Reservations",
             "USERS": "Users",
-            "KITTIES": "Kitties"
+            "KITTIES": "Kitties",
+            "PRODUCTS": "Products"
         },
         "RESERVATIONS": {
             "HEADER": {
@@ -159,7 +160,10 @@
             },
             "NO_ENTRIES": "No reservations added",
             "NO_COMMENTS": "No comments",
-            "UNKNOWN_USER": "Unknown"
+            "UNKNOWN_USER": "Unknown",
+            "ADMIN_PANEL_TITLE": "Reservations Admin Panel",
+            "TOTAL_LABEL": "Total Reservations",
+            "BUTTON_ADD": "Add Reservation"
         },
         "USERS": {
             "HEADER": {
@@ -169,7 +173,10 @@
                 "PHONE": "Phone",
                 "ROLE": "Role",
                 "CONTROL": "Control"
-            }
+            },
+            "ADMIN_PANEL_TITLE": "Users Admin Panel",
+            "TOTAL_LABEL": "Total Users",
+            "BUTTON_ADD": "Add User"
         },
         "KITTIES": {
             "HEADER": {
@@ -183,7 +190,22 @@
             },
             "NO_ENTRIES": "No kitties in the adoption list.",
             "YES": "Yes",
-            "NO": "No"
+            "NO": "No",
+            "ADMIN_PANEL_TITLE": "Kitties Admin Panel",
+            "TOTAL_LABEL": "Total Kitties",
+            "BUTTON_ADD": "Add Kitty"
+        },
+        "PRODUCTS": {
+            "HEADER": {
+                "ID": "ID",
+                "NAME": "Name",
+                "PRICE": "Price",
+                "CATEGORY": "Category",
+                "CONTROL": "Control"
+            },
+            "ADMIN_PANEL_TITLE": "Products Admin Panel",
+            "TOTAL_LABEL": "Total Products",
+            "BUTTON_ADD": "Add Product"
         }
     },
     "INSTALLATIONS": {

@@ -146,7 +146,8 @@
         "TABS": {
             "RESERVATIONS": "Reservas",
             "USERS": "Usuarios",
-            "KITTIES": "Michis"
+            "KITTIES": "Michis",
+            "PRODUCTS": "Productos"
         },
         "RESERVATIONS": {
             "HEADER": {
@@ -157,19 +158,25 @@
                 "USER": "Usuario",
                 "CONTROL": "Control"
             },
-            "NO_ENTRIES": "No se han añadido reservas",
+            "NO_ENTRIES": "No hay reservas añadidas",
             "NO_COMMENTS": "Sin comentarios",
-            "UNKNOWN_USER": "Desconocido"
+            "UNKNOWN_USER": "Desconocido",
+            "ADMIN_PANEL_TITLE": "Panel de Administración de Reservas",
+            "TOTAL_LABEL": "Total de Reservas",
+            "BUTTON_ADD": "Agregar Reserva"
         },
         "USERS": {
             "HEADER": {
                 "ID": "ID",
                 "NAME": "Nombre",
-                "EMAIL": "Correo",
+                "EMAIL": "Correo Electrónico",
                 "PHONE": "Teléfono",
                 "ROLE": "Rol",
                 "CONTROL": "Control"
-            }
+            },
+            "ADMIN_PANEL_TITLE": "Panel de Administración de Usuarios",
+            "TOTAL_LABEL": "Total de Usuarios",
+            "BUTTON_ADD": "Agregar Usuario"
         },
         "KITTIES": {
             "HEADER": {
@@ -183,7 +190,22 @@
             },
             "NO_ENTRIES": "No hay michis en la lista de adopción.",
             "YES": "Sí",
-            "NO": "No"
+            "NO": "No",
+            "ADMIN_PANEL_TITLE": "Panel de Administración de Michis",
+            "TOTAL_LABEL": "Total de Michis",
+            "BUTTON_ADD": "Agregar Michi"
+        },
+        "PRODUCTS": {
+            "HEADER": {
+                "ID": "ID",
+                "NAME": "Nombre",
+                "PRICE": "Precio",
+                "CATEGORY": "Categoría",
+                "CONTROL": "Control"
+            },
+            "ADMIN_PANEL_TITLE": "Panel de Administración de Productos",
+            "TOTAL_LABEL": "Total de Productos",
+            "BUTTON_ADD": "Agregar Producto"
         }
     },
     "INSTALLATIONS": {

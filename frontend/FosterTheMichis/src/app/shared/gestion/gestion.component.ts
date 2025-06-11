@@ -7,6 +7,10 @@ import Swal from 'sweetalert2';
 import { NgFor, NgIf } from '@angular/common';
 import { Michi } from '../../model/michis';
 import { TranslateModule } from '@ngx-translate/core';
+import { ProductsService } from '../../services/products.service';
+import { CategoryService } from '../../services/category.service';
+import { Categories } from '../../model/category';
+import { Products } from '../../model/products';
 
 @Component({
   selector: 'app-gestion',
@@ -20,6 +24,8 @@ export class GestionComponent implements OnInit {
   users: any[] = [];
   michis: any[] = [];
   adoptionList: Michi[] = []; // Lista de adopciones
+  products: Products[] = [];
+  categories: Categories[] = [];
   isAdmin = false;
   userData: any = {}; // Datos del usuario autenticado
 
@@ -27,6 +33,8 @@ export class GestionComponent implements OnInit {
     private bookingsService: BookingsService,
     private michisService: MichisService,
     private usersService: UsersService,
+    private productsService: ProductsService,
+    private categoryService: CategoryService,
     private authService: AuthService
   ) { }
 
@@ -44,6 +52,8 @@ export class GestionComponent implements OnInit {
           this.loadReservations(); // Cargar todas las reservas
           this.loadUsers(); // Cargar todos los usuarios
           this.loadMichis(); // Cargar todos los michis
+          this.loadProducts();
+          this.loadCategories();
         } else {
           this.loadUserReservations(); // Cargar solo las reservas del usuario
           this.loadAdoptionList(); // Cargar lista de adopciones
@@ -86,6 +96,216 @@ export class GestionComponent implements OnInit {
       error: (err) => {
         console.error('Error al cargar las reservas:', err);
         Swal.fire('Error', 'No se pudieron cargar las reservas.', 'error');
+      }
+    });
+  }
+
+  // Cargar usuarios
+  loadUsers(): void {
+    this.usersService.getAllUsers().subscribe({
+      next: (users) => {
+        this.users = users;
+      },
+      error: (err) => {
+        console.error('Error al cargar los usuarios:', err);
+        Swal.fire('Error', 'No se pudieron cargar los usuarios.', 'error');
+      }
+    });
+  }
+
+  // Cargar reservas del usuario autenticado
+  loadUserReservations(): void {
+    this.bookingsService.getBookingsByUserId(this.userData.id).subscribe({
+      next: (reservations) => {
+        this.reservations = reservations;
+      },
+      error: (err) => {
+        console.error('Error al cargar las reservas del usuario:', err);
+        Swal.fire('Error', 'No se pudieron cargar tus reservas.', 'error');
+      }
+    });
+  }
+
+  // Cargar michis
+  loadMichis(): void {
+    this.michisService.getAllMichis().subscribe({
+      next: (michis) => {
+        this.michis = michis;
+      },
+      error: (err) => {
+        console.error('Error al cargar los michis:', err);
+        Swal.fire('Error', 'No se pudieron cargar los michis.', 'error');
+      }
+    });
+  }
+
+  // Cargar productos
+  loadProducts(): void {
+    this.productsService.getAllProducts().subscribe({
+      next: (products) => {
+        this.products = products;
+        console.log('Productos cargados:', this.products); // Verifica los IDs de las categorías en los productos
+
+      },
+      error: (err) => {
+        console.error('Error al cargar los productos:', err);
+        Swal.fire('Error', 'No se pudieron cargar los productos.', 'error');
+      }
+    });
+  }
+
+  // Cargar categorías
+  loadCategories(): void {
+    this.categoryService.getAllCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
+        console.log('Categorías cargadas:', this.categories); // Verifica que las categorías se cargan correctamente
+
+      },
+      error: (err) => {
+        console.error('Error al cargar las categorías:', err);
+        Swal.fire('Error', 'No se pudieron cargar las categorías.', 'error');
+      }
+    });
+  }
+
+  addProduct(): void {
+    Swal.fire({
+      title: 'Agregar Producto',
+      html: `
+      <input id="name" class="swal2-input" placeholder="Nombre">
+      <input id="price" type="number" class="swal2-input" placeholder="Precio">
+      <select id="category" class="swal2-select">
+        ${this.categories
+          .map((category) => `<option value="${category.id}">${category.name}</option>`)
+          .join('')}
+      </select>
+    `,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      preConfirm: () => {
+        const name = (document.getElementById('name') as HTMLInputElement).value;
+        const price = parseFloat((document.getElementById('price') as HTMLInputElement).value);
+        const categoryId = parseInt((document.getElementById('category') as HTMLSelectElement).value, 10);
+
+        if (!name || isNaN(price) || isNaN(categoryId)) {
+          Swal.showValidationMessage('Por favor, completa todos los campos correctamente.');
+          return null;
+        }
+
+        return { name, price, category: { id: categoryId } }; // Enviar el objeto `category` con el `id`
+      }
+    }).then((result) => {
+      if (result.isConfirmed && result.value) {
+        this.productsService.addProduct(result.value).subscribe({
+          next: () => {
+            Swal.fire('¡Éxito!', 'Producto agregado correctamente.', 'success');
+            this.loadProducts();
+          },
+          error: (err) => {
+            console.error('Error al agregar el producto:', err);
+            Swal.fire('Error', 'No se pudo agregar el producto.', 'error');
+          }
+        });
+      }
+    });
+  }
+
+  addUser(): void {
+    Swal.fire({
+      title: 'Agregar Usuario',
+      html: `
+      <input id="name" class="swal2-input" placeholder="Nombre">
+      <input id="surname" class="swal2-input" placeholder="Apellidos">
+      <input id="email" class="swal2-input" placeholder="Correo Electrónico">
+      <input id="phoneNumber" class="swal2-input" placeholder="Teléfono">
+      <select id="role" class="swal2-select">
+        <option value="user">Usuario</option>
+        <option value="admin">Administrador</option>
+      </select>
+    `,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      preConfirm: () => {
+        const name = (document.getElementById('name') as HTMLInputElement).value;
+        const surname = (document.getElementById('surname') as HTMLInputElement).value;
+        const email = (document.getElementById('email') as HTMLInputElement).value;
+        const phoneNumber = parseInt((document.getElementById('phoneNumber') as HTMLInputElement).value, 10);
+        const role = (document.getElementById('role') as HTMLSelectElement).value;
+
+        if (!name || !surname || !email || isNaN(phoneNumber) || !role) {
+          Swal.showValidationMessage('Por favor, completa todos los campos correctamente.');
+          return null;
+        }
+
+        return { name, surname, email, phoneNumber, role };
+      }
+    }).then((result) => {
+      if (result.isConfirmed && result.value) {
+        this.usersService.addUser(result.value).subscribe({
+          next: () => {
+            Swal.fire('¡Éxito!', 'Usuario agregado correctamente.', 'success');
+            this.loadUsers();
+          },
+          error: (err) => {
+            console.error('Error al agregar el usuario:', err);
+            Swal.fire('Error', 'No se pudo agregar el usuario.', 'error');
+          }
+        });
+      }
+    });
+  }
+
+  addMichi(): void {
+    Swal.fire({
+      title: 'Añadir nuevo Michi',
+      icon: 'question',
+      showCloseButton: true,
+      html: `
+          <input id="swal-input-name" class="swal2-input" placeholder="Nombre" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;">
+          <input id="swal-input-age" type="number" class="swal2-input" placeholder="Edad" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;">
+          <input id="swal-input-breed" class="swal2-input" placeholder="Raza" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;">
+          <textarea id="swal-input-description" class="swal2-textarea" placeholder="Descripción" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;"></textarea>
+          <input id="swal-input-photo" class="swal2-input" placeholder="URL de la foto" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;">
+          <label for="swal-input-adoptable" style="display: block; margin-bottom: 5px; font-weight: bold;">¿Es adoptable?</label>
+          <select id="swal-input-adoptable" class="swal2-select" style="width: 90%; padding: 10px; font-size: 16px; margin-bottom: 10px;">
+            <option value="true">Sí</option>
+            <option value="false">No</option>
+          </select>
+    
+        `,
+      focusConfirm: false,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      cancelButtonText: 'Cancelar',
+      preConfirm: () => {
+        const name = (document.getElementById('swal-input-name') as HTMLInputElement).value.trim();
+        const age = parseInt((document.getElementById('swal-input-age') as HTMLInputElement).value, 10);
+        const breed = (document.getElementById('swal-input-breed') as HTMLInputElement).value.trim();
+        const description = (document.getElementById('swal-input-description') as HTMLTextAreaElement).value.trim();
+        const photo = (document.getElementById('swal-input-photo') as HTMLInputElement).value.trim();
+        const adoptable = (document.getElementById('swal-input-adoptable') as HTMLSelectElement).value === 'true';
+
+        if (!name || isNaN(age) || !breed || !description || !photo) {
+          Swal.showValidationMessage('Por favor, completa todos los campos correctamente.');
+          return;
+        }
+
+        return { name, age, breed, description, photo, adoptable };
+      }
+    }).then((result) => {
+      if (result.isConfirmed && result.value) {
+        const newMichi = result.value;
+        this.michisService.addMichi(newMichi).subscribe({
+          next: () => {
+            Swal.fire('¡Éxito!', 'El michi ha sido añadido correctamente.', 'success');
+            // Recargar la lista de michis
+            this.loadMichis();
+          },
+          error: () => {
+            Swal.fire('Error', 'Ocurrió un error al añadir el michi.', 'error');
+          }
+        });
       }
     });
   }
@@ -154,32 +374,6 @@ export class GestionComponent implements OnInit {
       error: (err) => {
         console.error('Error al obtener la reserva:', err);
         Swal.fire('Error', 'No se pudo obtener la reserva.', 'error');
-      }
-    });
-  }
-
-  // Cargar reservas del usuario autenticado
-  loadUserReservations(): void {
-    this.bookingsService.getBookingsByUserId(this.userData.id).subscribe({
-      next: (reservations) => {
-        this.reservations = reservations;
-      },
-      error: (err) => {
-        console.error('Error al cargar las reservas del usuario:', err);
-        Swal.fire('Error', 'No se pudieron cargar tus reservas.', 'error');
-      }
-    });
-  }
-
-  // Cargar usuarios
-  loadUsers(): void {
-    this.usersService.getAllUsers().subscribe({
-      next: (users) => {
-        this.users = users;
-      },
-      error: (err) => {
-        console.error('Error al cargar los usuarios:', err);
-        Swal.fire('Error', 'No se pudieron cargar los usuarios.', 'error');
       }
     });
   }
@@ -255,19 +449,6 @@ export class GestionComponent implements OnInit {
       error: (err) => {
         console.error('Error al obtener el usuario:', err);
         Swal.fire('Error', 'No se pudo obtener el usuario.', 'error');
-      }
-    });
-  }
-
-  // Cargar michis
-  loadMichis(): void {
-    this.michisService.getAllMichis().subscribe({
-      next: (michis) => {
-        this.michis = michis;
-      },
-      error: (err) => {
-        console.error('Error al cargar los michis:', err);
-        Swal.fire('Error', 'No se pudieron cargar los michis.', 'error');
       }
     });
   }
@@ -406,5 +587,88 @@ export class GestionComponent implements OnInit {
       }
     });
   }
+
+  // Editar producto
+  editProduct(id: number): void {
+    this.productsService.getProductById(id).subscribe({
+      next: (product) => {
+        Swal.fire({
+          title: 'Editar Producto',
+          showCancelButton: true,
+          html: `
+          <input id="name" class="swal2-input" placeholder="Nombre" value="${product.name}">
+          <input id="price" class="swal2-input" placeholder="Precio" value="${product.price}">
+          <select id="categoryId" class="swal2-select">
+            ${this.categories
+              .map(
+                (category) =>
+                  `<option value="${category.id}" ${category.id === product.category.id ? 'selected' : ''
+                  }>${category.name}</option>`
+              )
+              .join('')}
+          </select>
+        `,
+          focusConfirm: false,
+          preConfirm: () => {
+            const name = (document.getElementById('name') as HTMLInputElement).value;
+            const price = parseFloat((document.getElementById('price') as HTMLInputElement).value);
+            const categoryId = parseInt((document.getElementById('categoryId') as HTMLSelectElement).value, 10);
+            const category = this.categories.find((c) => c.id === categoryId); // Obtener el objeto completo de la categoría
+
+            if (!name || isNaN(price) || !category) {
+              Swal.showValidationMessage('Por favor, completa todos los campos correctamente.');
+              return null;
+            }
+
+            return { ...product, name, price, category }; // Incluir el objeto completo de la categoría
+          }
+        }).then((result) => {
+          if (result.isConfirmed && result.value) {
+            const updatedProduct = result.value;
+            this.productsService.updateProduct(updatedProduct).subscribe({
+              next: () => {
+                Swal.fire('¡Éxito!', 'El producto ha sido actualizado correctamente.', 'success');
+                this.loadProducts(); // Recargar productos después de actualizar
+              },
+              error: (err) => {
+                console.error('Error al actualizar el producto:', err);
+                Swal.fire('Error', 'No se pudo actualizar el producto.', 'error');
+              }
+            });
+          }
+        });
+      },
+      error: (err) => {
+        console.error('Error al obtener el producto:', err);
+        Swal.fire('Error', 'No se pudo obtener el producto.', 'error');
+      }
+    });
+  }
+
+  // Eliminar producto
+  deleteProduct(id: number): void {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción eliminará el producto de la base de datos.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productsService.deleteProduct(id).subscribe({
+          next: () => {
+            Swal.fire('¡Eliminado!', 'El producto ha sido eliminado correctamente.', 'success');
+            this.loadProducts(); // Recargar productos después de eliminar
+          },
+          error: (err) => {
+            console.error('Error al eliminar el producto:', err);
+            Swal.fire('Error', 'No se pudo eliminar el producto.', 'error');
+          }
+        });
+      }
+    });
+  }
+
 
 }
