@@ -262,6 +262,7 @@
         "ALREADY_IN_LIST_ERROR": "{{name}} ya está en tu lista de adopción.",
         "SUCCESS": "¡Enhorabuena!",
         "ADD_SUCCESS": "{{name}} ha sido añadido a tu lista de adopción.",
+        "ERROR": "¡Ups! Algo salió mal.",
         "ADD_ERROR": "No se pudo añadir el michi a tu lista de adopción.",
         "FETCH_ERROR": "No se pudo verificar tu lista de adopción."
     }

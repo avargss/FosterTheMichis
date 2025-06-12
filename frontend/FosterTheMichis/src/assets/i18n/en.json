@@ -263,6 +263,7 @@
         "ALREADY_IN_LIST_ERROR": "{{name}} is already in your adoption list.",
         "SUCCESS": "CONGRATULATIONS!",
         "ADD_SUCCESS": "{{name}} has been added to your adoption list.",
+        "ERROR": "Oops! Something went wrong.",
         "ADD_ERROR": "The kitty could not be added to your adoption list.",
         "FETCH_ERROR": "Could not verify your adoption list."
     }
