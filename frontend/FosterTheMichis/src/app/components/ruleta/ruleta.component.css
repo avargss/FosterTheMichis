@@ -132,7 +132,6 @@ main {
 /* Contenedor principal */
 .roulette-container {
     text-align: center;
-    margin-top: 50px;
     padding: 20px;
     background-color: #fdf5e6;
     border-radius: 15px;
@@ -147,6 +146,13 @@ main {
     margin-bottom: 20px;
 }
 
+/* Descripción */
+.roulette-description {
+    font-family: 'Jockey One', sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+}
+
 /* Ruleta circular */
 .roulette {
     position: relative;
@@ -159,7 +165,16 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, #fff8f1, #f5e1c8);
+    background: conic-gradient(#E57373 0deg 36deg,
+            #FFF176 36deg 72deg,
+            #64B5F6 72deg 108deg,
+            #81C784 108deg 144deg,
+            #BA68C8 144deg 180deg,
+            #4DB6AC 180deg 216deg,
+            #FFD54F 216deg 252deg,
+            #F06292 252deg 288deg,
+            #A1887F 288deg 324deg,
+            #90CAF9 324deg 360deg);
 }
 
 /* Cada michi */
@@ -169,8 +184,13 @@ main {
     height: 100px;
     transform-origin: 250px 250px;
     /* Centro del círculo */
+    /* Centro del círculo */
     text-align: center;
-    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
 .michi img {
@@ -182,10 +202,27 @@ main {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.michi-name {
-    margin-top: 5px;
-    font-size: 0.9rem;
-    color: #2d2d2d;
+.michi.selected {
+    transform: scale(1.2);
+    border-color: #c99d7d;
+}
+
+/* Clase para resaltar el gato seleccionado temporalmente */
+.michi.highlighted {
+    transform: scale(1.3);
+    z-index: 10;
+    animation: pulse 0.6s infinite ease-in-out, rotate 0.6s infinite linear;
+    box-shadow: 0 0 20px 8px rgb(255, 81, 0);
+    border-radius: 50%;
+}
+
+/* Efecto de hover para michis resaltados */
+.michi.highlighted:hover {
+    transform: scale(1.3);
+    /* Aumentar ligeramente más el tamaño al pasar el cursor */
+    box-shadow: 0 0 20px 8px rgba(255, 215, 0, 1);
+    /* Incrementar el brillo */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 /* Botón */
@@ -203,7 +240,7 @@ main {
 }
 
 .spin-button:hover {
-    background-color: #e7dabb;
+    background-color: #eac774;
     transform: scale(1.1);
 }
 
@@ -222,80 +259,3 @@ main {
         transform: rotate(360deg);
     }
 }
-
-
-/* .roulette {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  margin: 1rem auto;
-  border-radius: 50%;
-  overflow: hidden;
-  background: conic-gradient(
-    #E57373 0deg 45deg,
-    #FFF176 45deg 90deg,
-    #64B5F6 90deg 135deg,
-    #81C784 135deg 180deg,
-    #BA68C8 180deg 225deg,
-    #4DB6AC 225deg 270deg,
-    #FFD54F 270deg 315deg,
-    #F06292 315deg 360deg
-  );
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  animation: spin 0s linear infinite paused;
-}
-
-.roulette-pointer {
-  position: absolute;
-  top: calc(50% - 160px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-bottom: 30px solid #333;
-  z-index: 2;
-}
-
-.michi {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  transform-origin: 150px 150px;
-}
-.michi img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
-}
-.michi p {
-  font-size: 0.7rem;
-  margin-top: 4px;
-  color: #333;
-}
-
-@keyframes spin {
-  0%   { transform: rotate(0deg); }
-  70%  { transform: rotate(3600deg); }
-  100% { transform: rotate(3640deg); }
-}
-
-.roulette.spinning {
-  animation: spin 4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
-}
-
-.spin-button {
-  margin-top: 1rem;
-  padding: 0.75rem 2rem;
-  font-size: 1.1rem;
-  background-color: #C99D7D;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-}
-.spin-button:hover { background-color: #E7DABB; }
-.spin-button:disabled { opacity: 0.6; cursor: not-allowed; } */

@@ -16,7 +16,10 @@
             <div class="bottom-container">
                 <div class="bottom-content">
                     <div class="roulette-container">
-                        <h1 class="roulette-title">¡Gira la ruleta y adopta un michi!</h1>
+                        <h1 class="roulette-title">{{ 'ROULETTE.TITLE' | translate }}</h1>
+                        <div class="description-container">
+                            <p class="roulette-description">{{ 'ROULETTE.DESCRIPTION' | translate }}</p>
+                        </div>
                         <div class="roulette">
                             <div #michiElem class="michi" *ngFor="let michi of michis"
                                 [class.selected]="michi === selectedMichi">
@@ -24,7 +27,7 @@
                             </div>
                         </div>
                         <button class="spin-button" (click)="spinRoulette()" [disabled]="isSpinning">
-                            {{ isSpinning ? 'Girando...' : 'Girar Ruleta' }}
+                            {{ isSpinning ? ('ROULETTE.SPINNING' | translate) : ('ROULETTE.SPIN_BUTTON' | translate) }}
                         </button>
                     </div>
                 </div>

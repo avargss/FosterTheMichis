@@ -249,5 +249,20 @@
         "LINK_CONTACT": "Contacto",
         "FIND_US": "¡Encuéntranos!",
         "COPYRIGHT": "Todos los derechos reservados."
+    },
+    "ROULETTE": {
+        "TITLE": "¡Gira la ruleta y adopta un michi!",
+        "DESCRIPTION": "¡Deja que el destino elija por ti! Gira la ruleta y descubre qué michi especial está esperando por ti.",
+        "SPIN_BUTTON": "Girar Ruleta",
+        "SPINNING": "Girando...",
+        "SELECTED_TITLE": "¡🎉 Michi seleccionado! 🎉",
+        "SELECTED_DESCRIPTION": "¡Ha sido seleccionado para ti! 🐱",
+        "ADD_TO_LIST": "💖 Añadir a mi lista de adopción",
+        "CANCEL": "Tal vez después",
+        "ALREADY_IN_LIST_ERROR": "{{name}} ya está en tu lista de adopción.",
+        "SUCCESS": "¡Enhorabuena!",
+        "ADD_SUCCESS": "{{name}} ha sido añadido a tu lista de adopción.",
+        "ADD_ERROR": "No se pudo añadir el michi a tu lista de adopción.",
+        "FETCH_ERROR": "No se pudo verificar tu lista de adopción."
     }
 }

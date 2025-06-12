@@ -250,5 +250,20 @@
         "LINK_CONTACT": "Contact",
         "FIND_US": "Find us!",
         "COPYRIGHT": "All rights reserved."
+    },
+    "ROULETTE": {
+        "TITLE": "Spin the wheel and adopt a kitty!",
+        "DESCRIPTION": "Let destiny choose for you! Spin the wheel and discover which special kitty is waiting for you.",
+        "SPIN_BUTTON": "Spin the Wheel",
+        "SPINNING": "Spinning...",
+        "SELECTED_TITLE": "🎉 Kitty Selected! 🎉",
+        "SELECTED_DESCRIPTION": "Has been selected for you! 🐱",
+        "ADD_TO_LIST": "💖 Add to my adoption list",
+        "CANCEL": "Maybe later",
+        "ALREADY_IN_LIST_ERROR": "{{name}} is already in your adoption list.",
+        "SUCCESS": "CONGRATULATIONS!",
+        "ADD_SUCCESS": "{{name}} has been added to your adoption list.",
+        "ADD_ERROR": "The kitty could not be added to your adoption list.",
+        "FETCH_ERROR": "Could not verify your adoption list."
     }
 }
